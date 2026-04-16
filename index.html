@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Maria Musterfrau – Akademische Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0d1b2e;
+      --surface: #132238;
+      --text: #f0ece4;
+      --muted: #8ea4bc;
+      --light: #4a6682;
+      --accent: #8faec8;
+      --accent-soft: rgba(143,174,200,0.10);
+      --border: rgba(255,255,255,0.08);
+      --rule: rgba(255,255,255,0.12);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.75;
+      font-weight: 400;
+    }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(13,27,46,0.96);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 980px; margin: 0 auto;
+      padding: 0 2.5rem;
+      height: 52px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-name {
+      font-family: 'Lato', sans-serif;
+      font-size: 1.15rem; font-weight: 400; letter-spacing: 0.04em;
+      color: var(--text); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.76rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    .wrap { max-width: 980px; margin: 0 auto; padding: 0 2.5rem; }
+
+    .hero {
+      max-width: 980px; margin: 0 auto;
+      padding: 5.5rem 2.5rem 4rem;
+      display: grid; grid-template-columns: 1fr 190px; gap: 4rem; align-items: start;
+    }
+    .hero-eyebrow {
+      font-size: 0.71rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1rem;
+    }
+    h1 {
+      font-family: 'Lato', sans-serif;
+      font-size: 2.6rem; font-weight: 300; line-height: 1.1; letter-spacing: 0.01em;
+      margin-bottom: 0.3rem;
+    }
+    .hero-role {
+      font-family: 'Lato', sans-serif;
+      font-size: 1rem; font-weight: 300; letter-spacing: 0.04em; color: var(--muted); margin-bottom: 1.75rem;
+    }
+    .hero-bio {
+      font-size: 1rem; font-weight: 300; color: #f0ece4; max-width: 500px;
+      margin-bottom: 2rem; line-height: 1.85;
+    }
+    .hero-bio em { font-family: 'Lato', sans-serif; font-style: normal; color: #f0ece4; }
+    .cta-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 0.45rem 1rem;
+      font-size: 0.75rem; font-weight: 400; letter-spacing: 0.07em; text-transform: uppercase;
+      text-decoration: none; border: 1px solid; border-radius: 2px; transition: all 0.2s;
+    }
+    .btn-primary { background: var(--accent); color: #0d1b2e; border-color: var(--accent); }
+    .btn-primary:hover { background: #7a9db8; border-color: #7a9db8; }
+    .btn-outline { background: transparent; color: var(--text); border-color: var(--rule); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    .ext-links { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+    .ext-link {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 0.78rem; color: var(--accent); text-decoration: none;
+      padding-bottom: 1px; border-bottom: 1px solid transparent; transition: border-color 0.2s;
+    }
+    .ext-link:hover { border-bottom-color: var(--accent); }
+    .ext-link svg { width: 13px; height: 13px; fill: currentColor; flex-shrink: 0; }
+
+    .avatar-col { display: flex; flex-direction: column; align-items: center; gap: 0.85rem; padding-top: 1.2rem; }
+    .avatar {
+      width: 150px; height: 150px; border-radius: 50%;
+      background: #1a2f4a;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--border);
+    }
+    .avatar-initials {
+      font-family: 'Lato', sans-serif;
+      font-size: 2.9rem; font-weight: 300; color: var(--accent);
+    }
+    .avatar-affil {
+      text-align: center; font-size: 0.75rem; color: var(--muted); line-height: 1.55;
+    }
+    .avatar-affil strong { display: block; color: var(--text); font-weight: 400; font-size: 0.8rem; }
+
+    .section { padding: 3.5rem 0; border-top: 1px solid var(--border); }
+    .section-header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2.4rem; }
+    .section-title {
+      font-family: 'Lato', sans-serif;
+      font-size: 1.15rem; font-weight: 300; letter-spacing: 0.08em; text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .section-rule { flex: 1; height: 1px; background: var(--rule); }
+
+    /* VITA */
+    .vita-grid { display: grid; grid-template-columns: 140px 1fr; }
+    .vita-year {
+      padding: 0.6rem 1.5rem 0.6rem 0;
+      font-size: 0.79rem; color: var(--muted); letter-spacing: 0.04em;
+      border-right: 1px solid var(--rule); line-height: 1.6; white-space: nowrap;
+    }
+    .vita-desc {
+      padding: 0.6rem 0 0.6rem 1.5rem;
+      font-size: 0.91rem; line-height: 1.6;
+      border-bottom: 1px solid transparent;
+    }
+    .vita-desc strong { font-weight: 500; }
+    .vita-desc em { font-family: 'Lato', sans-serif; font-style: italic; color: var(--muted); font-size: 0.97rem; }
+
+    /* LEHRE */
+    .lehre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.06); }
+    .lehre-item { background: var(--surface); padding: 1.1rem 1.25rem; }
+    .lehre-sem {
+      font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.3rem; font-weight: 400;
+    }
+    .lehre-title { font-size: 0.9rem; font-weight: 400; margin-bottom: 0.15rem; line-height: 1.4; }
+    .lehre-meta { font-size: 0.77rem; color: var(--muted); }
+
+    /* PUBLIKATIONEN */
+    .pub-list { display: flex; flex-direction: column; }
+    .pub-item {
+      padding: 1.3rem 0; border-bottom: 1px solid var(--border);
+      display: grid; grid-template-columns: 72px 90px 1fr; gap: 1.5rem; align-items: start;
+    }
+    .pub-cover {
+      width: 90px; height: 124px;
+      border-radius: 2px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      flex-shrink: 0;
+    }
+    .pub-cover img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .pub-cover svg { display: block; }
+    }
+    .pub-year {
+      font-family: 'Lato', sans-serif;
+      font-size: 1.3rem; font-weight: 300; color: var(--light); padding-top: 3px;
+    }
+    .pub-type {
+      font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.35rem; font-weight: 400;
+    }
+    .pub-title {
+      font-family: 'Lato', sans-serif;
+      font-size: 1.1rem; font-weight: 400; line-height: 1.35; margin-bottom: 0.3rem;
+    }
+    .pub-authors { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.2rem; }
+    .pub-authors strong { color: var(--text); font-weight: 400; font-style: italic; }
+    .pub-venue { font-size: 0.82rem; color: var(--muted); font-style: italic; margin-bottom: 0.5rem; }
+    .pub-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .pub-btn {
+      font-size: 0.71rem; letter-spacing: 0.06em;
+      color: var(--accent); text-decoration: none;
+      border: 1px solid var(--accent-soft); background: var(--accent-soft);
+      padding: 0.18rem 0.55rem; border-radius: 2px; transition: all 0.15s;
+    }
+    .pub-btn:hover { background: var(--accent); color: #0d1b2e; border-color: var(--accent); }
+
+    /* PROJEKTE */
+    .proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; background: rgba(255,255,255,0.06); }
+    .proj-card { background: var(--surface); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem; }
+    .proj-status {
+      font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 400;
+    }
+    .proj-title { font-family: 'Lato', sans-serif; font-size: 1.15rem; font-weight: 400; line-height: 1.3; }
+    .proj-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
+    .proj-funder { font-size: 0.75rem; color: var(--light); margin-top: auto; padding-top: 0.25rem; }
+
+    /* KONTAKT */
+    .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    .contact-intro { font-size: 0.92rem; color: var(--muted); line-height: 1.85; margin-bottom: 1.5rem; }
+    .contact-line { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.87rem; margin-bottom: 0.75rem; }
+    .contact-label {
+      font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--light); min-width: 68px; padding-top: 2px; font-weight: 400;
+    }
+    .contact-val { color: var(--text); line-height: 1.65; }
+    .contact-val a { color: var(--accent); text-decoration: none; }
+    .contact-val a:hover { text-decoration: underline; }
+    .address-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-left: 2px solid var(--accent);
+      padding: 1.25rem 1.5rem;
+      font-size: 0.86rem; line-height: 1.9; color: var(--muted);
+    }
+    .address-card strong { display: block; color: var(--text); font-weight: 500; margin-bottom: 0.3rem; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.75rem 2.5rem;
+      max-width: 980px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 0.74rem; color: var(--light);
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 680px) {
+      .hero { grid-template-columns: 1fr; padding: 3rem 1.5rem 2.5rem; gap: 2rem; }
+      .avatar-col { flex-direction: row; align-items: center; gap: 1rem; }
+      .avatar { width: 82px; height: 82px; }
+      .avatar-initials { font-size: 1.9rem; }
+      .nav-inner { padding: 0 1.5rem; }
+      .nav-links { gap: 1.1rem; }
+      .wrap { padding: 0 1.5rem; }
+      .vita-grid { grid-template-columns: 86px 1fr; }
+      .lehre-grid, .proj-grid { grid-template-columns: 1fr; }
+      .contact-wrap { grid-template-columns: 1fr; gap: 1.5rem; }
+      .pub-item { grid-template-columns: 48px 70px 1fr; gap: 0.75rem; }
+      .pub-cover { width: 70px; height: 96px; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
+      h1 { font-size: 2.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-name">Dr. Maria Musterfrau</a>
+      <ul class="nav-links">
+        <li><a href="#vita">Vita</a></li>
+        <li><a href="#lehre">Lehre</a></li>
+        <li><a href="#publikationen">Publikationen</a></li>
+        <li><a href="#projekte">Projekte</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div>
+      <p class="hero-eyebrow">Soziologie · Universität Tübingen</p>
+      <h1>Dr. Maria<br/>Musterfrau</h1>
+      <p class="hero-role">Wissenschaftliche Mitarbeiterin &amp; Lehrbeauftragte</p>
+      <p class="hero-bio">
+        Meine Forschung verbindet <em>historische Soziologie</em> und <em>qualitative Methoden</em>,
+        um Prozesse gesellschaftlicher Transformation in modernen Demokratien zu untersuchen.
+        Derzeit bin ich am Institut für Soziologie tätig und leite das DFG-Projekt
+        <em>„Wandel politischer Öffentlichkeiten."</em>
+      </p>
+      <div class="cta-row">
+        <a href="cv.pdf" class="btn btn-primary">Lebenslauf (PDF)</a>
+        <a href="#kontakt" class="btn btn-outline">Kontakt</a>
+      </div>
+      <div class="ext-links">
+        <a href="https://www.researchgate.net" class="ext-link" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M19.586 0H4.414A4.414 4.414 0 000 4.414v15.172A4.414 4.414 0 004.414 24h15.172A4.414 4.414 0 0024 19.586V4.414A4.414 4.414 0 0019.586 0zm-7.41 4.5c1.922 0 3.316.89 3.316 2.586 0 1.21-.656 2.063-1.664 2.461v.047c1.266.281 2.156 1.172 2.156 2.578 0 1.875-1.523 2.977-3.633 2.977H8.625V4.5h3.551zm-.422 4.453c.938 0 1.594-.586 1.594-1.453 0-.938-.563-1.43-1.523-1.43h-1.266v2.883h1.195zm.211 4.547c1.078 0 1.758-.586 1.758-1.594 0-.984-.703-1.547-1.828-1.547H10.43v3.141h1.535zM12 19.875c-3.117 0-5.695-1.898-6.656-4.594h2.039c.797 1.594 2.461 2.695 4.617 2.695 2.789 0 5.016-1.969 5.016-5.039 0-2.719-1.852-4.617-4.664-4.617-1.758 0-3.258.773-4.195 2.016H6.094V4.5h1.148v3.445C8.227 6.727 9.984 5.977 12 5.977c3.727 0 6.375 2.695 6.375 6.914 0 4.172-2.695 6.984-6.375 6.984z"/></svg>
+          ResearchGate
+        </a>
+        <a href="https://scholar.google.com" class="ext-link" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 24a7 7 0 110-14 7 7 0 010 14zm0-24L0 9.5l4.838.9C6.033 4.46 8.667 1.5 12 1.5c3.333 0 5.967 2.96 7.162 8.9L24 9.5 12 0z"/></svg>
+          Google Scholar
+        </a>
+        <a href="https://orcid.org" class="ext-link" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 01-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 3.872-2.484 3.872-3.722 0-2.016-1.253-3.722-3.938-3.722h-2.231z"/></svg>
+          ORCID
+        </a>
+      </div>
+    </div>
+    <div class="avatar-col">
+      <div class="avatar">
+        <span class="avatar-initials">MM</span>
+      </div>
+      <div class="avatar-affil">
+        <strong>Universität Tübingen</strong>
+        Institut für Soziologie<br/>Wilhelmstraße 36
+      </div>
+    </div>
+  </div>
+
+  <!-- VITA -->
+  <div class="wrap">
+    <section class="section" id="vita">
+      <div class="section-header">
+        <h2 class="section-title">Kurzvita</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="vita-grid">
+        <div class="vita-year">seit 2022</div>
+        <div class="vita-desc"><strong>Wissenschaftliche Mitarbeiterin</strong><br/><em>Institut für Soziologie, Universität Tübingen</em></div>
+
+        <div class="vita-year">2020–2022</div>
+        <div class="vita-desc"><strong>Postdoc-Stipendiatin</strong><br/><em>DFG-Exzellenzcluster „Rechtfertigungsnarrative", Universität Frankfurt</em></div>
+
+        <div class="vita-year">2019</div>
+        <div class="vita-desc"><strong>Promotion (Dr. phil.)</strong>, summa cum laude<br/><em>Freie Universität Berlin — „Wandel im Dispositiv. Demokratische Öffentlichkeiten 1960–2000"</em></div>
+
+        <div class="vita-year">2016–2019</div>
+        <div class="vita-desc"><strong>Stipendiatin im DFG-Graduiertenkolleg</strong><br/><em>„Demokratie und Öffentlichkeit", Freie Universität Berlin</em></div>
+
+        <div class="vita-year">2014–2016</div>
+        <div class="vita-desc"><strong>M.A. Soziologie</strong><br/><em>Humboldt-Universität zu Berlin — mit Auszeichnung</em></div>
+
+        <div class="vita-year">2011–2014</div>
+        <div class="vita-desc"><strong>B.A. Sozialwissenschaften</strong><br/><em>Universität zu Köln</em></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- LEHRE -->
+  <div class="wrap">
+    <section class="section" id="lehre">
+      <div class="section-header">
+        <h2 class="section-title">Lehre</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="lehre-grid">
+        <div class="lehre-item">
+          <div class="lehre-sem">SoSe 2025</div>
+          <div class="lehre-title">Einführung in die Politische Soziologie</div>
+          <div class="lehre-meta">Vorlesung · BA Soziologie</div>
+        </div>
+        <div class="lehre-item">
+          <div class="lehre-sem">SoSe 2025</div>
+          <div class="lehre-title">Qualitative Methoden: Diskursanalyse und Interviewforschung</div>
+          <div class="lehre-meta">Seminar · MA Soziologie</div>
+        </div>
+        <div class="lehre-item">
+          <div class="lehre-sem">WiSe 2024/25</div>
+          <div class="lehre-title">Historische Soziologie der Moderne</div>
+          <div class="lehre-meta">Proseminar · BA Soziologie</div>
+        </div>
+        <div class="lehre-item">
+          <div class="lehre-sem">WiSe 2024/25</div>
+          <div class="lehre-title">Lektürekurs: Öffentlichkeit und Gesellschaft (Habermas, Fraser, Mouffe)</div>
+          <div class="lehre-meta">Oberseminar · MA / Doktorat</div>
+        </div>
+        <div class="lehre-item">
+          <div class="lehre-sem">SoSe 2024</div>
+          <div class="lehre-title">Soziologie der Demokratie</div>
+          <div class="lehre-meta">Vorlesung · BA Soziologie</div>
+        </div>
+        <div class="lehre-item">
+          <div class="lehre-sem">SoSe 2024</div>
+          <div class="lehre-title">Forschungskolloquium: Qualitative Sozialforschung</div>
+          <div class="lehre-meta">Kolloquium · MA / Doktorat</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- PUBLIKATIONEN -->
+  <div class="wrap">
+    <section class="section" id="publikationen">
+      <div class="section-header">
+        <h2 class="section-title">Publikationen</h2>
+        <div class="section-rule"></div>
+        <a href="#" onclick="downloadRIS(); return false;" class="btn btn-outline" style="white-space:nowrap;font-size:0.72rem;padding:0.35rem 0.85rem;">
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor" style="width:12px;height:12px;"><path d="M8 12l-4-4h2.5V2h3v6H12L8 12z"/><path d="M2 13h12v1.5H2z"/></svg>
+          RIS-Datei
+        </a>
+      </div>
+      <div class="pub-list">
+
+        <div class="pub-item">
+          <div class="pub-year">2024</div>
+          <div class="pub-cover">
+            <svg width="90" height="124" viewBox="0 0 90 124" xmlns="http://www.w3.org/2000/svg">
+              <rect width="90" height="124" fill="#1a2f4a"/>
+              <rect x="0" y="0" width="90" height="4" fill="#8faec8" opacity="0.6"/>
+              <rect x="10" y="20" width="50" height="2" fill="#8faec8" opacity="0.5"/>
+              <rect x="10" y="28" width="40" height="2" fill="#8faec8" opacity="0.5"/>
+              <rect x="10" y="36" width="45" height="2" fill="#8faec8" opacity="0.5"/>
+              <rect x="10" y="60" width="60" height="1" fill="#4a6682" opacity="0.6"/>
+              <rect x="10" y="70" width="55" height="1" fill="#4a6682" opacity="0.4"/>
+              <rect x="10" y="78" width="48" height="1" fill="#4a6682" opacity="0.4"/>
+              <rect x="10" y="86" width="52" height="1" fill="#4a6682" opacity="0.4"/>
+              <text x="10" y="112" font-family="sans-serif" font-size="7" fill="#4a6682" opacity="0.8">KZfSS · 2024</text>
+            </svg>
+          </div>
+          <div class="pub-body">
+            <div class="pub-type">Zeitschriftenartikel · peer reviewed</div>
+            <div class="pub-title">Öffentliche Rechtfertigung in der spät-modernen Demokratie: Zwischen Deliberation und Populismus</div>
+            <div class="pub-authors"><strong>Musterfrau, M.</strong> &amp; Doe, J.</div>
+            <div class="pub-venue">Kölner Zeitschrift für Soziologie und Sozialpsychologie, 76 (2), 145–172</div>
+            <div class="pub-actions">
+              <a href="#" class="pub-btn">Artikel</a>
+              <a href="#" class="pub-btn">Preprint</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2023</div>
+          <div class="pub-cover">
+            <svg width="90" height="124" viewBox="0 0 90 124" xmlns="http://www.w3.org/2000/svg">
+              <rect width="90" height="124" fill="#0f2238"/>
+              <rect x="0" y="0" width="6" height="124" fill="#8faec8" opacity="0.25"/>
+              <rect x="10" y="18" width="62" height="3" fill="#f0ece4" opacity="0.7"/>
+              <rect x="10" y="26" width="50" height="3" fill="#f0ece4" opacity="0.7"/>
+              <rect x="10" y="34" width="55" height="3" fill="#f0ece4" opacity="0.5"/>
+              <rect x="10" y="55" width="58" height="1" fill="#4a6682" opacity="0.5"/>
+              <rect x="10" y="63" width="48" height="1" fill="#4a6682" opacity="0.4"/>
+              <rect x="10" y="71" width="53" height="1" fill="#4a6682" opacity="0.4"/>
+              <rect x="10" y="79" width="44" height="1" fill="#4a6682" opacity="0.4"/>
+              <rect x="10" y="87" width="50" height="1" fill="#4a6682" opacity="0.4"/>
+              <text x="10" y="112" font-family="sans-serif" font-size="7" fill="#4a6682" opacity="0.8">Campus · 2023</text>
+            </svg>
+          </div>
+          <div class="pub-body">
+            <div class="pub-type">Monographie</div>
+            <div class="pub-title">Wandel im Dispositiv. Demokratische Öffentlichkeiten in der Bundesrepublik 1960–2000</div>
+            <div class="pub-authors"><strong>Musterfrau, M.</strong></div>
+            <div class="pub-venue">Campus Verlag, Frankfurt am Main</div>
+            <div class="pub-actions">
+              <a href="#" class="pub-btn">Verlag</a>
+              <a href="#" class="pub-btn">Rezension</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2022</div>
+          <div class="pub-cover">
+            <svg width="90" height="124" viewBox="0 0 90 124" xmlns="http://www.w3.org/2000/svg">
+              <rect width="90" height="124" fill="#152840"/>
+              <rect x="0" y="110" width="90" height="14" fill="#8faec8" opacity="0.12"/>
+              <rect x="10" y="16" width="30" height="30" rx="2" fill="#8faec8" opacity="0.1"/>
+              <rect x="10" y="16" width="30" height="30" rx="2" fill="none" stroke="#8faec8" stroke-width="0.5" opacity="0.3"/>
+              <rect x="10" y="58" width="60" height="2" fill="#f0ece4" opacity="0.5"/>
+              <rect x="10" y="66" width="48" height="2" fill="#f0ece4" opacity="0.4"/>
+              <rect x="10" y="80" width="55" height="1" fill="#4a6682" opacity="0.4"/>
+              <rect x="10" y="88" width="45" height="1" fill="#4a6682" opacity="0.4"/>
+              <text x="10" y="120" font-family="sans-serif" font-size="7" fill="#4a6682" opacity="0.8">Nomos · 2022</text>
+            </svg>
+          </div>
+          <div class="pub-body">
+            <div class="pub-type">Buchkapitel</div>
+            <div class="pub-title">Kritische Theorie und politische Öffentlichkeit: Aktualisierungen eines ambivalenten Verhältnisses</div>
+            <div class="pub-authors">Schmidt, K. &amp; <strong>Musterfrau, M.</strong></div>
+            <div class="pub-venue">In: Schmidt, K. (Hrsg.): Kritische Gesellschaftstheorie heute, Nomos, 88–114</div>
+            <div class="pub-actions">
+              <a href="#" class="pub-btn">Kapitel</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2021</div>
+          <div class="pub-cover">
+            <svg width="90" height="124" viewBox="0 0 90 124" xmlns="http://www.w3.org/2000/svg">
+              <rect width="90" height="124" fill="#111f33"/>
+              <rect x="0" y="0" width="90" height="3" fill="#8faec8" opacity="0.4"/>
+              <rect x="0" y="121" width="90" height="3" fill="#8faec8" opacity="0.4"/>
+              <rect x="10" y="22" width="55" height="2" fill="#8faec8" opacity="0.5"/>
+              <rect x="10" y="30" width="42" height="2" fill="#8faec8" opacity="0.5"/>
+              <rect x="10" y="52" width="58" height="1" fill="#4a6682" opacity="0.5"/>
+              <rect x="10" y="60" width="50" height="1" fill="#4a6682" opacity="0.4"/>
+              <rect x="10" y="68" width="54" height="1" fill="#4a6682" opacity="0.4"/>
+              <rect x="10" y="76" width="46" height="1" fill="#4a6682" opacity="0.4"/>
+              <text x="10" y="112" font-family="sans-serif" font-size="7" fill="#4a6682" opacity="0.8">ZfS · 2021</text>
+            </svg>
+          </div>
+          <div class="pub-body">
+            <div class="pub-type">Zeitschriftenartikel · peer reviewed</div>
+            <div class="pub-title">Diskurs, Hegemonie, Kontingenz: Zur Methodologie historisch-soziologischer Forschung</div>
+            <div class="pub-authors"><strong>Musterfrau, M.</strong></div>
+            <div class="pub-venue">Zeitschrift für Soziologie, 50 (4), 311–328</div>
+            <div class="pub-actions">
+              <a href="#" class="pub-btn">Artikel</a>
+              <a href="#" class="pub-btn">Preprint</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- PROJEKTE -->
+  <div class="wrap">
+    <section class="section" id="projekte">
+      <div class="section-header">
+        <h2 class="section-title">Forschungsprojekte</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="proj-grid">
+        <div class="proj-card">
+          <div class="proj-status">Laufend · 2022–2026</div>
+          <div class="proj-title">Wandel politischer Öffentlichkeiten im digitalen Zeitalter</div>
+          <div class="proj-desc">Das Projekt untersucht, wie digitale Kommunikationsplattformen die Struktur politischer Öffentlichkeiten in Deutschland und Frankreich transformieren – qualitativ und diskursanalytisch.</div>
+          <div class="proj-funder">Gefördert durch die Deutsche Forschungsgemeinschaft (DFG)</div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-status">Abgeschlossen · 2020–2022</div>
+          <div class="proj-title">Rechtfertigungsnarrative in Krisenzeiten</div>
+          <div class="proj-desc">Vergleichende Studie zu staatlichen Legitimationsstrategien in gesellschaftlichen Krisenperioden (1970–2020) anhand von Regierungsdokumenten und Mediendiskursen.</div>
+          <div class="proj-funder">DFG-Exzellenzcluster, Universität Frankfurt</div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-status">In Vorbereitung · ab 2025</div>
+          <div class="proj-title">Affekt und Öffentlichkeit: Zur emotionalen Logik politischer Kommunikation</div>
+          <div class="proj-desc">Geplantes Verbundprojekt zur Rolle von Affekten und Emotionen in zeitgenössischen politischen Diskursen und ihrer Bedeutung für demokratische Teilhabe.</div>
+          <div class="proj-funder">BMBF-Antrag in Vorbereitung</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- KONTAKT -->
+  <div class="wrap">
+    <section class="section" id="kontakt">
+      <div class="section-header">
+        <h2 class="section-title">Kontakt</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="contact-wrap">
+        <div>
+          <p class="contact-intro">Für Rückfragen zu meiner Forschung, Anfragen zu Gutachten oder Lehrkooperationen sowie allgemeine Korrespondenz stehe ich gerne per E-Mail zur Verfügung.</p>
+          <div class="contact-line">
+            <span class="contact-label">E-Mail</span>
+            <span class="contact-val"><a href="/cdn-cgi/l/email-protection#016c2f6c74727564736773607441746f682c75746463686f66646f2f6564"><span class="__cf_email__" data-cfemail="f499da99818780918692869581b4819a9dd9808191969d9a93919ada9091">[email&#160;protected]</span></a></span>
+          </div>
+          <div class="contact-line">
+            <span class="contact-label">Telefon</span>
+            <span class="contact-val">+49 7071 29-12345</span>
+          </div>
+          <div class="contact-line">
+            <span class="contact-label">Sprechst.</span>
+            <span class="contact-val">Dienstags 14–16 Uhr<br/>(oder nach Vereinbarung)</span>
+          </div>
+          <div class="contact-line">
+            <span class="contact-label">Profile</span>
+            <span class="contact-val">
+              <a href="https://www.researchgate.net" target="_blank">ResearchGate</a> ·
+              <a href="https://scholar.google.com" target="_blank">Google Scholar</a> ·
+              <a href="https://orcid.org" target="_blank">ORCID</a>
+            </span>
+          </div>
+        </div>
+        <div class="address-card">
+          <strong>Besucheradresse</strong>
+          Dr. Maria Musterfrau<br/>
+          Institut für Soziologie<br/>
+          Wilhelmstraße 36, Zimmer 214<br/>
+          72074 Tübingen<br/>
+          <br/>
+          <strong>Postanschrift</strong>
+          Universität Tübingen<br/>
+          Institut für Soziologie<br/>
+          72070 Tübingen
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <span>© 2025 Dr. Maria Musterfrau · Universität Tübingen</span>
+    <span>
+      <a href="impressum.html">Impre
+  <script>
+  function downloadRIS() {
+    const ris = "TY  - JOUR\nAU  - Musterfrau, Maria\nAU  - Doe, Jane\nTI  - Oeffentliche Rechtfertigung in der spaet-modernen Demokratie: Zwischen Deliberation und Populismus\nJO  - Koelner Zeitschrift fuer Soziologie und Sozialpsychologie\nVL  - 76\nIS  - 2\nSP  - 145\nEP  - 172\nPY  - 2024\nER  -\n\nTY  - BOOK\nAU  - Musterfrau, Maria\nTI  - Wandel im Dispositiv. Demokratische Oeffentlichkeiten in der Bundesrepublik 1960-2000\nPB  - Campus Verlag\nCY  - Frankfurt am Main\nPY  - 2023\nER  -\n\nTY  - CHAP\nAU  - Schmidt, Klaus\nAU  - Musterfrau, Maria\nTI  - Kritische Theorie und politische Oeffentlichkeit\nBT  - Kritische Gesellschaftstheorie heute\nPB  - Nomos\nSP  - 88\nEP  - 114\nPY  - 2022\nER  -\n\nTY  - JOUR\nAU  - Musterfrau, Maria\nTI  - Diskurs, Hegemonie, Kontingenz: Zur Methodologie historisch-soziologischer Forschung\nJO  - Zeitschrift fuer Soziologie\nVL  - 50\nIS  - 4\nSP  - 311\nEP  - 328\nPY  - 2021\nER  -\n";
+    const blob = new Blob([ris], { type: 'application/x-research-info-systems' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'musterfrau_publikationen.ris';
+    a.click();
+  }
+  </script>
