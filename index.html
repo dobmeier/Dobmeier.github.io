@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Florian Dobmeier, M.A., M.A. – Akademische Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0d1b2e;
+      --surface: #132238;
+      --text: #f0ece4;
+      --muted: #8ea4bc;
+      --light: #4a6682;
+      --accent: #8faec8;
+      --accent-soft: rgba(143,174,200,0.10);
+      --border: rgba(255,255,255,0.08);
+      --rule: rgba(255,255,255,0.12);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Lato', sans-serif; background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.75; font-weight: 400; }
+
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(13,27,46,0.96); backdrop-filter: blur(6px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 980px; margin: 0 auto; padding: 0 2.5rem; height: 52px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-name { font-family: 'Lato', sans-serif; font-size: 1rem; font-weight: 300; letter-spacing: 0.06em; color: var(--text); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.72rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent); }
+
+    .wrap { max-width: 980px; margin: 0 auto; padding: 0 2.5rem; }
+
+    .hero { max-width: 980px; margin: 0 auto; padding: 5.5rem 2.5rem 4rem; display: grid; grid-template-columns: 1fr 190px; gap: 4rem; align-items: start; }
+    .hero-eyebrow { font-size: 0.71rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    h1 { font-family: 'Lato', sans-serif; font-size: 2.6rem; font-weight: 300; line-height: 1.1; letter-spacing: 0.02em; margin-bottom: 0.3rem; }
+    .hero-role { font-size: 1rem; font-weight: 300; letter-spacing: 0.04em; color: var(--muted); margin-bottom: 1.75rem; }
+    .hero-bio { font-size: 1rem; font-weight: 300; color: #f0ece4; max-width: 500px; margin-bottom: 2rem; line-height: 1.85; }
+    .cta-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .btn { display: inline-flex; align-items: center; gap: 7px; padding: 0.45rem 1rem; font-size: 0.75rem; font-weight: 400; letter-spacing: 0.07em; text-transform: uppercase; text-decoration: none; border: 1px solid; border-radius: 2px; transition: all 0.2s; }
+    .btn-primary { background: var(--accent); color: #0d1b2e; border-color: var(--accent); }
+    .btn-primary:hover { background: #7a9db8; border-color: #7a9db8; }
+    .btn-outline { background: transparent; color: var(--text); border-color: var(--rule); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    .ext-links { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+    .ext-link { display: inline-flex; align-items: center; gap: 5px; font-size: 0.78rem; color: var(--accent); text-decoration: none; padding-bottom: 1px; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+    .ext-link:hover { border-bottom-color: var(--accent); }
+    .ext-link svg { width: 13px; height: 13px; fill: currentColor; flex-shrink: 0; }
+
+    .avatar-col { display: flex; flex-direction: column; align-items: center; gap: 0.85rem; padding-top: 1.2rem; }
+    .avatar { width: 150px; height: 150px; border-radius: 50%; background: #1a2f4a; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); }
+    .avatar-initials { font-family: 'Lato', sans-serif; font-size: 2.5rem; font-weight: 300; color: var(--accent); }
+    .avatar-affil { text-align: center; font-size: 0.75rem; color: var(--muted); line-height: 1.55; }
+    .avatar-affil strong { display: block; color: var(--text); font-weight: 400; font-size: 0.8rem; }
+
+    .section { padding: 3.5rem 0; border-top: 1px solid var(--border); }
+    .section-header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2.4rem; }
+    .section-title { font-family: 'Lato', sans-serif; font-size: 1.15rem; font-weight: 300; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
+    .section-rule { flex: 1; height: 1px; background: var(--rule); }
+
+    /* VITA */
+    .vita-grid { display: grid; grid-template-columns: 140px 1fr; }
+    .vita-year { padding: 0.6rem 1.5rem 0.6rem 0; font-size: 0.79rem; color: var(--muted); letter-spacing: 0.04em; border-right: 1px solid var(--rule); line-height: 1.6; white-space: nowrap; }
+    .vita-desc { padding: 0.6rem 0 0.6rem 1.5rem; font-size: 0.91rem; line-height: 1.6; }
+    .vita-desc strong { font-weight: 500; }
+    .vita-desc em { font-style: italic; color: var(--muted); font-size: 0.9rem; }
+
+    /* INTERESSEN */
+    .interests { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tag { background: var(--accent-soft); border: 1px solid rgba(143,174,200,0.2); color: var(--accent); padding: 0.3rem 0.75rem; border-radius: 2px; font-size: 0.78rem; font-weight: 400; letter-spacing: 0.03em; }
+
+    /* LEHRE */
+    .lehre-list { display: flex; flex-direction: column; gap: 0; }
+    .lehre-item { display: grid; grid-template-columns: 100px 1fr; gap: 1.5rem; padding: 0.85rem 0; border-bottom: 1px solid var(--border); align-items: baseline; }
+    .lehre-sem { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); font-weight: 400; white-space: nowrap; }
+    .lehre-body {}
+    .lehre-title { font-size: 0.9rem; font-weight: 400; line-height: 1.4; margin-bottom: 0.2rem; }
+    .lehre-meta { font-size: 0.77rem; color: var(--muted); }
+
+    /* PUBLIKATIONEN */
+    .pub-list { display: flex; flex-direction: column; }
+    .pub-item { padding: 1.3rem 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 72px 90px 1fr; gap: 1.5rem; align-items: start; }
+    .pub-cover { width: 90px; height: 124px; border-radius: 2px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); flex-shrink: 0; }
+    .pub-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .pub-year { font-size: 1.2rem; font-weight: 300; color: var(--light); padding-top: 3px; }
+    .pub-type { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.35rem; font-weight: 400; }
+    .pub-title { font-size: 0.95rem; font-weight: 400; line-height: 1.4; margin-bottom: 0.3rem; }
+    .pub-authors { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.2rem; }
+    .pub-authors strong { color: var(--text); font-weight: 400; }
+    .pub-venue { font-size: 0.82rem; color: var(--muted); font-style: italic; margin-bottom: 0.5rem; }
+    .pub-status { display: inline-block; font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(143,174,200,0.08); border: 1px solid rgba(143,174,200,0.2); color: var(--muted); padding: 0.15rem 0.5rem; border-radius: 2px; margin-bottom: 0.5rem; }
+    .pub-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .pub-btn { font-size: 0.71rem; letter-spacing: 0.06em; color: var(--accent); text-decoration: none; border: 1px solid var(--accent-soft); background: var(--accent-soft); padding: 0.18rem 0.55rem; border-radius: 2px; transition: all 0.15s; }
+    .pub-btn:hover { background: var(--accent); color: #0d1b2e; border-color: var(--accent); }
+
+    .pub-section-divider { padding: 1rem 0 0.5rem; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--light); border-top: 1px solid var(--rule); margin-top: 0.5rem; }
+
+    /* PROJEKTE */
+    .proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; background: rgba(255,255,255,0.06); }
+    .proj-card { background: var(--surface); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem; }
+    .proj-status { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 400; }
+    .proj-title { font-size: 1rem; font-weight: 400; line-height: 1.3; }
+    .proj-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
+
+    /* KONTAKT */
+    .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    .contact-intro { font-size: 0.92rem; color: var(--muted); line-height: 1.85; margin-bottom: 1.5rem; }
+    .contact-line { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.87rem; margin-bottom: 0.75rem; }
+    .contact-label { font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--light); min-width: 68px; padding-top: 2px; font-weight: 400; }
+    .contact-val { color: var(--text); line-height: 1.65; }
+    .contact-val a { color: var(--accent); text-decoration: none; }
+    .contact-val a:hover { text-decoration: underline; }
+    .address-card { background: var(--surface); border: 1px solid var(--border); border-left: 2px solid var(--accent); padding: 1.25rem 1.5rem; font-size: 0.86rem; line-height: 1.9; color: var(--muted); }
+    .address-card strong { display: block; color: var(--text); font-weight: 500; margin-bottom: 0.3rem; }
+
+    footer { border-top: 1px solid var(--border); padding: 1.75rem 2.5rem; max-width: 980px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; font-size: 0.74rem; color: var(--light); }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 680px) {
+      .hero { grid-template-columns: 1fr; padding: 3rem 1.5rem 2.5rem; gap: 2rem; }
+      .avatar-col { flex-direction: row; align-items: center; gap: 1rem; }
+      .avatar { width: 82px; height: 82px; }
+      .avatar-initials { font-size: 1.9rem; }
+      .nav-inner { padding: 0 1.5rem; }
+      .nav-links { gap: 1.1rem; }
+      .wrap { padding: 0 1.5rem; }
+      .vita-grid { grid-template-columns: 86px 1fr; }
+      .contact-wrap { grid-template-columns: 1fr; gap: 1.5rem; }
+      .pub-item { grid-template-columns: 48px 70px 1fr; gap: 0.75rem; }
+      .pub-cover { width: 70px; height: 96px; }
+      .lehre-item { grid-template-columns: 72px 1fr; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
+      h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-name">Florian Dobmeier</a>
+      <ul class="nav-links">
+        <li><a href="#vita">Vita</a></li>
+        <li><a href="#lehre">Lehre</a></li>
+        <li><a href="#publikationen">Publikationen</a></li>
+        <li><a href="#projekte">Projekte</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div>
+      <p class="hero-eyebrow">Allgemeine Pädagogik · Universität Tübingen</p>
+      <h1>Florian<br/>Dobmeier</h1>
+      <p class="hero-role">M.A., M.A. &nbsp;·&nbsp; Akademischer Mitarbeiter &amp; Doktorand</p>
+      <p class="hero-bio">Allgemeine Erziehungswissenschaft mit Schwerpunkt auf gesellschaftsanalytische Wissensforschung, pädagogische Operativität und Anthropologie. Laufendes Promotionsvorhaben: <em>„Unter Beobachtung: Anomalien der Erziehungstheorie. Zur Sozialität des Educandus in allgemeinpädagogischen Epistemologien."</em></p>
+      <div class="cta-row">
+        <a href="cv.pdf" class="btn btn-primary">Lebenslauf (PDF)</a>
+        <a href="#kontakt" class="btn btn-outline">Kontakt</a>
+      </div>
+      <div class="ext-links">
+        <a href="https://www.researchgate.net/profile/Florian-Dobmeier" class="ext-link" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M19.586 0H4.414A4.414 4.414 0 000 4.414v15.172A4.414 4.414 0 004.414 24h15.172A4.414 4.414 0 0024 19.586V4.414A4.414 4.414 0 0019.586 0zm-7.41 4.5c1.922 0 3.316.89 3.316 2.586 0 1.21-.656 2.063-1.664 2.461v.047c1.266.281 2.156 1.172 2.156 2.578 0 1.875-1.523 2.977-3.633 2.977H8.625V4.5h3.551zm-.422 4.453c.938 0 1.594-.586 1.594-1.453 0-.938-.563-1.43-1.523-1.43h-1.266v2.883h1.195zm.211 4.547c1.078 0 1.758-.586 1.758-1.594 0-.984-.703-1.547-1.828-1.547H10.43v3.141h1.535zM12 19.875c-3.117 0-5.695-1.898-6.656-4.594h2.039c.797 1.594 2.461 2.695 4.617 2.695 2.789 0 5.016-1.969 5.016-5.039 0-2.719-1.852-4.617-4.664-4.617-1.758 0-3.258.773-4.195 2.016H6.094V4.5h1.148v3.445C8.227 6.727 9.984 5.977 12 5.977c3.727 0 6.375 2.695 6.375 6.914 0 4.172-2.695 6.984-6.375 6.984z"/></svg>
+          ResearchGate
+        </a>
+        <a href="https://orcid.org/0000-0002-4659-6503" class="ext-link" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 01-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 3.872-2.484 3.872-3.722 0-2.016-1.253-3.722-3.938-3.722h-2.231z"/></svg>
+          ORCID
+        </a>
+      </div>
+    </div>
+    <div class="avatar-col">
+      <div class="avatar">
+        <span class="avatar-initials">FD</span>
+      </div>
+      <div class="avatar-affil">
+        <strong>Universität Tübingen</strong>
+        Institut für<br/>Erziehungswissenschaft<br/>Abt. Allgemeine Pädagogik
+      </div>
+    </div>
+  </div>
+
+  <!-- VITA -->
+  <div class="wrap">
+    <section class="section" id="vita">
+      <div class="section-header">
+        <h2 class="section-title">Kurzvita</h2>
+        <div class="section-rule"></div>
+      </div>
+
+      <div style="margin-bottom:1.5rem;">
+        <p style="font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--light);margin-bottom:0.75rem;">Akademische Qualifizierung</p>
+        <div class="vita-grid">
+          <div class="vita-year">laufend</div>
+          <div class="vita-desc"><strong>Promotionsvorhaben</strong> (Arbeitstitel): <em>„Unter Beobachtung: Anomalien der Erziehungstheorie. Zur Sozialität des Educandus in allgemeinpädagogischen Epistemologien"</em><br/>Universität Tübingen, Institut für Erziehungswissenschaft, Abt. Allgemeine Pädagogik</div>
+
+          <div class="vita-year">M.A.</div>
+          <div class="vita-desc"><strong>Bildung und Erziehung: Kultur – Politik – Gesellschaft</strong><br/><em>Masterarbeit bei Prof. Dr. Marcus Emmerich und Prof.'in Dr. Karin S. Amos: „Erziehungswissenschaftliche Kommunikation zwischen Selbstreferenz und Fremdreferenz"</em></div>
+
+          <div class="vita-year">M.A.</div>
+          <div class="vita-desc"><strong>Pädagogik mit Schwerpunkt Organisationspädagogik</strong><br/><em>Masterarbeit bei Prof. Dr. Benjamin Jörissen und Prof. Dr. Leopold Klepacki: „Die implizite Normativität pädagogischen Handelns"</em></div>
+
+          <div class="vita-year">B.A.</div>
+          <div class="vita-desc"><strong>Pädagogik und Philosophie</strong><br/><em>Bachelorarbeit bei Prof. Dr. Benjamin Jörissen: „Bildung und Computerspiele"</em></div>
+
+          <div class="vita-year">Studium</div>
+          <div class="vita-desc"><strong>Erziehungswissenschaft und Philosophie</strong><br/><em>Universitäten Erlangen-Nürnberg, Tübingen und Oslo (Norwegen)</em></div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:0.5rem;">
+        <p style="font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--light);margin-bottom:0.75rem;">Forschungsinteressen</p>
+        <div class="interests">
+          <span class="tag">Sozialitätskonstruktionen &amp; Educandus</span>
+          <span class="tag">Systemtheoretische Wissensforschung</span>
+          <span class="tag">Qualitative Erziehungsforschung</span>
+          <span class="tag">Differenztheoretische Perspektiven</span>
+          <span class="tag">Operative Pädagogik</span>
+          <span class="tag">Theoretischer Antihumanismus</span>
+          <span class="tag">Allgemeindidaktische Zeigeforschung</span>
+          <span class="tag">Bildungstheoretische Agnotologie</span>
+          <span class="tag">Semantik- und Kontexturanalytik</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- LEHRE -->
+  <div class="wrap">
+    <section class="section" id="lehre">
+      <div class="section-header">
+        <h2 class="section-title">Lehre</h2>
+        <div class="section-rule"></div>
+      </div>
+
+      <p style="font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--light);margin-bottom:1rem;">I · Allgemeine Erziehungswissenschaft / Allgemeine Pädagogik</p>
+      <div class="lehre-list">
+        <div class="lehre-item">
+          <div class="lehre-sem">SS 26</div>
+          <div class="lehre-body">
+            <div class="lehre-title">Zum „sich Anbilden des Ichs ans Nicht-Ich" (Adorno), aber „Verstehen ist praktisch immer ein Mißverstehen ohne Verstehen des Miß" (Luhmann) — Kritische Pädagogik systemtheoretisch abklären (Teil 2): Einführung in pädagogisches Fallverstehen in komplexen Konstellationen</div>
+            <div class="lehre-meta">BA Erziehungswissenschaft/Soziale Arbeit · 2 SWS · Universität Tübingen (Abt. Allgemeine Pädagogik)</div>
+          </div>
+        </div>
+        <div class="lehre-item">
+          <div class="lehre-sem">WS 25</div>
+          <div class="lehre-body">
+            <div class="lehre-title">Grundfragen und Grundbegriffe der Erziehungswissenschaft</div>
+            <div class="lehre-meta">BA Erziehungswissenschaft/Soziale Arbeit · 2 SWS · Universität Tübingen (Abt. Allgemeine Pädagogik)</div>
+          </div>
+        </div>
+        <div class="lehre-item">
+          <div class="lehre-sem">SS 25</div>
+          <div class="lehre-body">
+            <div class="lehre-title">„Erziehung nach Auschwitz" (Adorno), aber „nie wieder Auschwitz, das ist natürlich zu wenig." (Luhmann) — Kritische Pädagogik systemtheoretisch abklären (Teil 1): Einführung in pädagogische Anthropologiekritik und Ethik</div>
+            <div class="lehre-meta">BA Erziehungswissenschaft/Soziale Arbeit · 2 SWS · Universität Tübingen (Abt. Allgemeine Pädagogik)</div>
+          </div>
+        </div>
+        <div class="lehre-item">
+          <div class="lehre-sem">WS 24</div>
+          <div class="lehre-body">
+            <div class="lehre-title">Einführung in die Grundbegriffe und Praktiken pädagogischen Denkens und Handelns: Erziehung, Bildung, Lernen, Sozialisation — Mit einem Schwerpunkt auf Kritische Theorie und Systemtheorie</div>
+            <div class="lehre-meta">BA Erziehungswissenschaft/Soziale Arbeit · 2 SWS · Humboldt-Universität zu Berlin (Abt. Allgemeine Erziehungswissenschaft) · Lehrauftrag via Prof. Dr. Dr. hc. mult. Dieterich Benner und Prof. Dr. Malte Brinkmann</div>
+          </div>
+        </div>
+        <div class="lehre-item">
+          <div class="lehre-sem">WS 24</div>
+          <div class="lehre-body">
+            <div class="lehre-title">Grundfragen und Grundbegriffe der Erziehungswissenschaft</div>
+            <div class="lehre-meta">BA Erziehungswissenschaft/Soziale Arbeit · 2 SWS · Universität Tübingen (Abt. Allgemeine Pädagogik)</div>
+          </div>
+        </div>
+        <div class="lehre-item">
+          <div class="lehre-sem">SS 24</div>
+          <div class="lehre-body">
+            <div class="lehre-title">Nudging: (Fehl-)Formen einer mächtigen Anthropotechnik erzieherischer Verhaltensmanipulation zwischen libertärem Paternalismus, Postdemokratie und repressiver Toleranz</div>
+            <div class="lehre-meta">BA Erziehungswissenschaft/Soziale Arbeit · 2 SWS · Universität Tübingen (Abt. Allgemeine Pädagogik)</div>
+          </div>
+        </div>
+        <div class="lehre-item">
+          <div class="lehre-sem">WS 23</div>
+          <div class="lehre-body">
+            <div class="lehre-title">Grundfragen und Grundbegriffe der Erziehungswissenschaft</div>
+            <div class="lehre-meta">BA Erziehungswissenschaft/Soziale Arbeit · 2 SWS · Universität Tübingen (Abt. Allgemeine Pädagogik)</div>
+          </div>
+        </div>
+        <div class="lehre-item">
+          <div class="lehre-sem">SS 23</div>
+          <div class="lehre-body">
+            <div class="lehre-title">Die implizite Normativität pädagogischen Handelns als reflexives Dauerproblem. Empirische Theorieforschung am Beispiel der Operativen Pädagogik</div>
+            <div class="lehre-meta">BA Erziehungswissenschaft/Soziale Arbeit · 2 SWS · Universität Tübingen (Abt. Allgemeine Pädagogik)</div>
+          </div>
+        </div>
+        <div class="lehre-item">
+          <div class="lehre-sem">WS 22</div>
+          <div class="lehre-body">
+            <div class="lehre-title">Grundfragen und Grundbegriffe der Erziehungswissenschaft</div>
+            <div class="lehre-meta">BA Erziehungswissenschaft/Soziale Arbeit · 2 SWS · Universität Tübingen (Abt. Allgemeine Pädagogik)</div>
+          </div>
+        </div>
+        <div class="lehre-item">
+          <div class="lehre-sem">SS 22</div>
+          <div class="lehre-body">
+            <div class="lehre-title">Erziehung zur Unmündigkeit: Zur Abklärung gescheiterter Aufklärung</div>
+            <div class="lehre-meta">BA Erziehungswissenschaft/Soziale Arbeit · 2 SWS · Universität Tübingen (Abt. Allgemeine Pädagogik)</div>
+          </div>
+        </div>
+        <div class="lehre-item">
+          <div class="lehre-sem">SS 22</div>
+          <div class="lehre-body">
+            <div class="lehre-title">Die Autopoiesis der Erziehung <span style="color:var(--muted);font-size:0.82rem;">[gemeinsam mit Prof. Dr. Marcus Emmerich]</span></div>
+            <div class="lehre-meta">MA Bildung und Erziehung: Kultur – Politik – Gesellschaft · 2 SWS · Universität Tübingen (Abt. Allgemeine Pädagogik)</div>
+          </div>
+        </div>
+        <div class="lehre-item">
+          <div class="lehre-sem">WS 21</div>
+          <div class="lehre-body">
+            <div class="lehre-title">Grundfragen und Grundbegriffe der Erziehungswissenschaft</div>
+            <div class="lehre-meta">BA Erziehungswissenschaft/Soziale Arbeit · 2 SWS · Universität Tübingen</div>
+          </div>
+        </div>
+        <div class="lehre-item">
+          <div class="lehre-sem">SS 21</div>
+          <div class="lehre-body">
+            <div class="lehre-title">Erziehung als Praxis. Sozialtheoretische Grundlagen</div>
+            <div class="lehre-meta">BA Erziehungswissenschaft/Soziale Arbeit · 2 SWS · Universität Tübingen</div>
+          </div>
+        </div>
+        <div class="lehre-item">
+          <div class="lehre-sem">SS 21</div>
+          <div class="lehre-body">
+            <div class="lehre-title">Erziehung als Praxis. Differenztheoretische Grundlagen</div>
+            <div class="lehre-meta">BA Erziehungswissenschaft/Soziale Arbeit · 2 SWS · Universität Tübingen</div>
+          </div>
+        </div>
+        <div class="lehre-item">
+          <div class="lehre-sem">WS 20</div>
+          <div class="lehre-body">
+            <div class="lehre-title">Grundfragen und Grundbegriffe der Erziehungswissenschaft</div>
+            <div class="lehre-meta">BA Erziehungswissenschaft/Soziale Arbeit · 2 SWS · Universität Tübingen</div>
+          </div>
+        </div>
+        <div class="lehre-item">
+          <div class="lehre-sem">SS 20</div>
+          <div class="lehre-body">
+            <div class="lehre-title">Erziehung als Praxis</div>
+            <div class="lehre-meta">BA Erziehungswissenschaft/Soziale Arbeit · 2 SWS · Universität Tübingen</div>
+          </div>
+        </div>
+        <div class="lehre-item">
+          <div class="lehre-sem">SS 19</div>
+          <div class="lehre-body">
+            <div class="lehre-title">Medienbildung im Schnittfeld von Gesellschaft, Biographie und Schule</div>
+            <div class="lehre-meta">Lehramt · 2 SWS · Universität Koblenz-Landau · Lehrauftrag via Prof. Dr. Thorsten Fuchs</div>
+          </div>
+        </div>
+        <div class="lehre-item">
+          <div class="lehre-sem">SS 17</div>
+          <div class="lehre-body">
+            <div class="lehre-title">Bildung und Angst <span style="color:var(--muted);font-size:0.82rem;">[autonomes Seminar]</span></div>
+            <div class="lehre-meta">BA/MA Pädagogik · 2 SWS · Universität Erlangen-Nürnberg</div>
+          </div>
+        </div>
+      </div>
+
+      <p style="font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--light);margin:2rem 0 1rem;">II · Qualitative Forschung</p>
+      <div class="lehre-list">
+        <div class="lehre-item">
+          <div class="lehre-sem">SS 22</div>
+          <div class="lehre-body">
+            <div class="lehre-title">Einsatz von Forschungsmethoden in sozialen Arbeitsfeldern <span style="color:var(--muted);font-size:0.82rem;">[Hauptseminar]</span></div>
+            <div class="lehre-meta">BA Soziale Arbeit · 3 SWS · Hochschule Ludwigsburg · via Prof.'in Dr. Vesna Šegrt</div>
+          </div>
+        </div>
+        <div class="lehre-item">
+          <div class="lehre-sem">SS 22</div>
+          <div class="lehre-body">
+            <div class="lehre-title">Methoden der empirischen Sozialforschung <span style="color:var(--muted);font-size:0.82rem;">[Semestervertretung]</span></div>
+            <div class="lehre-meta">BA Soziale Arbeit · 2 SWS · Hochschule Ludwigsburg · via Prof.'in Dr. Vesna Šegrt</div>
+          </div>
+        </div>
+        <div class="lehre-item">
+          <div class="lehre-sem">WS 21</div>
+          <div class="lehre-body">
+            <div class="lehre-title">Theorie-Praxis-Seminar <span style="color:var(--muted);font-size:0.82rem;">[Forschungspraktikumsreflexion]</span></div>
+            <div class="lehre-meta">BA Soziale Arbeit · 2 SWS · Hochschule Ludwigsburg · via Prof.'in Dr. Vesna Šegrt</div>
+          </div>
+        </div>
+        <div class="lehre-item">
+          <div class="lehre-sem">WS 20</div>
+          <div class="lehre-body">
+            <div class="lehre-title">Einführung in die Dokumentarische Methode</div>
+            <div class="lehre-meta">BA Soziologie · 2 SWS · Universität Tübingen (Institut für Soziologie/ESIT) · via Prof.'in Dr. Ursula Offenberger</div>
+          </div>
+        </div>
+        <div class="lehre-item">
+          <div class="lehre-sem">SS 19</div>
+          <div class="lehre-body">
+            <div class="lehre-title">Einführung in das Verstehen des Verstehens: Zur Forschungslogik bildungstheoretischer Biographieforschung, erziehungswissenschaftlicher Praxeologie und systemtheoretisch-funktionaler Methodologie im Vergleich</div>
+            <div class="lehre-meta">BA Erziehungswissenschaft · 2 SWS · Universität Jena · Lehrauftrag via Prof. Dr. Sebastian Engelmann</div>
+          </div>
+        </div>
+        <div class="lehre-item">
+          <div class="lehre-sem">SS 18</div>
+          <div class="lehre-body">
+            <div class="lehre-title">Narrationsanalyse: Theorie und Praxis narrativer Interviews <span style="color:var(--muted);font-size:0.82rem;">[Methodenpraktische Übung]</span></div>
+            <div class="lehre-meta">MA Soziologie · 2 SWS · Universität Tübingen (ESIT) · via Prof.'in Dr. Ursula Offenberger</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- PUBLIKATIONEN -->
+  <div class="wrap">
+    <section class="section" id="publikationen">
+      <div class="section-header">
+        <h2 class="section-title">Publikationen</h2>
+        <div class="section-rule"></div>
+        <a href="#" onclick="downloadRIS(); return false;" class="btn btn-outline" style="white-space:nowrap;font-size:0.72rem;padding:0.35rem 0.85rem;">
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor" style="width:12px;height:12px;"><path d="M8 12l-4-4h2.5V2h3v6H12L8 12z"/><path d="M2 13h12v1.5H2z"/></svg>
+          RIS-Datei
+        </a>
+      </div>
+
+      <div class="pub-section-divider">Aufsätze &amp; Buchbeiträge — angenommen / in Druckvorbereitung</div>
+      <div class="pub-list">
+
+        <div class="pub-item">
+          <div class="pub-year">i.Vorb.</div>
+          <div class="pub-cover"><svg width="90" height="124" viewBox="0 0 90 124"><rect width="90" height="124" fill="#1a2f4a"/><rect x="10" y="20" width="50" height="2" fill="#8faec8" opacity="0.4"/><rect x="10" y="28" width="40" height="2" fill="#8faec8" opacity="0.4"/><text x="10" y="115" font-family="sans-serif" font-size="7" fill="#4a6682">ZfPäd</text></svg></div>
+          <div class="pub-body">
+            <span class="pub-status">angenommen · in Druckvorbereitung</span>
+            <div class="pub-type">Zeitschriftenartikel</div>
+            <div class="pub-title">Erziehung jenseits des Menschen? — Zur radikal antihumanistischen Umschrift pädagogischer Operativität</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong></div>
+            <div class="pub-venue">Zeitschrift für Pädagogik</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">i.Vorb.</div>
+          <div class="pub-cover"><svg width="90" height="124" viewBox="0 0 90 124"><rect width="90" height="124" fill="#0f2238"/><rect x="0" y="0" width="6" height="124" fill="#8faec8" opacity="0.2"/><rect x="10" y="20" width="55" height="2" fill="#f0ece4" opacity="0.5"/><text x="10" y="115" font-family="sans-serif" font-size="7" fill="#4a6682">Beltz Juventa</text></svg></div>
+          <div class="pub-body">
+            <span class="pub-status">angenommen · in Druckvorbereitung</span>
+            <div class="pub-type">Buchbeitrag</div>
+            <div class="pub-title">Pädagogisches Zeigen, systemphänomenologisch</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong></div>
+            <div class="pub-venue">In: Evi Agostini (Hg.): Phänomenologie, Pädagogik und Professionalisierung. Weinheim, Basel: Beltz Juventa</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">i.Vorb.</div>
+          <div class="pub-cover"><svg width="90" height="124" viewBox="0 0 90 124"><rect width="90" height="124" fill="#152840"/><rect x="10" y="20" width="55" height="2" fill="#f0ece4" opacity="0.5"/><rect x="10" y="28" width="45" height="2" fill="#f0ece4" opacity="0.4"/><text x="10" y="115" font-family="sans-serif" font-size="7" fill="#4a6682">Springer VS</text></svg></div>
+          <div class="pub-body">
+            <span class="pub-status">in Review</span>
+            <div class="pub-type">Buchbeitrag</div>
+            <div class="pub-title">Wider die Wiederkehr des »Anthropos« im Anthropozän: Erziehungstheoretischer Antihumanismus, Systemtheorie, und der Kampf um »the human domain« im 21. Jahrhundert</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong>; Krakowski, Vera</div>
+            <div class="pub-venue">In: Huber, Döll &amp; Bacher (Hg.): Pädagogisch-anthropologische Grenzziehungen. Wiesbaden: Springer VS</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">i.Vorb.</div>
+          <div class="pub-cover"><img src="covers/Cover Praktiken.jpg" alt="Praktiken des Erziehens"/></div>
+          <div class="pub-body">
+            <span class="pub-status">angenommen · in Druckvorbereitung</span>
+            <div class="pub-type">Enzyklopädiebeitrag</div>
+            <div class="pub-title">Radical Antihumanism: Redescribing the Educational Body in the Anthropocene</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong></div>
+            <div class="pub-venue">In: Wallenhorst &amp; Wulf (Hg.): Encyclopedia of the Anthropocene. Cham: Springer Nature</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">i.Vorb.</div>
+          <div class="pub-cover"><svg width="90" height="124" viewBox="0 0 90 124"><rect width="90" height="124" fill="#111f33"/><rect x="0" y="0" width="90" height="3" fill="#8faec8" opacity="0.4"/><text x="10" y="115" font-family="sans-serif" font-size="7" fill="#4a6682">Klinkhardt</text></svg></div>
+          <div class="pub-body">
+            <span class="pub-status">angenommen · in Druckvorbereitung</span>
+            <div class="pub-type">Buchbeitrag</div>
+            <div class="pub-title">Slow Science (Culture) als Gebot der abduktiven Universität? — Zum Technologiedefizit theoretischer Forschung und Desiderat empirischer Theory Labour Studies in Education Sciences</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong></div>
+            <div class="pub-venue">In: Elven &amp; Hofbauer (Hg.): Erziehungswissenschaft meets Science &amp; Technology Studies. Bad Heilbrunn: Klinkhardt</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">i.Vorb.</div>
+          <div class="pub-cover"><svg width="90" height="124" viewBox="0 0 90 124"><rect width="90" height="124" fill="#152840"/><rect x="10" y="60" width="58" height="1" fill="#4a6682" opacity="0.5"/><text x="10" y="115" font-family="sans-serif" font-size="7" fill="#4a6682">Klinkhardt</text></svg></div>
+          <div class="pub-body">
+            <span class="pub-status">in Vorbereitung</span>
+            <div class="pub-type">Herausgeberschaft · Einleitung</div>
+            <div class="pub-title">Einleitung in den Band: Erziehung – Politik – (Post-)Demokratie in Erziehungs- und Bildungswissenschaften</div>
+            <div class="pub-authors">Buck, Marc Fabian; <strong>Dobmeier, Florian</strong>; Meseth, Wolfgang; Schreiber, Felix</div>
+            <div class="pub-venue">Bad Heilbrunn: Klinkhardt (Beiträge zur Theorie und Geschichte der Erziehungswissenschaft)</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">i.Vorb.</div>
+          <div class="pub-cover"><img src="covers/Cover Praktiken.jpg" alt="Praktiken des Erziehens"/></div>
+          <div class="pub-body">
+            <span class="pub-status">angenommen · in Druckvorbereitung</span>
+            <div class="pub-type">Buchbeitrag</div>
+            <div class="pub-title">Zeigen als polykontexturale Praxis des Erziehens</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong></div>
+            <div class="pub-venue">In: Türstig, Brinkmann &amp; Weber-Spanknebel (Hg.): Praktiken des Erziehens. Wiesbaden: Springer VS</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-section-divider">2026</div>
+      <div class="pub-list">
+
+        <div class="pub-item">
+          <div class="pub-year">2026</div>
+          <div class="pub-cover"><img src="covers/Cover Operativitaet.jpg" alt="Operativität – Erziehung – Differenz"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Herausgeberschaft · Vorbemerkung</div>
+            <div class="pub-title">Vorbemerkung</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong>; Emmerich, Marcus</div>
+            <div class="pub-venue">In: Dies. (Hg.): Operativität – Erziehung – Differenz. Wiesbaden: Springer VS, S. V–VI</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2026</div>
+          <div class="pub-cover"><img src="covers/Cover Operativitaet.jpg" alt="Operativität – Erziehung – Differenz"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Buchbeitrag</div>
+            <div class="pub-title">Die allmähliche Verfertigung des ‚Educandus' im Zeigen — Zum operativen Ethos einer Erziehung jenseits des ‚Menschen' aus Sicht des systemtheoretischen Antihumanismus</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong></div>
+            <div class="pub-venue">In: Dobmeier &amp; Emmerich (Hg.): Operativität – Erziehung – Differenz. Wiesbaden: Springer VS, S. 91–136</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2026</div>
+          <div class="pub-cover"><img src="covers/Cover Operativitaet.jpg" alt="Operativität – Erziehung – Differenz"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Buchbeitrag</div>
+            <div class="pub-title">Konturen und Kontexte der Operativen Pädagogik. Eine problematisierende Einführung in Pranges allgemeinpädagogische Zeigeforschung</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong></div>
+            <div class="pub-venue">In: Dobmeier &amp; Emmerich (Hg.): Operativität – Erziehung – Differenz. Wiesbaden: Springer VS, S. 345–426</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2026</div>
+          <div class="pub-cover"><img src="covers/Cover Metatheorie.jpg" alt="Arbeiten zu einer Metatheorie der Erziehungswissenschaft"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Buchbeitrag</div>
+            <div class="pub-title">Erziehungswissenschaftliche Definitionsmethodologie und sozialwissenschaftliche Metamethodologie — Explorationen an den Bedingungen metatheoretischer Denkmöglichkeiten</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong>; Oelkers, Jürgen</div>
+            <div class="pub-venue">In: Binder &amp; Oelkers (Hg.): Arbeiten zu einer Metatheorie der Erziehungswissenschaft. Weinheim, Basel: Beltz Juventa, S. 384–385</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2026</div>
+          <div class="pub-cover"><img src="covers/Cover Metatheorie.jpg" alt="Arbeiten zu einer Metatheorie der Erziehungswissenschaft"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Buchbeitrag</div>
+            <div class="pub-title">Sondierungen zu einer metatheoretischen Definitionsmethodologie. Eine Einladung zu problematisierenden Unterscheidungen am Beispiel der Operativen Pädagogik von Klaus Prange</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong></div>
+            <div class="pub-venue">In: Binder &amp; Oelkers (Hg.): Arbeiten zu einer Metatheorie der Erziehungswissenschaft. Weinheim, Basel: Beltz Juventa, S. 386–470</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2026</div>
+          <div class="pub-cover"><img src="covers/Cover Metatheorie.jpg" alt="Arbeiten zu einer Metatheorie der Erziehungswissenschaft"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Buchbeitrag</div>
+            <div class="pub-title">Postontologische Erziehungswissenschaft ohne Fundament, aber mit metatheoretisch konstitutiven Grenzen: Minimalkontingente Minima als »floating anchors«</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong>; Krönig, Franz Kasper</div>
+            <div class="pub-venue">In: Binder &amp; Oelkers (Hg.): Arbeiten zu einer Metatheorie der Erziehungswissenschaft. Weinheim, Basel: Beltz Juventa, S. 10–126</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2026</div>
+          <div class="pub-cover"><img src="covers/Cover Digitaliteat.jpg" alt="Digitalität"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Buchbeitrag</div>
+            <div class="pub-title">„Mensch" als Refugialbegriff im postdigital-biometrischen Regime? Sondierungen zur Signifikation des „Educandus" als umstrittener Sozialitätskategorie</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong></div>
+            <div class="pub-venue">In: Engel et al. (Hg.): Digitalität. Erziehungswissenschaftliche Erkundungen. Weinheim, Basel: Beltz Juventa, S. 99–118</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-section-divider">2025</div>
+      <div class="pub-list">
+
+        <div class="pub-item">
+          <div class="pub-year">2025</div>
+          <div class="pub-cover"><img src="covers/Cover Reflexion.jpg" alt="Von der Reflexion zur Operation"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Buchbeitrag</div>
+            <div class="pub-title">Fehlanzeige: Allgemeinpädagogische Agnotologie? Postdemokratisches Erziehen zwischen Zeigen und Nicht-Zeigen</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong></div>
+            <div class="pub-venue">In: Berdelmann et al. (Hg.): Von der Reflexion zur Operation. Paderborn: Schöningh (Pädagogische Diskurse, 4), S. 129–145</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2025</div>
+          <div class="pub-cover"><img src="covers/Cover Wissenschaftsforschung.jpg" alt="Erziehungswissenschaft DGfE"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Zeitschriftenbeitrag</div>
+            <div class="pub-title">Kommission Wissenschaftsforschung. Tagungen und Aktivitäten</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong>; Meseth, Wolfgang</div>
+            <div class="pub-venue">Erziehungswissenschaft. Mitteilungen der DGfE 36 (70), S. 119–121</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-section-divider">2024</div>
+      <div class="pub-list">
+
+        <div class="pub-item">
+          <div class="pub-year">2024</div>
+          <div class="pub-cover"><img src="covers/Cover Allgemeine.jpg" alt="Allgemeine Erziehungswissenschaft"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Buchbeitrag</div>
+            <div class="pub-title">Im Mandat des Allgemeinpädagogischen? Unterscheidungen zur Apologie eines rezessiven Genres</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong></div>
+            <div class="pub-venue">In: Erdmann et al. (Hg.): Allgemeine Erziehungswissenschaft. Daten und Positionen. Bad Heilbrunn: Klinkhardt, S. 149–159</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2024</div>
+          <div class="pub-cover"><img src="covers/Cover Brut.jpg" alt="Probat experiri. Festschrift Peter Fuchs"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Buchbeitrag</div>
+            <div class="pub-title">Dämonische Brut im pädagogischen Nest. Versuch einer erziehungswissenschaftlichen Beobachtung Peter Fuchs' Beobachtung erziehungswissenschaftlicher Beobachtungen</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong></div>
+            <div class="pub-venue">In: Emlein, Heidingsfelder &amp; Hellmann (Hg.): Probat experiri. Festschrift zum 75. Geburtstag von Peter Fuchs. Berlin: Lit, S. 115–126</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2024</div>
+          <div class="pub-cover"><img src="covers/Cover Debatte.jpg" alt="Debatte. Beiträge zur Erwachsenenbildung"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Zeitschriftenartikel</div>
+            <div class="pub-title">Unterscheidungen zur Arbeit am Begriff ‚Erwachsenenerziehung' — Braucht es eine operative Formentheorie politischer Erziehungsästhetik?</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong></div>
+            <div class="pub-venue">Debatte. Beiträge zur Erwachsenenbildung 5 (2), S. 143–159</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-section-divider">2023</div>
+      <div class="pub-list">
+
+        <div class="pub-item">
+          <div class="pub-year">2023</div>
+          <div class="pub-cover"><img src="covers/Cover Hinterfragen.jpg" alt="Hinter_Fragen der Erziehungswissenschaft"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Herausgeberschaft · Einleitung</div>
+            <div class="pub-title">Einleitung</div>
+            <div class="pub-authors">Korneli, Karina; Bartels, Bente H.; Bringmann, Barbara M.-C.; Bruhnke, Lorena; <strong>Dobmeier, Florian</strong>; Grewe, Laura et al.</div>
+            <div class="pub-venue">In: Dies. (Hg.): Hinter_Fragen der Erziehungswissenschaft. Opladen, Berlin: Budrich (SKEW, 2), S. 11–19</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2023</div>
+          <div class="pub-cover"><img src="covers/Cover Hinterfragen.jpg" alt="Hinter_Fragen der Erziehungswissenschaft"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Buchbeitrag</div>
+            <div class="pub-title">Wo bleibt die Schulrevolution? — Zur Diagnose, Negation und Persistenz des Status quo</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong></div>
+            <div class="pub-venue">In: Korneli et al. (Hg.): Hinter_Fragen der Erziehungswissenschaft. Opladen, Berlin: Budrich (SKEW, 2), S. 33–44</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2023</div>
+          <div class="pub-cover"><img src="covers/Cover Digitale.jpg" alt="Digitale Kulturen der Lehre"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Buchbeitrag</div>
+            <div class="pub-title">Pädagogik lost in Code: Operative Fehlformen des Lehrens im Digitalsolipsismus</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong></div>
+            <div class="pub-venue">In: Mrohs et al. (Hg.): Digitale Kulturen der Lehre entwickeln. Wiesbaden: Springer VS (Perspektiven der Hochschuldidaktik, 3), S. 91–99</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2023</div>
+          <div class="pub-cover"><img src="covers/Cover Irritationen.jpg" alt="Irritation in der Erziehungswissenschaft"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Buchbeitrag</div>
+            <div class="pub-title">Pädagogische Modi der Irritationsabwehr, Enteignung und Aneignung. Zur wissenschaftsforschenden Herausforderung einer differenzierungstheoretischen Epistemologie erziehungswissenschaftlicher Erkenntnisproduktionen</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong></div>
+            <div class="pub-venue">In: Binder (Hg.): Beschaffenheit, Funktion und Leistung von „Irritation" in der erziehungswissenschaftlichen Forschung. Weinheim, Basel: Beltz Juventa, S. 123–136</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-section-divider">2020 – 2021</div>
+      <div class="pub-list">
+
+        <div class="pub-item">
+          <div class="pub-year">2021</div>
+          <div class="pub-cover"><img src="covers/Cover Creativity.jpg" alt="Creativity, Courage, Chances"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Buchbeitrag</div>
+            <div class="pub-title">Die Erziehung der Universität zur Kreativität. Zur Logik der Emergenz im Medium des Sozialen</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong></div>
+            <div class="pub-venue">In: Böckmann et al. (Hg.): Creativity, Courage, Chances. Festschrift für S. Karin Amos. Tübingen: Tübingen Library Publishing, S. 667–692</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2020</div>
+          <div class="pub-cover"><img src="covers/Cover Dynamiken.jpg" alt="Dynamiken des Pädagogischen"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Herausgeberschaft · Einleitung</div>
+            <div class="pub-title">Einleitung der Herausgeber:innen</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong>; Möls, Linus; Hessing, Teresa; Esser, Hannah; Bräunling, Daniel; Stojek, Nicolas; Krüger, Gino</div>
+            <div class="pub-venue">In: Dies. (Hg.): Dynamiken des Pädagogischen. Opladen: Budrich (SKEW, 1), S. 13–20</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2020</div>
+          <div class="pub-cover"><img src="covers/Cover Dynamiken.jpg" alt="Dynamiken des Pädagogischen"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Buchbeitrag</div>
+            <div class="pub-title">„Zukunft" als Kontingenzformel erziehungswissenschaftlicher Wissensproduktionen</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong>; Krüger, Gino</div>
+            <div class="pub-venue">In: Dobmeier et al. (Hg.): Dynamiken des Pädagogischen. Opladen: Budrich (SKEW, 1), S. 22–26</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2020</div>
+          <div class="pub-cover"><img src="covers/Cover Dynamiken.jpg" alt="Dynamiken des Pädagogischen"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Buchbeitrag</div>
+            <div class="pub-title">Was ist und wozu ein Studierendenkongress? — Gedanken und bildliche Impressionen zum ersten SKEW</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong>; Möls, Linus</div>
+            <div class="pub-venue">In: Dobmeier et al. (Hg.): Dynamiken des Pädagogischen. Opladen: Budrich (SKEW, 1), S. 27–31</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2020</div>
+          <div class="pub-cover"><img src="covers/Cover Dynamiken.jpg" alt="Dynamiken des Pädagogischen"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Buchbeitrag</div>
+            <div class="pub-title">Plurale Ökonomik und Erziehungswissenschaft: Was können wir voneinander lernen? — Ein Dialog</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong>; Kothe, Anna-Katharina</div>
+            <div class="pub-venue">In: Dobmeier et al. (Hg.): Dynamiken des Pädagogischen. Opladen: Budrich (SKEW, 1), S. 46–57</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2020</div>
+          <div class="pub-cover"><img src="covers/Cover Funktion.jpg" alt="Funktion und Aufgabe digitaler Medien"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Buchbeitrag</div>
+            <div class="pub-title">Inklusion/Exklusion und die Performanz der sozialen Konstruktion von ‚Geschichte'. Überlegungen zur Struktur und Potenzialität digitaler Bildungsräume</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong></div>
+            <div class="pub-venue">In: Matijević (Hg.): Funktion und Aufgabe digitaler Medien in Geschichtswissenschaft und Geschichtsunterricht. Gutenberg: Computus (AAGE, 3), S. 129–154</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2020</div>
+          <div class="pub-cover"><img src="covers/Cover Brave.jpg" alt="Erziehungswissenschaft DGfE"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Zeitschriftenbeitrag</div>
+            <div class="pub-title">„Brave New World?!" — Dynamiken (in) der Erziehungswissenschaft. Reflexionen zum I. Studierendenkongress der Erziehungswissenschaft</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong>; Möls, Linus</div>
+            <div class="pub-venue">Erziehungswissenschaft. Mitteilungen der DGfE 31 (60), S. 203–204</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-section-divider">2019</div>
+      <div class="pub-list">
+
+        <div class="pub-item">
+          <div class="pub-year">2019</div>
+          <div class="pub-cover"><img src="covers/Cover Fluidität.jpg" alt="Fluidität bildet"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Buchbeitrag</div>
+            <div class="pub-title">Emotive Fluidität im Bildungsprozess — Bildungspraxis zwischen gouvernementaler Psychopolitik und emanzipativer Potenzialität</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong></div>
+            <div class="pub-venue">In: Oberlechner &amp; Schneider (Hg.): Fluidität bildet. edition sigma: Nomos (Bildungsforschung, 4), S. 109–120</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2019</div>
+          <div class="pub-cover"><img src="covers/Cover Hochschullehre.jpg" alt="die hochschullehre"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Zeitschriftenartikel</div>
+            <div class="pub-title">Allgemeine Pädagogik als Allgemeine Didaktik. Zur sozialen Praxis der multimodal-polykontexturalen epistemischen Selbstreflexion</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong>; Bräunling, Daniel</div>
+            <div class="pub-venue">die hochschullehre. Interdisziplinäre Zeitschrift für Studium und Lehre 5, S. 943–966</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2019</div>
+          <div class="pub-cover"><img src="covers/Cover GEW.jpg" alt="Fortbildungen von Lehrerinnen und Lehrern"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Buchbeitrag</div>
+            <div class="pub-title">Die Perspektive der Verantwortlichen der Fortbildung von Lehrerinnen und Lehrern: Ergebnisse aus Experteninterviews</div>
+            <div class="pub-authors">Johannmeyer, Karen; Cramer, Colin; <strong>Dobmeier, Florian</strong></div>
+            <div class="pub-venue">In: Cramer, Johannmeyer &amp; Drahmann (Hg.): Fortbildungen von Lehrerinnen und Lehrern in Baden-Württemberg. Stuttgart: GEW, S. 27–40</div>
+            <div class="pub-actions"><a href="https://doi.org/10.25656/01:16567" class="pub-btn" target="_blank">DOI</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-section-divider">2018</div>
+      <div class="pub-list">
+        <div class="pub-item">
+          <div class="pub-year">2018</div>
+          <div class="pub-cover"><img src="covers/Cover Medienimpulse.jpg" alt="medienimpulse"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Zeitschriftenartikel</div>
+            <div class="pub-title">Das kreative Potenzial digitaler Medien für Bildungsprozesse. Zur Logik der Entstehung neuen Wissens in heterogenen Zielgruppen</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong></div>
+            <div class="pub-venue">medienimpulse. Beiträge zur Medienpädagogik 55 (4), S. 1–37</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-section-divider">Rezensionen</div>
+      <div class="pub-list">
+
+        <div class="pub-item">
+          <div class="pub-year">2023</div>
+          <div class="pub-cover"><img src="covers/Cover REZ Neue.jpg" alt="Rezension"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Rezension</div>
+            <div class="pub-title">[Rezension] Senkbeil, Thomas; Bilgi, Oktay; Mersch, Dieter; Wulf, Christoph (2021): Der Mensch als Faktizität. Pädagogisch-anthropologische Zugänge. Bielefeld: transcript</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong></div>
+            <div class="pub-venue">Vierteljahresschrift für wissenschaftliche Pädagogik 99 (4), S. 553–556</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2022</div>
+          <div class="pub-cover"><img src="covers/Cover REZ Neue.jpg" alt="Rezension"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Rezension</div>
+            <div class="pub-title">[Rezension] Marina Garcés (2019): Neue radikale Aufklärung. Wien: Turia + Kant</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong></div>
+            <div class="pub-venue">Vierteljahresschrift für wissenschaftliche Pädagogik 98 (1), S. 113–117</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2021</div>
+          <div class="pub-cover"><img src="covers/Cover REZ Unterricht.jpg" alt="Rezension"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Rezension</div>
+            <div class="pub-title">[Rezension] Alexander Loh (2021): Unterricht als Form der Kommunikation. Systemtheoretische Analysen der empirischen Operationalisierung unterrichtlicher Strukturdifferenzen. Bad Heilbrunn: Klinkhardt</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong></div>
+            <div class="pub-venue">Erziehungswissenschaftliche Revue (EWR) 20 (5)</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2019</div>
+          <div class="pub-cover"><img src="covers/Cover REZ Angst.jpg" alt="Rezension"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Rezension</div>
+            <div class="pub-title">[Rezension] Alfred Schäfer/Christiane Thompson (Hrsg.) (2018): Angst. Pädagogik – Perspektiven. Paderborn: Schöningh</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong></div>
+            <div class="pub-venue">Vierteljahresschrift für wissenschaftliche Pädagogik (2), S. 303–307</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2019</div>
+          <div class="pub-cover"><img src="covers/COVER REZ Konturen.jpg" alt="Rezension"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Rezension</div>
+            <div class="pub-title">[Rezension] Jürgen Budde et al. (Hrsg.) (2018): Konturen praxistheoretischer Erziehungswissenschaft. Weinheim: Beltz Juventa</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong></div>
+            <div class="pub-venue">Vierteljahresschrift für wissenschaftliche Pädagogik (1), S. 137–140</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2017</div>
+          <div class="pub-cover"><img src="covers/Cover REZ Fremdes.jpg" alt="Rezension"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Rezension</div>
+            <div class="pub-title">[Rezension] Wulftange, Gereon: Fremdes – Angst – Begehren, Annäherungen an eine Theorie transformatorischer Bildungsprozesse. Bielefeld: transcript 2016</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong></div>
+            <div class="pub-venue">Erziehungswissenschaftliche Revue (EWR) 16 (5)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-section-divider">Newsletter &amp; Berichte</div>
+      <div class="pub-list">
+        <div class="pub-item">
+          <div class="pub-year">2020</div>
+          <div class="pub-cover"><img src="covers/Cover IfE2020.jpg" alt="IfE Newsletter"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Newsletter-Beitrag</div>
+            <div class="pub-title">Rückblick: 1. Studierendenkongress der Erziehungswissenschaft „‚Brave New World!?' — Dynamiken (in) der Erziehungswissenschaft"</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong>; Möls, Linus</div>
+            <div class="pub-venue">IfE Newsletter. Nachrichten aus dem Institut für Erziehungswissenschaft (12), S. 30–31</div>
+          </div>
+        </div>
+        <div class="pub-item">
+          <div class="pub-year">2019</div>
+          <div class="pub-cover"><img src="covers/Cover IfE2019.jpg" alt="IfE Newsletter"/></div>
+          <div class="pub-body">
+            <div class="pub-type">Newsletter-Beitrag</div>
+            <div class="pub-title">Ankündigung: 1. Studierendenkongress der Erziehungswissenschaft. „Brave New World!?" — Dynamiken (in) der Erziehungswissenschaft</div>
+            <div class="pub-authors"><strong>Dobmeier, Florian</strong>; Möls, Linus</div>
+            <div class="pub-venue">IfE Newsletter. Nachrichten aus dem Institut für Erziehungswissenschaft (11), S. 32</div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+  <!-- PROJEKTE -->
+  <div class="wrap">
+    <section class="section" id="projekte">
+      <div class="section-header">
+        <h2 class="section-title">Projekte</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="proj-grid">
+        <div class="proj-card">
+          <div class="proj-status">Laufend</div>
+          <div class="proj-title">Promotion: Unter Beobachtung — Anomalien der Erziehungstheorie</div>
+          <div class="proj-desc">Zur Sozialität des Educandus in allgemeinpädagogischen Epistemologien. Promotionsvorhaben am Institut für Erziehungswissenschaft, Abt. Allgemeine Pädagogik, Universität Tübingen.</div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-status">Laufend</div>
+          <div class="proj-title">Herausgabe: Erziehung – Politik – (Post-)Demokratie</div>
+          <div class="proj-desc">Sammelband (Hg. gemeinsam mit Marc Fabian Buck, Wolfgang Meseth und Felix Schreiber). Bad Heilbrunn: Klinkhardt (Beiträge zur Theorie und Geschichte der Erziehungswissenschaft).</div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-status">Abgeschlossen · 2026</div>
+          <div class="proj-title">Herausgabe: Operativität – Erziehung – Differenz</div>
+          <div class="proj-desc">Sammelband (Hg. gemeinsam mit Marcus Emmerich). Systemtheoretische, praxistheoretische und phänomenologische Anschlüsse an Operative Pädagogik. Wiesbaden: Springer VS.</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- KONTAKT -->
+  <div class="wrap">
+    <section class="section" id="kontakt">
+      <div class="section-header">
+        <h2 class="section-title">Kontakt</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="contact-wrap">
+        <div>
+          <p class="contact-intro">Für Anfragen zu Forschungskooperationen, Gutachten, Lehrveranstaltungen oder allgemeine Korrespondenz bin ich gerne per E-Mail erreichbar.</p>
+          <div class="contact-line">
+            <span class="contact-label">E-Mail</span>
+            <span class="contact-val"><a href="mailto:florian.dobmeier@uni-tuebingen.de">florian.dobmeier@uni-tuebingen.de</a></span>
+          </div>
+          <div class="contact-line">
+            <span class="contact-label">Profile</span>
+            <span class="contact-val">
+              <a href="https://www.researchgate.net/profile/Florian-Dobmeier" target="_blank">ResearchGate</a> ·
+              <a href="https://orcid.org/0000-0002-4659-6503" target="_blank">ORCID</a>
+            </span>
+          </div>
+        </div>
+        <div class="address-card">
+          <strong>Besucheradresse</strong>
+          Florian Dobmeier, M.A., M.A.<br/>
+          Universität Tübingen<br/>
+          Institut für Erziehungswissenschaft<br/>
+          Abteilung Allgemeine Pädagogik<br/>
+          Münzgasse 22–30<br/>
+          72070 Tübingen
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <span>© 2026 Florian Dobmeier · Universität Tübingen</span>
+    <span>
+      <a href="impressum.html">Impressum</a> ·
+      <a href="https://github.com/Dobmeier/Dobmeier.github.io">Quellcode auf GitHub</a>
+    </span>
+  </footer>
+
+  <script>
+  function downloadRIS() {
+    const ris = "TY  - JOUR\nAU  - Dobmeier, Florian\nTI  - Erziehung jenseits des Menschen?\nJO  - Zeitschrift fuer Paedagogik\nPY  - 2026\nST  - angenommen\nER  -\n\nTY  - CHAP\nAU  - Dobmeier, Florian\nAU  - Emmerich, Marcus\nTI  - Vorbemerkung\nBT  - Operativitaet - Erziehung - Differenz\nPB  - Springer VS\nCY  - Wiesbaden\nPY  - 2026\nSP  - V\nEP  - VI\nER  -\n\nTY  - CHAP\nAU  - Dobmeier, Florian\nTI  - Die allmaehliche Verfertigung des Educandus im Zeigen\nBT  - Operativitaet - Erziehung - Differenz\nPB  - Springer VS\nCY  - Wiesbaden\nPY  - 2026\nSP  - 91\nEP  - 136\nER  -\n\nTY  - CHAP\nAU  - Dobmeier, Florian\nTI  - Fehlanzeige: Allgemeinpaedagogische Agnotologie?\nBT  - Von der Reflexion zur Operation\nPB  - Schoeningh\nCY  - Paderborn\nPY  - 2025\nSP  - 129\nEP  - 145\nER  -\n\nTY  - CHAP\nAU  - Dobmeier, Florian\nTI  - Im Mandat des Allgemeinpaedagogischen?\nBT  - Allgemeine Erziehungswissenschaft. Daten und Positionen\nPB  - Klinkhardt\nCY  - Bad Heilbrunn\nPY  - 2024\nSP  - 149\nEP  - 159\nER  -\n\nTY  - JOUR\nAU  - Dobmeier, Florian\nTI  - Unterscheidungen zur Arbeit am Begriff Erwachsenenerziehung\nJO  - Debatte. Beitraege zur Erwachsenenbildung\nVL  - 5\nIS  - 2\nSP  - 143\nEP  - 159\nPY  - 2024\nER  -\n\nTY  - JOUR\nAU  - Dobmeier, Florian\nTI  - Das kreative Potenzial digitaler Medien fuer Bildungsprozesse\nJO  - medienimpulse\nVL  - 55\nIS  - 4\nSP  - 1\nEP  - 37\nPY  - 2018\nER  -\n";
+    const blob = new Blob([ris], { type: 'application/x-research-info-systems' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'dobmeier_publikationen.ris';
+    a.click();
+  }
+  </script>
+</body>
+</html>
