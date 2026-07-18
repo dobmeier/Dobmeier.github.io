@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hausarbeit — Selbstbefragung vor Abgabe</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #0d1b2e; --surface: #132238; --text: #f0ece4;
+  --muted: #8ea4bc; --light: #4a6682; --accent: #8faec8;
+  --gold: #e8c97a; --border: rgba(255,255,255,0.07);
+  --green: rgba(100,200,130,0.15); --green-border: rgba(100,200,130,0.35);
+  --red: rgba(200,80,80,0.12); --red-border: rgba(200,80,80,0.3);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Lato', sans-serif; background: var(--bg); color: var(--text);
+  min-height: 100vh; padding: 2.5rem 1.5rem; }
+.wrap { max-width: 720px; margin: 0 auto; }
+
+/* Header */
+.header { margin-bottom: 2.5rem; }
+.header-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 0.5rem; }
+.header h1 { font-size: 1.5rem; font-weight: 300; margin-bottom: 0.5rem; }
+.header p { font-size: 0.88rem; color: var(--muted); line-height: 1.75; max-width: 540px; }
+
+/* Progress */
+.progress-wrap { margin-bottom: 2rem; }
+.progress-bar { height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; margin-bottom: 0.5rem; }
+.progress-fill { height: 100%; background: var(--gold); border-radius: 2px; width: 0%; transition: width 0.4s; }
+.progress-text { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.04em; }
+
+/* Category navigation */
+.cat-nav { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 2rem; }
+.cat-btn {
+  font-size: 0.72rem; letter-spacing: 0.06em; padding: 0.3rem 0.75rem;
+  border-radius: 3px; border: 1px solid var(--border); background: transparent;
+  color: var(--muted); cursor: pointer; transition: all 0.15s; font-family: 'Lato', sans-serif;
+}
+.cat-btn:hover { border-color: var(--accent); color: var(--accent); }
+.cat-btn.active { background: rgba(143,174,200,0.1); border-color: var(--accent); color: var(--accent); }
+.cat-btn.done { border-color: var(--green-border); color: rgba(100,200,130,0.8); }
+
+/* Section */
+.section { display: none; }
+.section.active { display: block; }
+.section-title {
+  font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 0.3rem;
+}
+.section-heading { font-size: 1.1rem; font-weight: 300; margin-bottom: 0.4rem; }
+.section-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.75rem; }
+
+/* Check items */
+.check-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 2rem; }
+.check-item {
+  display: flex; align-items: flex-start; gap: 0.9rem;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 6px; padding: 0.9rem 1.1rem; cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  user-select: none;
+}
+.check-item:hover { border-color: rgba(143,174,200,0.3); }
+.check-item.checked { background: var(--green); border-color: var(--green-border); }
+.check-item.na { background: rgba(143,174,200,0.05); border-color: rgba(143,174,200,0.15); opacity: 0.6; }
+
+.check-box {
+  width: 22px; height: 22px; border-radius: 4px; flex-shrink: 0;
+  border: 1.5px solid var(--light); background: transparent;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 1px; transition: all 0.15s;
+}
+.check-item.checked .check-box { background: rgba(100,200,130,0.25); border-color: rgba(100,200,130,0.5); }
+.check-box svg { width: 13px; height: 13px; fill: rgba(100,200,130,0.9); display: none; }
+.check-item.checked .check-box svg { display: block; }
+
+.check-text { flex: 1; }
+.check-label { font-size: 0.88rem; line-height: 1.55; color: var(--text); margin-bottom: 0.2rem; }
+.check-item.checked .check-label { color: rgba(240,236,228,0.7); }
+.check-hint { font-size: 0.75rem; color: var(--muted); line-height: 1.5; }
+
+.check-na {
+  font-size: 0.68rem; letter-spacing: 0.06em; color: var(--light); cursor: pointer;
+  padding: 0.2rem 0.45rem; border: 1px solid var(--border); border-radius: 2px;
+  background: transparent; font-family: 'Lato', sans-serif; white-space: nowrap;
+  margin-top: 2px; transition: all 0.15s;
+}
+.check-na:hover { border-color: var(--light); }
+.check-item.na .check-na { color: var(--accent); border-color: rgba(143,174,200,0.3); }
+
+/* Navigation buttons */
+.nav-row { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+.nav-btn {
+  font-family: 'Lato', sans-serif; font-size: 0.78rem; letter-spacing: 0.07em;
+  text-transform: uppercase; padding: 0.55rem 1.25rem;
+  border-radius: 3px; border: 1px solid; cursor: pointer; transition: all 0.2s;
+}
+.nav-btn.prev { background: transparent; color: var(--muted); border-color: var(--border); }
+.nav-btn.prev:hover { border-color: var(--muted); color: var(--text); }
+.nav-btn.next { background: var(--accent); color: #0d1b2e; border-color: var(--accent); }
+.nav-btn.next:hover { background: #7a9db8; }
+.nav-btn:disabled { opacity: 0.3; cursor: default; }
+
+/* Summary screen */
+.summary { display: none; }
+.summary.active { display: block; }
+.summary-score { text-align: center; padding: 2rem 0 1.5rem; }
+.score-num { font-size: 3.5rem; font-weight: 300; color: var(--gold); line-height: 1; }
+.score-label { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 0.5rem; }
+.summary-cats { display: flex; flex-direction: column; gap: 10px; margin: 1.5rem 0 2rem; }
+.summary-cat {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 0.75rem 1rem; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 6px;
+}
+.summary-cat-bar { flex: 1; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+.summary-cat-fill { height: 100%; border-radius: 2px; transition: width 0.6s; }
+.summary-cat-name { font-size: 0.82rem; min-width: 160px; }
+.summary-cat-pct { font-size: 0.78rem; color: var(--muted); min-width: 36px; text-align: right; }
+
+.reset-btn {
+  font-family: 'Lato', sans-serif; font-size: 0.78rem; letter-spacing: 0.07em;
+  text-transform: uppercase; padding: 0.55rem 1.5rem;
+  border-radius: 3px; border: 1px solid var(--border);
+  background: transparent; color: var(--muted); cursor: pointer;
+  transition: all 0.2s; display: block; margin: 0 auto;
+}
+.reset-btn:hover { border-color: var(--accent); color: var(--accent); }
+</style>
+</head>
+<body>
+<nav style="position:sticky;top:0;z-index:100;background:rgba(13,27,46,0.96);backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,0.08);">
+  <div style="max-width:720px;margin:0 auto;padding:0 1.5rem;height:52px;display:flex;align-items:center;justify-content:space-between;">
+    <span style="font-size:1rem;font-weight:300;letter-spacing:0.06em;color:var(--text);">Selbstbefragung vor der Abgabe</span>
+    <a href="index.html" style="font-size:0.76rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">← Zurück</a>
+  </div>
+</nav>
+<div class="wrap">
+
+  <div class="header" style="padding-top:2.5rem;">
+    <div class="header-label">Florian Dobmeier · Universität Tübingen</div>
+    <h1>Selbstbefragung vor der Abgabe</h1>
+    <p>Gehen Sie diese Checkliste durch, bevor Sie Ihre Hausarbeit einreichen. Klicken Sie auf jeden Punkt, den Sie geprüft und erledigt haben. „n/a" markiert Punkte, die auf Ihre Arbeit nicht zutreffen.</p>
+  </div>
+
+  <div class="progress-wrap">
+    <div class="progress-bar"><div class="progress-fill" id="progressBar"></div></div>
+    <div class="progress-text" id="progressText">0 von 0 Punkten geprüft</div>
+  </div>
+
+  <div class="cat-nav" id="catNav"></div>
+
+  <div id="sections"></div>
+
+  <div class="summary" id="summary">
+    <div class="summary-score">
+      <div class="score-num" id="scoreNum">–</div>
+      <div class="score-label">Punkte erledigt</div>
+    </div>
+    <div class="summary-cats" id="summaryCats"></div>
+    <button class="reset-btn" onclick="reset()">Neu beginnen</button>
+  </div>
+
+</div>
+
+<script>
+const checkIcon = `<svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/><polyline points="20 6 9 17 4 12" fill="none" stroke="rgba(100,200,130,0.9)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+const categories = [
+  {
+    id: "deckblatt",
+    title: "Deckblatt & Formalia",
+    heading: "Deckblatt, Gliederung & Grundformatierung",
+    desc: "Bevor Sie inhaltlich prüfen: Stimmen die äußeren Rahmenbedingungen?",
+    items: [
+      { label: "Das Deckblatt enthält alle Pflichtangaben", hint: "Vor- und Nachname, Matrikelnummer, Geburtsdatum, Studiengang, Fachsemester, Hochschulsemester, Seminar, Dozent, Semester, Modulname und -nummer, Prüfungsnummer, E-Mail, Anschrift, Abgabedatum." },
+      { label: "Der Dateiname lautet: Nachname_Vorname_Hausarbeit", hint: "Z. B. Musterfrau_Thea_Hausarbeit — nicht anders benennen." },
+      { label: "Die Gliederung enthält keine Punkte nach den Kapitelnummern", hint: "Korrekt: „1", „2.1" — nicht „1.", „2.1." usw." },
+      { label: "Jedes Kapitel in der Gliederung hat eine Entsprechung im Text (und umgekehrt)", hint: "Kein Kapitel erscheint nur in der Gliederung, keines nur im Text." },
+      { label: "Die Seitenangaben in der Gliederung stimmen mit dem Text überein" },
+      { label: "Seitenzahlen sind vorhanden und mittig am unteren Rand platziert" },
+      { label: "Blocksatz ist aktiviert", hint: "Kein Flattersatz (linksbündig) im Fließtext." },
+      { label: "Automatische Silbentrennung ist aktiviert" },
+      { label: "Seitenränder: links/oben/unten 2 cm, rechts 4 cm", hint: "Falsch formatierte Arbeiten gehen ungelesen zurück." },
+      { label: "Schriftart Haupttext: Times New Roman, Schriftgröße 12" },
+      { label: "Zeilenabstand Haupttext: 1,5", hint: "Fußnoten einfacher Zeilenabstand; Blockzitate: Schriftgröße 10, Zeilenabstand 1,3." },
+      { label: "Überschriften 1. Ordnung: Calibri 14, gefettet; 2. Ordnung: Calibri, gefettet; 3. Ordnung: Calibri, kursiv, nicht gefettet" },
+      { label: "Fußnoten / Endnoten: Calibri, Schriftgröße 10" },
+      { label: "Kein Kapitel enthält nur einen einzigen Unterabschnitt", hint: "Wer 2.1 hat, braucht mindestens 2.2." },
+      { label: "Keine Hervorhebungen durch mehrere Stile gleichzeitig (z. B. fett + kursiv + unterstrichen)", hint: "Immer nur eine Hervorhebungsform gleichzeitig verwenden." },
+    ]
+  },
+  {
+    id: "einleitung",
+    title: "Einleitung",
+    heading: "Einleitung — Struktur & Vollständigkeit",
+    desc: "Die Einleitung ist das Schaufenster Ihrer Arbeit: Fragestellung, Relevanz, Vorgehen — alles muss klar exponiert sein.",
+    items: [
+      { label: "Die zentrale Fragestellung (ZF) ist vorhanden und mit „(ZF)" markiert" },
+      { label: "Die ZF endet mit einem Fragezeichen", hint: "Nicht mit einem Punkt oder Doppelpunkt." },
+      { label: "Es gibt mindestens drei derivative Leitfragen (LF1, LF2, LF3)", hint: "Sie sind als solche markiert und ergeben sich logisch aus der ZF." },
+      { label: "Jede Leitfrage endet mit einem Fragezeichen" },
+      { label: "Die Leitfragen ‚zerlegen' die ZF in bearbeitbare Teilfragen", hint: "Prüfen Sie: Wenn alle LF beantwortet sind — ist damit auch die ZF beantwortet?" },
+      { label: "Die Relevanz / Motivation der Fragestellung ist expliziert", hint: "Warum ist das Problem ein Problem? Für wen, seit wann?" },
+      { label: "Die Kontextualisierung der Fragestellung ist vorhanden", hint: "In welchem diskursiven Zusammenhang steht die Fragestellung?" },
+      { label: "Die Kontexturierung und Limitierung ist explizit", hint: "Mit welchen konkreten Quellen arbeiten Sie? Sozialdimension, Sachdimension, Zeitdimension, Raumdimension." },
+      { label: "Das methodische Vorgehen ist benannt und begründet", hint: "Z. B. textrekonstruktive Argumentationsanalyse, Diskursanalyse etc." },
+      { label: "Die Gliederung ist im Text verbalisiert", hint: "Erklären Sie, was in welchem Kapitel warum passiert, mit Verweis auf die LF." },
+      { label: "Die Einleitung hat keinen eigenen Abschnitt ‚Fazit' oder ‚Ergebnis' (das kommt erst am Ende)" },
+      { label: "Eigenständige Argumente beginnen erst im Hauptteil, nicht in der Einleitung", hint: "In der Einleitung werden Fragen aufgeworfen, nicht beantwortet." },
+    ]
+  },
+  {
+    id: "hauptteil",
+    title: "Hauptteil",
+    heading: "Hauptteil — Argumentation & Struktur",
+    desc: "Der Hauptteil ist der Motor der Arbeit. Kann man von der Einleitung direkt ins Fazit springen — und versteht trotzdem das Wesentliche?",
+    items: [
+      { label: "Jedes Kapitel enthält Marginalien oder einen klaren Leitgedanken pro Absatz", hint: "Marginalien (rechts, Calibri 8) oder zumindest ein Themensatz pro Absatz helfen beim Leseverständnis." },
+      { label: "Jedes Kapitel nimmt explizit auf eine oder mehrere Leitfragen Bezug", hint: "Es sollte für Leser:innen klar sein, welches Kapitel welche LF bearbeitet." },
+      { label: "Keine ‚glue it together'-Argumentation", hint: "Argumente sind nicht nur zusammengestückelt, sondern logisch aufeinander aufgebaut." },
+      { label: "Eigene Meinungen, Thesen und Spekulationen sind als solche markiert", hint: "Z. B. mit ‚m. E.' (meines Erachtens) oder ‚so ließe sich argumentieren'." },
+      { label: "Längere Fußnoten werden für Exkurse, Kommentare, Forschungsstandsergänzungen genutzt", hint: "Fußnoten sind kein Ablageplatz für Überflüssiges — aber gut für das, was zu weit vom Hauptgedanken wegführt." },
+      { label: "Blockzitate (>3 Zeilen) sind eingerückt, in Schriftgröße 10, Zeilenabstand 1,3", hint: "Nur für wirklich unverzichtbare Originalpassagen verwenden." },
+      { label: "Die Arbeit ist auch ohne Quellenverweise in sich verständlich", hint: "Testfrage: Wenn Sie alle Zitate und Belege weglassen — trägt die Argumentation trotzdem?" },
+      { label: "ChatGPT, Wikipedia und vergleichbare Quellen kommen im Literaturverzeichnis nicht vor", hint: "Wikipedia als Einstieg ist OK; als Referenz im LV ist es ein Fehler." },
+    ]
+  },
+  {
+    id: "fazit",
+    title: "Fazit",
+    heading: "Fazit & Schluss",
+    desc: "Das Fazit schließt die Gestalt, die die Einleitung geöffnet hat. Es beantwortet — thesenartig — was die Einleitung gefragt hat.",
+    items: [
+      { label: "Die Leitfragen (LF1–3) werden im Fazit explizit wieder aufgegriffen und beantwortet" },
+      { label: "Die Antworten auf die LF werden zur Beantwortung der ZF zusammengeführt" },
+      { label: "Das Fazit enthält keine neuen Argumente oder Belege, die nicht im Hauptteil vorbereitet wurden" },
+      { label: "Das Fazit endet mit Anschlüssen, nicht nur Abschlüssen", hint: "Welche Fragen konnten nicht beantwortet werden? Welche neuen Fragen sind entstanden? Was wäre als Anschlussforschung denkbar?" },
+      { label: "Eine optionale Schlussbemerkung / persönlicher Kommentar ist klar als solche gekennzeichnet", hint: "Nicht verpflichtend, aber erlaubt. Wenn vorhanden: eindeutig markieren (z. B. ‚Schlussbemerkung')." },
+    ]
+  },
+  {
+    id: "zitation",
+    title: "Zitation & Literatur",
+    heading: "Zitation, Quellenangaben & Literaturverzeichnis",
+    desc: "Einheitlichkeit und Vollständigkeit sind hier das Maß aller Dinge.",
+    items: [
+      { label: "Alle Zitate haben eine Seitenangabe", hint: "Nicht nur Autor und Jahr, sondern immer auch die Seite: (Adorno 1971, S. 42)." },
+      { label: "Der Zitationsstil ist einheitlich (immer APA, immer Kurzbeleg o. Ä.)", hint: "Mal Fußnoten, mal Kurzbeleg im Text — das geht nicht. Entscheiden Sie sich für einen Stil und bleiben Sie dabei." },
+      { label: "Alle im Text zitierten Werke erscheinen im Literaturverzeichnis — und umgekehrt" },
+      { label: "Das Literaturverzeichnis ist alphabetisch geordnet" },
+      { label: "Vollständige Angaben: Vorname(n) ausgeschrieben, Jahreszahl, Titel + Untertitel, Verlagsort, Verlag, ggf. Reihe, ggf. Bandnummer, ggf. Übersetzer" },
+      { label: "Sekundärliteratur ist inhaltlich verwendet, nicht nur im LV aufgeführt", hint: "‚Schaufenster-Literatur' — Bücher, die im Text nicht auftauchen — wird bemerkt und negativ bewertet." },
+      { label: "Anführungszeichen sind einheitlich deutsch: „…" (nicht englisch: "…")", hint: "Strg+F nach \" oder " suchen und kontrollieren." },
+      { label: "Direkte Zitate stimmen zeichengenau mit dem Original überein", hint: "Auslassungen werden mit [...] markiert, Hervorhebungen im Original mit Hinweis kenntlich gemacht." },
+      { label: "Satzzeichen nach Quellenbelegen sind korrekt gesetzt", hint: "Korrekt: „Zitat" (Autor 2000, S. 1). — Nicht: „Zitat." (Autor 2000, S. 1)." },
+    ]
+  },
+  {
+    id: "sprache",
+    title: "Sprache & Stil",
+    heading: "Sprache, Stil & Wissenschaftlichkeit",
+    desc: "Wissenschaftliche Schreibweise ist klar, präzise und nicht redundant. Jeder Satz trägt etwas bei.",
+    items: [
+      { label: "Fachbegriffe werden beim ersten Auftreten definiert oder erläutert" },
+      { label: "Eigene Definitionen sind von Fremd定義n getrennt und als solche kenntlich" },
+      { label: "Keine umgangssprachlichen Formulierungen im Fließtext" },
+      { label: "Kein übermäßiger Gebrauch von Passivkonstruktionen", hint: "Passiv ist manchmal sinnvoll, sollte aber nicht dominieren." },
+      { label: "Keine unnötigen Substantivierungen (‚die Durchführung einer Analyse' → ‚eine Analyse')" },
+      { label: "Marginalien sind verwendet (optional, aber empfohlen)", hint: "Ein kurzes Stichwort rechts im Rand (Calibri 8) zeigt, worum es im Absatz geht. Strukturiert und erleichtert das Lesen." },
+      { label: "Keine Aussage ohne Beleg — oder explizit als eigene Einschätzung markiert" },
+    ]
+  },
+  {
+    id: "letztecheck",
+    title: "Letzter Check",
+    heading: "Technische Feinprüfung (Strg+F)",
+    desc: "Diese Punkte klingen klein — werden aber beim Korrigieren sofort bemerkt. Nehmen Sie sich 10 Minuten.",
+    items: [
+      { label: "Strg+F: Keine doppelten Leerzeichen", hint: "Suchen Sie nach zwei Leerzeichen (Space Space). Typischer Tippfehler nach Satzzeichen." },
+      { label: "Strg+F: Abkürzung „d. h." einheitlich mit Leerzeichen (nicht „d.h.")", hint: "Ebenso: „z. B." (nicht „z.B."), „u. a." (nicht „u.a."), „s. o." (nicht „s.o.") etc." },
+      { label: "Strg+F: Keine englischen Anführungszeichen \" oder \" im deutschen Text" },
+      { label: "Strg+F: Alle Abkürzungen sind einheitlich", hint: "Entweder immer ‚usw.' oder immer ‚etc.' — nicht beides durcheinander." },
+      { label: "Rechtschreibprüfung des Textverarbeitungsprogramms ist durchgelaufen" },
+      { label: "Die Arbeit wurde ausgedruckt und einmal auf Sinn gelesen", hint: "Auf Papier erkennt man Fehler, die man am Bildschirm übersieht." },
+      { label: "Eine zweite Person hat die Arbeit auf Rechtschreibung und Kommasetzung gelesen", hint: "Lektorenpartnerschaften helfen sehr. Gehen Sie auf die Kommiliton:innen zu!" },
+      { label: "Umfang: Die Arbeit erfüllt die vorgegebene Seitenzahl (ohne Deckblatt, Gliederung, Literaturverzeichnis)", hint: "Prüfen Sie die Seminaranforderungen: Einleitung ca. 3,5 S., Hauptteil ca. 10 S., Fazit ca. 2,5 S. bei einer 15-seitigen Hausarbeit." },
+      { label: "Die Arbeit ist als PDF gespeichert und der Dateiname stimmt", hint: "Nachname_Vorname_Hausarbeit.pdf — keine Sonderzeichen, keine Leerzeichen." },
+      { label: "Alle Fußnotennummern sind im Text und in der Fußnotenleiste korrekt verknüpft" },
+      { label: "Keine Waisenkinder und Hurenkinder in der Typographie", hint: "Keine einzelne Zeile am Seitenanfang oder -ende, die zum vorherigen/nächsten Absatz gehört. Word: Layout → Absatz → Zeilen- und Seitenumbruch → Absatzkontrolle aktivieren." },
+    ]
+  }
+];
+
+// State
+let state = {};
+let currentCat = 0;
+
+function init() {
+  categories.forEach(cat => {
+    cat.items.forEach((item, i) => {
+      state[`${cat.id}_${i}`] = 'unchecked'; // unchecked | checked | na
+    });
+  });
+  render();
+}
+
+function totalItems() {
+  return categories.reduce((sum, cat) => sum + cat.items.length, 0);
+}
+function checkedItems() {
+  return Object.values(state).filter(v => v === 'checked' || v === 'na').length;
+}
+function catChecked(catId, items) {
+  return items.filter((_, i) => state[`${catId}_${i}`] === 'checked' || state[`${catId}_${i}`] === 'na').length;
+}
+function catDone(cat) {
+  return catChecked(cat.id, cat.items) === cat.items.length;
+}
+
+function render() {
+  const total = totalItems();
+  const checked = checkedItems();
+  const pct = Math.round((checked / total) * 100);
+
+  document.getElementById('progressBar').style.width = pct + '%';
+  document.getElementById('progressText').textContent = `${checked} von ${total} Punkten geprüft (${pct} %)`;
+
+  // Cat nav
+  const nav = document.getElementById('catNav');
+  nav.innerHTML = categories.map((cat, i) => {
+    const done = catDone(cat);
+    const active = i === currentCat;
+    return `<button class="cat-btn${active ? ' active' : ''}${done ? ' done' : ''}" onclick="goTo(${i})">${done ? '✓ ' : ''}${cat.title}</button>`;
+  }).join('') + `<button class="cat-btn${currentCat === categories.length ? ' active' : ''}" onclick="showSummary()">Ergebnis</button>`;
+
+  // Sections
+  const sectionsEl = document.getElementById('sections');
+  sectionsEl.innerHTML = categories.map((cat, ci) => `
+    <div class="section${ci === currentCat ? ' active' : ''}" id="sec_${ci}">
+      <div class="section-title">${cat.title}</div>
+      <div class="section-heading">${cat.heading}</div>
+      <div class="section-desc">${cat.desc}</div>
+      <div class="check-list">
+        ${cat.items.map((item, i) => {
+          const key = `${cat.id}_${i}`;
+          const s = state[key];
+          return `<div class="check-item${s === 'checked' ? ' checked' : ''}${s === 'na' ? ' na' : ''}" onclick="toggle('${key}')">
+            <div class="check-box">${checkIcon}</div>
+            <div class="check-text">
+              <div class="check-label">${item.label}</div>
+              ${item.hint ? `<div class="check-hint">${item.hint}</div>` : ''}
+            </div>
+            <button class="check-na" onclick="event.stopPropagation();toggleNA('${key}')">${s === 'na' ? '↩' : 'n/a'}</button>
+          </div>`;
+        }).join('')}
+      </div>
+      <div class="nav-row">
+        <button class="nav-btn prev" onclick="goTo(${ci - 1})" ${ci === 0 ? 'disabled' : ''}>← Zurück</button>
+        <button class="nav-btn next" onclick="${ci === categories.length - 1 ? 'showSummary()' : `goTo(${ci + 1})`}">
+          ${ci === categories.length - 1 ? 'Ergebnis →' : 'Weiter →'}
+        </button>
+      </div>
+    </div>
+  `).join('');
+
+  // Summary
+  const summary = document.getElementById('summary');
+  const summaryActive = currentCat === categories.length;
+  summary.className = summaryActive ? 'summary active' : 'summary';
+  sectionsEl.style.display = summaryActive ? 'none' : 'block';
+
+  if (summaryActive) {
+    document.getElementById('scoreNum').textContent = `${pct} %`;
+    const cats = document.getElementById('summaryCats');
+    cats.innerHTML = categories.map(cat => {
+      const done = catChecked(cat.id, cat.items);
+      const total = cat.items.length;
+      const p = Math.round((done / total) * 100);
+      const color = p === 100 ? 'rgba(100,200,130,0.6)' : p > 60 ? 'rgba(232,201,122,0.6)' : 'rgba(200,100,100,0.5)';
+      return `<div class="summary-cat">
+        <div class="summary-cat-name">${cat.title}</div>
+        <div class="summary-cat-bar"><div class="summary-cat-fill" style="width:${p}%;background:${color};"></div></div>
+        <div class="summary-cat-pct">${done}/${total}</div>
+      </div>`;
+    }).join('');
+  }
+}
+
+function toggle(key) {
+  state[key] = state[key] === 'checked' ? 'unchecked' : 'checked';
+  render();
+}
+function toggleNA(key) {
+  state[key] = state[key] === 'na' ? 'unchecked' : 'na';
+  render();
+}
+function goTo(i) {
+  if (i < 0 || i >= categories.length) return;
+  currentCat = i;
+  render();
+  window.scrollTo(0, 0);
+}
+function showSummary() {
+  currentCat = categories.length;
+  render();
+  window.scrollTo(0, 0);
+}
+function reset() {
+  state = {};
+  categories.forEach(cat => {
+    cat.items.forEach((_, i) => { state[`${cat.id}_${i}`] = 'unchecked'; });
+  });
+  currentCat = 0;
+  render();
+}
+
+init();
+</script>
+</body>
+</html>
