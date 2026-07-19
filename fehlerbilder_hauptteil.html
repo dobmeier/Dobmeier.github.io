@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Fehlerbilder — Hauptteil</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+<style>
+:root { --bg:#0d1b2e;--surface:#132238;--text:#f0ece4;--muted:#8ea4bc;--accent:#8faec8;--gold:#e8c97a;--border:rgba(255,255,255,0.07);--red:rgba(220,80,70,0.85);--red-bg:rgba(220,80,70,0.1);--red-border:rgba(220,80,70,0.3);--green:rgba(100,200,130,0.8);--green-bg:rgba(100,200,130,0.08);--green-border:rgba(100,200,130,0.3); }
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Lato',sans-serif;background:var(--bg);color:var(--text);padding:2.5rem 1.5rem 4rem;}
+.wrap{max-width:900px;margin:0 auto;}
+nav{position:sticky;top:0;z-index:100;background:rgba(13,27,46,0.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);margin:-2.5rem -1.5rem 2.5rem;padding:0 1.5rem;}
+.nav-inner{max-width:900px;margin:0 auto;height:52px;display:flex;align-items:center;justify-content:space-between;}
+.nav-title{font-size:0.95rem;font-weight:300;color:var(--text);}
+.nav-back{font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;}
+h1{font-size:1.4rem;font-weight:300;margin-bottom:0.4rem;}
+.intro{font-size:0.85rem;color:var(--muted);line-height:1.75;margin-bottom:2.5rem;max-width:580px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.card-num{font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);padding:0.9rem 1.1rem 0;}
+.card-title{font-size:0.88rem;font-weight:400;color:var(--text);padding:0.3rem 1.1rem 0.75rem;line-height:1.4;}
+.card-visual{margin:0 1.1rem 0.75rem;border-radius:5px;border:1px solid var(--red-border);background:var(--red-bg);min-height:110px;padding:0.75rem;}
+.card-caption{font-size:0.75rem;color:var(--muted);padding:0 1.1rem 1.1rem;line-height:1.55;}
+.doc{font-family:'Times New Roman',serif;font-size:9px;line-height:1.55;}
+.wrong{color:var(--red);}
+.right{color:var(--green);}
+.ann{font-size:8px;font-family:'Lato',sans-serif;font-style:italic;}
+.ann-bad{color:var(--red);}
+.ann-good{color:var(--green);}
+.divider{height:1px;background:rgba(255,255,255,0.08);margin:6px 0;}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner"><span class="nav-title">Fehlerbilder — Hauptteil</span><a href="hausarbeit-check.html" class="nav-back">← Zur Checkliste</a></div></nav>
+<div class="wrap">
+<h1>Fehlerbilder: Hauptteil</h1>
+<p class="intro">Negative Beispiele zu den 7 Prüfpunkten des Hauptteils. Der Hauptteil ist der Motor der Arbeit — hier entscheidet sich, ob argumentiert oder nur referiert wird.</p>
+<div class="grid">
+
+  <div class="card">
+    <div class="card-num">Prüfpunkt 1</div>
+    <div class="card-title">Jedes Kapitel nimmt Bezug auf eine Leitfrage</div>
+    <div class="card-visual">
+      <div class="ann ann-bad" style="margin-bottom:5px;">Kapitel ohne LF-Bezug:</div>
+      <div class="doc">
+        <div style="font-weight:bold;margin-bottom:3px;">2.1 Adornos Leben und Werk</div>
+        <div class="wrong">"Adorno wurde 1903 in Frankfurt geboren. Er studierte Philosophie und Soziologie..."</div>
+        <div class="ann ann-bad">biografisches Referat — beantwortet keine Leitfrage</div>
+      </div>
+      <div class="divider"></div>
+      <div class="doc right">
+        <div style="font-weight:bold;margin-bottom:3px;">2.1 Was meint Adorno mit Dummheit? (LF1)</div>
+        <div>"Adorno versteht unter 'Dummheit' keine angeborene Begrenzung, sondern ein gesellschaftlich produziertes Wundmal (Horkheimer/Adorno 1998c, S. 295)..."</div>
+      </div>
+      <div class="ann ann-good">Kapitel beantwortet LF1 direkt</div>
+    </div>
+    <div class="card-caption“>→ Jedes Kapitel muss erkennbar auf eine Leitfrage antworten — nicht frei assoziieren.</div>
+  </div>
+
+  <div class=“card“>
+    <div class=“card-num“>Prüfpunkt 2</div>
+    <div class=“card-title“>Keine bloße Aneinanderreihung von Quellen</div>
+    <div class=“card-visual“>
+      <div class=“ann ann-bad“ style=“margin-bottom:5px;“>Quellen-Patchwork ohne eigene Argumentation:</div>
+      <div class=“doc“>
+        <div class=“wrong“ style=“font-size:8.5px;“>“Adorno schreibt, dass... (1971, S. 42). Horkheimer ergänzt, dass... (1998, S. 15). Schäfer erklärt dazu, dass... (2017, S. 35). Gruschka betont außerdem, dass... (2004, S. 12).“</div>
+        <div class=“ann ann-bad“>vier Zitate hintereinander — wo ist die eigene Analyse?</div>
+      </div>
+      <div class=“divider“></div>
+      <div class=“doc right“ style=“font-size:8.5px;“>“Adorno versteht Dummheit als Folge gesellschaftlicher Anpassungszwänge (1971, S. 42). Dieser Befund lässt sich mit Schäfers Lektüre verbinden: Halbbildung entsteht genau dort, wo diese Zwänge verinnerlicht werden (2017, S. 35). Damit ergibt sich für LF1 folgende Antwort...“</div>
+      <div class=“ann ann-good“>Quellen werden verbunden und auf LF bezogen</div>
+    </div>
+    <div class=“card-caption“>→ Quellen sind Beleg und Gesprächspartner — nicht Lückenfüller. Die eigene Argumentation muss sichtbar bleiben.</div>
+  </div>
+
+  <div class=“card“>
+    <div class=“card-num“>Prüfpunkt 3</div>
+    <div class=“card-title“>Eigene Meinungen und Thesen als solche markiert</div>
+    <div class=“card-visual“>
+      <div class=“ann ann-bad“ style=“margin-bottom:5px;“>Eigene These als Tatsache ausgegeben:</div>
+      <div class=“doc“>
+        <div class=“wrong“>“Adornos Kritik ist heute relevanter denn je, da soziale Medien die Kulturindustrie potenzieren und Bildungsprozesse vollständig verhindern.“</div>
+        <div class=“ann ann-bad“>nicht belegt, eigene Wertung als Faktenaussage</div>
+      </div>
+      <div class=“divider“></div>
+      <div class=“doc right“>“M. E. lässt sich Adornos Kulturindustriekritik produktiv auf soziale Medien übertragen — wenngleich diese Analogie einer eigenständigen Untersuchung bedürfte.“</div>
+      <div class=“ann ann-good“>als eigene Einschätzung markiert und eingeschränkt</div>
+    </div>
+    <div class=“card-caption“>→ Eigene Thesen mit „m. E.“, „so ließe sich argumentieren“ oder „spekulativ sei hier angemerkt“ kennzeichnen.</div>
+  </div>
+
+  <div class=“card“>
+    <div class=“card-num“>Prüfpunkt 4</div>
+    <div class=“card-title“>Marginalien oder Themensätze strukturieren jeden Absatz</div>
+    <div class=“card-visual“>
+      <div class=“ann ann-bad“ style=“margin-bottom:5px;“>Absatz ohne erkennbaren Leitgedanken:</div>
+      <div class=“doc“>
+        <div class=“wrong“ style=“font-size:8.5px;“>“Adorno lebte in Frankfurt. Seine Theorie ist komplex. Die Kulturindustrie produziert Konformität. Außerdem ist Halbbildung ein wichtiger Begriff. Dummheit entsteht gesellschaftlich. Das Fernsehen spielt eine Rolle.“</div>
+        <div class=“ann ann-bad“>sechs verschiedene Gedanken, kein roter Faden</div>
+      </div>
+      <div class=“divider“></div>
+      <div class=“doc“ style=“display:flex;gap:6px;“>
+        <div style=“color:rgba(143,174,200,0.5);font-size:7px;white-space:nowrap;padding-top:2px;“>Dummheit als<br/>Wundmal</div>
+        <div class=“right“ style=“font-size:8.5px;“>“Adorno beschreibt Dummheit als gesellschaftlich erworbenes 'Wundmal' (1998c, S. 295). Sie entsteht nicht durch mangelnde Intelligenz, sondern durch wiederholte Verletzung von Erfahrungsimpulsen im Sozialisationsprozess.“</div>
+      </div>
+      <div class=“ann ann-good“>Marginalie links, Themensatz rechts</div>
+    </div>
+    <div class=“card-caption“>→ Jeder Absatz hat einen Kerngedanken. Eine Marginalie (Calibri 8, rechts) oder ein klarer Themensatz macht ihn sichtbar.</div>
+  </div>
+
+  <div class=“card“>
+    <div class=“card-num“>Prüfpunkt 5</div>
+    <div class=“card-title“>Blockzitate korrekt formatiert</div>
+    <div class=“card-visual“>
+      <div class=“ann ann-bad“ style=“margin-bottom:5px;“>Langes Zitat nicht eingerückt:</div>
+      <div class=“doc“>
+        <div class=“wrong“ style=“font-size:8.5px;“>“Adorno schreibt: 'Die Dummheit, mit welcher der Kulturmarkt rechnet, wird durch diesen reproduziert und verstärkt. Frisch-fröhliche Verbreitung von Bildung unter den herrschenden Bedingungen ist unmittelbar eins mit ihrer Vernichtung' (1998, S. 110).“</div>
+        <div class=“ann ann-bad“>mehr als 3 Zeilen, aber nicht als Blockzitat formatiert</div>
+      </div>
+      <div class=“divider“></div>
+      <div class=“doc right“>
+        <div style=“font-size:8px;padding-left:10px;border-left:2px solid rgba(100,200,130,0.3);“>“Die Dummheit, mit welcher der Kulturmarkt rechnet, wird durch diesen reproduziert und verstärkt. Frisch-fröhliche Verbreitung von Bildung unter den herrschenden Bedingungen ist unmittelbar eins mit ihrer Vernichtung“ (Adorno 1998, S. 110).</div>
+      </div>
+      <div class=“ann ann-good“>eingerückt, Schriftgröße 10, Zeilenabstand 1,3</div>
+    </div>
+    <div class=“card-caption“>→ Zitate ab 3 Zeilen: einrücken, Schriftgröße 10, Zeilenabstand 1,3, keine Anführungszeichen.</div>
+  </div>
+
+  <div class=“card“>
+    <div class=“card-num“>Prüfpunkt 6</div>
+    <div class=“card-title“>Arbeit ohne Quellenverweise in sich verständlich</div>
+    <div class=“card-visual“>
+      <div class=“ann ann-bad“ style=“margin-bottom:5px;“>Text trägt ohne Zitate nicht:</div>
+      <div class=“doc“>
+        <div class=“wrong“ style=“font-size:8.5px;“>“Wie (Adorno 1971, S. 42) zeigt, ist dies (ebd., S. 43) der Fall, was (Horkheimer/Adorno 1998, S. 295) bestätigt. Daraus folgt (Schäfer 2017, S. 35), dass...“</div>
+        <div class=“ann ann-bad“>ohne Belege bleibt nur: “Wie gezeigt ist dies der Fall, was bestätigt. Daraus folgt, dass...“ — bedeutungslos</div>
+      </div>
+      <div class=“divider“></div>
+      <div class=“doc right“ style=“font-size:8.5px;“>“Adorno versteht Dummheit als gesellschaftlich erzeugtes Phänomen, das durch Anpassungsdruck entsteht. Diese Diagnose verschärft sich im Kontext massenmedialer Vermittlung: Das Fernsehen vertieft die Erfahrungsarmut, statt sie zu beheben.“</div>
+      <div class=“ann ann-good“>ohne Klammern trägt der Text für sich</div>
+    </div>
+    <div class=“card-caption“>→ Decken Sie alle Zitate ab und lesen Sie den Text laut vor. Ergibt er noch Sinn? Wenn nicht: nachbessern.</div>
+  </div>
+
+  <div class=“card“>
+    <div class=“card-num“>Prüfpunkt 7</div>
+    <div class=“card-title“>ChatGPT, Wikipedia, graue Literatur meiden</div>
+    <div class=“card-visual“>
+      <div class=“ann ann-bad“ style=“margin-bottom:5px;“>Unzulässige Quellen im Literaturverzeichnis:</div>
+      <div class=“doc“>
+        <div class=“wrong“ style=“margin-bottom:3px;“>Wikipedia (2024): Adorno. In: wikipedia.org...</div>
+        <div class=“wrong“ style=“margin-bottom:3px;“>ChatGPT (2024): Zusammenfassung der Kritischen Theorie...</div>
+        <div class=“wrong“>Seminarskript WS 2023/24, unveröffentlicht.</div>
+        <div class=“ann ann-bad“ style=“margin-top:4px;“>keine zitierfähigen wissenschaftlichen Quellen</div>
+      </div>
+      <div class=“divider“></div>
+      <div class=“doc right“ style=“font-size:8px;“>
+        <div>Schäfer, A. (2017): Theodor W. Adorno. Weinheim: Beltz.</div>
+        <div>Gruschka, A. (2004): Negative Pädagogik. Wetzlar: Büchse der Pandora.</div>
+      </div>
+      <div class=“ann ann-good“>zitierfähige Monographien</div>
+    </div>
+    <div class=“card-caption“>→ Wikipedia als Einstieg ist in Ordnung — als Beleg nicht. ChatGPT-Inhalte sind keine zitierfähige Quelle. Graue Literatur (unveröffentlichte Seminarskripte, Blogs, Vorlesungsfolien) ebenfalls nicht.</div>
+  </div>
+
+</div>
+</div>
+</body>
+</html>
