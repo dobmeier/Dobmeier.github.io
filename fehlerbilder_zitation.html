@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Fehlerbilder — Zitation & Literatur</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#0d1b2e;--surface:#132238;--text:#f0ece4;--muted:#8ea4bc;--accent:#8faec8;--gold:#e8c97a;--border:rgba(255,255,255,0.07);--red:rgba(220,80,70,0.85);--red-bg:rgba(220,80,70,0.1);--red-border:rgba(220,80,70,0.3);--green:rgba(100,200,130,0.8);--green-bg:rgba(100,200,130,0.08);--green-border:rgba(100,200,130,0.3);}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Lato',sans-serif;background:var(--bg);color:var(--text);padding:2.5rem 1.5rem 4rem;}
+.wrap{max-width:900px;margin:0 auto;}
+nav{position:sticky;top:0;z-index:100;background:rgba(13,27,46,0.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);margin:-2.5rem -1.5rem 2.5rem;padding:0 1.5rem;}
+.nav-inner{max-width:900px;margin:0 auto;height:52px;display:flex;align-items:center;justify-content:space-between;}
+.nav-title{font-size:0.95rem;font-weight:300;color:var(--text);}
+.nav-back{font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;}
+h1{font-size:1.4rem;font-weight:300;margin-bottom:0.4rem;}
+.intro{font-size:0.85rem;color:var(--muted);line-height:1.75;margin-bottom:2.5rem;max-width:580px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.card-num{font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);padding:0.9rem 1.1rem 0;}
+.card-title{font-size:0.88rem;font-weight:400;color:var(--text);padding:0.3rem 1.1rem 0.75rem;line-height:1.4;}
+.card-visual{margin:0 1.1rem 0.75rem;border-radius:5px;border:1px solid var(--red-border);background:var(--red-bg);min-height:110px;padding:0.75rem;}
+.card-caption{font-size:0.75rem;color:var(--muted);padding:0 1.1rem 1.1rem;line-height:1.55;}
+.doc{font-family:'Times New Roman',serif;font-size:9px;line-height:1.55;}
+.wrong{color:var(--red);}
+.right{color:var(--green);}
+.ann{font-size:8px;font-family:'Lato',sans-serif;font-style:italic;}
+.ann-bad{color:var(--red);}
+.ann-good{color:var(--green);}
+.divider{height:1px;background:rgba(255,255,255,0.08);margin:6px 0;}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner"><span class="nav-title">Fehlerbilder — Zitation & Literatur</span><a href="hausarbeitcheck.html" class="nav-back">← Zur Checkliste</a></div></nav>
+<div class="wrap">
+<h1>Fehlerbilder: Zitation & Literatur</h1>
+<p class="intro">Negative Beispiele zu den 8 Prüfpunkten. Zitierfehler sind die häufigsten und am leichtesten vermeidbaren Fehler in Hausarbeiten.</p>
+<div class="grid">
+
+  <div class="card">
+    <div class="card-num">Prüfpunkt 1</div>
+    <div class="card-title">Alle Zitate haben eine Seitenangabe</div>
+    <div class="card-visual">
+      <div class="ann ann-bad" style="margin-bottom:5px;">Seitenangabe fehlt:</div>
+      <div class="doc">
+        <div class="wrong">"Adorno versteht Dummheit als gesellschaftliches Wundmal (Horkheimer/Adorno 1998)."</div>
+        <div class="ann ann-bad">welche Seite? Werk hat 300+ Seiten</div>
+      </div>
+      <div class="divider"></div>
+      <div class="doc right">"Adorno versteht Dummheit als gesellschaftliches Wundmal (Horkheimer/Adorno 1998, S. 295)."</div>
+      <div class="ann ann-good">Autor, Jahr, Seite — vollständig</div>
+    </div>
+    <div class="card-caption">→ Jeder Beleg braucht eine Seitenangabe. Ohne Seite ist das Zitat nicht nachprüfbar.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-num">Prüfpunkt 2</div>
+    <div class="card-title">Zitationsstil einheitlich durchgehalten</div>
+    <div class="card-visual">
+      <div class="ann ann-bad" style="margin-bottom:5px;">Stilmix im selben Text:</div>
+      <div class="doc">
+        <div class="wrong" style="margin-bottom:3px;">“...wie Adorno¹ zeigt.“ [Fußnotenbeleg]</div>
+        <div class="wrong" style="margin-bottom:3px;">“...wie Schäfer (2017, S. 35) betont.“ [Kurzbeleg]</div>
+        <div class="wrong">“...vgl. Gruschka 2004.“ [ohne S.]</div>
+        <div class="ann ann-bad">drei verschiedene Stile in einer Arbeit</div>
+      </div>
+      <div class="divider"></div>
+      <div class="doc right">
+        <div>“...wie Adorno zeigt (1971b, S. 42).“</div>
+        <div>“...wie Schäfer betont (2017, S. 35).“</div>
+        <div>“...vgl. Gruschka (2004, S. 12).“</div>
+      </div>
+      <div class="ann ann-good">einheitlicher Kurzbeleg durchgehend</div>
+    </div>
+    <div class="card-caption">→ Einen Stil wählen und konsequent durchhalten — Fußnotenbeleg oder Kurzbeleg, nie beides.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-num">Prüfpunkt 3</div>
+    <div class="card-title">Alle zitierten Werke im LV — und umgekehrt</div>
+    <div class="card-visual">
+      <div class="ann ann-bad" style="margin-bottom:5px;">Asymmetrie zwischen Text und LV:</div>
+      <div class="doc">
+        <div class="wrong" style="margin-bottom:4px;">Im Text zitiert: Adorno 1971, Schäfer 2017, <span style="text-decoration:underline;color:var(--red);">Thompson 2019</span></div>
+        <div class="wrong" style="margin-bottom:4px;">Im LV vorhanden: Adorno 1971, Schäfer 2017, <span style="text-decoration:underline;color:var(--red);">Gruschka 2004</span></div>
+        <div class="ann ann-bad">Thompson im Text, nicht im LV — Gruschka im LV, nicht im Text</div>
+      </div>
+      <div class="divider"></div>
+      <div class="doc right">Text und LV stimmen exakt überein — jedes Zitat hat einen LV-Eintrag, jeder LV-Eintrag wird zitiert.</div>
+      <div class="ann ann-good">vollständige Übereinstimmung</div>
+    </div>
+    <div class="card-caption">→ Am Ende Strg+F: jeden Autorennamen im Text mit dem LV abgleichen — und umgekehrt.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-num">Prüfpunkt 4</div>
+    <div class="card-title">Literaturverzeichnis alphabetisch geordnet</div>
+    <div class="card-visual">
+      <div class="ann ann-bad" style="margin-bottom:5px;">Nicht alphabetisch, sondern nach Erscheinen im Text:</div>
+      <div class="doc">
+        <div class="wrong">Horkheimer/Adorno (1998)...</div>
+        <div class="wrong">Schäfer (2017)...</div>
+        <div class="wrong">Adorno (1971)...</div>
+        <div class="wrong">Gruschka (2004)...</div>
+        <div class="ann ann-bad">Reihenfolge folgt dem Text, nicht dem Alphabet</div>
+      </div>
+      <div class="divider"></div>
+      <div class="doc right">
+        <div>Adorno, T. W. (1971)...</div>
+        <div>Gruschka, A. (2004)...</div>
+        <div>Horkheimer, M./Adorno, T. W. (1998)...</div>
+        <div>Schäfer, A. (2017)...</div>
+      </div>
+      <div class="ann ann-good">alphabetisch nach Nachname</div>
+    </div>
+    <div class="card-caption">→ Das LV ist immer alphabetisch nach Nachnamen sortiert — unabhängig davon, wann die Quelle im Text erscheint.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-num">Prüfpunkt 5</div>
+    <div class="card-title">Vollständige Angaben im Literaturverzeichnis</div>
+    <div class="card-visual">
+      <div class="ann ann-bad" style="margin-bottom:5px;">Unvollständige Einträge:</div>
+      <div class="doc">
+        <div class="wrong" style="margin-bottom:3px;">Adorno (1971): Erziehung zur Mündigkeit. Frankfurt.</div>
+        <div class="ann ann-bad" style="margin-bottom:5px;">Vorname fehlt, Verlag fehlt, Reihe fehlt, Herausgeber fehlt</div>
+        <div class="wrong">Schäfer (2017): Adorno-Porträt.</div>
+        <div class="ann ann-bad">Verlagsort, Verlag, Reihentitel, Auflage fehlen</div>
+      </div>
+      <div class="divider"></div>
+      <div class="doc right" style="font-size:8px;">Adorno, T. W. (1971b). Erziehung zur Mündigkeit [1969]. In G. Kadelbach (Hrsg.), Erziehung zur Mündigkeit (st, Bd. 11, S. 133–147). Frankfurt a. M.: Suhrkamp.</div>
+      <div class="ann ann-good">vollständige Angabe</div>
+    </div>
+    <div class="card-caption">→ Vollständig heißt: Vorname ausgeschrieben, Jahreszahl, Titel + Untertitel, ggf. Hrsg., Reihe, Auflage, Verlagsort, Verlag, Seiten.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-num">Prüfpunkt 6</div>
+    <div class="card-title">Sekundärliteratur inhaltlich verwendet, nicht nur aufgeführt</div>
+    <div class="card-visual">
+      <div class="ann ann-bad" style="margin-bottom:5px;">Schaufenster-Literatur — im LV, aber nicht im Text:</div>
+      <div class="doc">
+        <div style="margin-bottom:4px;color:rgba(240,236,228,0.7);">Im Text: nur Adorno zitiert (12 Belege)</div>
+        <div class="wrong">Im LV: Adorno + 8 weitere Werke</div>
+        <div class="ann ann-bad">8 Werke im LV, die im Text nie vorkommen — “Schaufensterliteratur“</div>
+      </div>
+      <div class="divider"></div>
+      <div class="doc right" style="font-size:8.5px;">“Schäfer (2017, S. 35) liest Adornos Begriff der Halbbildung als...“<br/>“Gruschka (2004, S. 12) zeigt, dass...“</div>
+      <div class="ann ann-good">jede Quelle wird inhaltlich eingesetzt</div>
+    </div>
+    <div class="card-caption">→ Sekundärliteratur muss im Text inhaltlich verwendet werden. Bücher, die nur als Dekoration im Literaturverzeichnis stehen, werden beim Korrigieren sofort bemerkt.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-num">Prüfpunkt 7</div>
+    <div class="card-title">Anführungszeichen einheitlich deutsch</div>
+    <div class="card-visual">
+      <div class="ann ann-bad" style="margin-bottom:5px;">Englische statt deutsche Anführungszeichen:</div>
+      <div class="doc">
+        <div class="wrong" style="margin-bottom:3px;">“Dummheit ist ein Wundmal“ (Adorno)</div>
+        <div class="wrong" style="margin-bottom:5px;">“Halbbildung“ und “Kulturindustrie“</div>
+        <div class="ann ann-bad">gerade englische Zeichen “ “ statt deutsche „ “</div>
+      </div>
+      <div class="divider"></div>
+      <div class="doc right">
+        <div>„Dummheit ist ein Wundmal“ (Adorno)</div>
+        <div>„Halbbildung“ und „Kulturindustrie“</div>
+      </div>
+      <div class="ann ann-good">deutsche Anführungszeichen: „ unten, “ oben</div>
+    </div>
+    <div class="card-caption">→ Strg+F nach geraden Anführungszeichen suchen und durch deutsche ersetzen: „ (unten) und “ (oben). Word: Autokorrektur-Einstellungen helfen dabei.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-num">Prüfpunkt 8</div>
+    <div class="card-title">Satzzeichen nach Beleg korrekt gesetzt</div>
+    <div class="card-visual">
+      <div class="ann ann-bad" style="margin-bottom:5px;">Satzzeichen vor dem Beleg:</div>
+      <div class="doc">
+        <div class="wrong" style="margin-bottom:5px;">“Dummheit ist ein Wundmal.“ (Horkheimer/Adorno 1998, S. 295)</div>
+        <div class="ann ann-bad">Punkt vor der Klammer — falsch</div>
+        <div class="wrong">“gesellschaftlich produziert“, (Adorno 1971, S. 42)</div>
+        <div class="ann ann-bad">Komma vor der Klammer — falsch</div>
+      </div>
+      <div class="divider"></div>
+      <div class="doc right">
+        <div>“Dummheit ist ein Wundmal“ (Horkheimer/Adorno 1998, S. 295).</div>
+        <div style="margin-top:3px;">“gesellschaftlich produziert“ (Adorno 1971, S. 42),</div>
+      </div>
+      <div class="ann ann-good">Satzzeichen kommt nach der schließenden Klammer</div>
+    </div>
+    <div class="card-caption">→ Punkt und Komma stehen immer nach der Klammer mit dem Beleg — nie davor.</div>
+  </div>
+
+</div>
+</div>
+</body>
+</html>

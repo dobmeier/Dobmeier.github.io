@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Positivbeispiel — Vollständige Einleitung (Adorno)</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #0d1b2e; --surface: #132238; --text: #f0ece4;
+  --muted: #8ea4bc; --light: #4a6682; --accent: #8faec8;
+  --gold: #e8c97a; --border: rgba(255,255,255,0.07);
+  --green: rgba(100,200,130,0.8); --green-bg: rgba(100,200,130,0.08); --green-border: rgba(100,200,130,0.3);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Lato', sans-serif; background: var(--bg); color: var(--text); padding: 2.5rem 2rem 5rem; line-height: 1.7; }
+.wrap { max-width: 760px; margin: 0 auto; }
+
+nav { position: sticky; top: 0; z-index: 100; background: rgba(13,27,46,0.96); backdrop-filter: blur(6px); border-bottom: 1px solid var(--border); margin: -2.5rem -2rem 2.5rem; padding: 0 2rem; }
+.nav-inner { max-width: 760px; margin: 0 auto; height: 52px; display: flex; align-items: center; justify-content: space-between; }
+.nav-title { font-size: 0.95rem; font-weight: 300; color: var(--text); }
+.nav-back { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-decoration: none; }
+.nav-back:hover { color: var(--accent); }
+
+h1 { font-size: 1.35rem; font-weight: 300; line-height: 1.4; margin-bottom: 0.6rem; }
+.subtitle { font-size: 0.85rem; color: var(--muted); margin-bottom: 2rem; }
+.intro-box { font-size: 0.85rem; color: var(--muted); line-height: 1.8; background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--gold); border-radius: 0 6px 6px 0; padding: 1.1rem 1.4rem; margin-bottom: 2.5rem; }
+.intro-box strong { color: var(--text); font-weight: 400; }
+
+.legend { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2.5rem; }
+.legend-item { font-size: 0.72rem; letter-spacing: 0.03em; padding: 0.25rem 0.65rem; border-radius: 3px; }
+.leg-green { background: rgba(100,200,130,0.12); color: rgba(100,200,130,0.9); border: 1px solid rgba(100,200,130,0.3); }
+.leg-yellow { background: rgba(232,201,122,0.12); color: #e8c97a; border: 1px solid rgba(232,201,122,0.3); }
+.leg-orange { background: rgba(220,140,70,0.12); color: rgba(230,160,100,0.9); border: 1px solid rgba(220,140,70,0.3); }
+
+.marg { font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); margin: 2.2rem 0 0.5rem; opacity: 0.85; }
+p.body-text { font-family: 'Times New Roman', Georgia, serif; font-size: 1.02rem; color: rgba(240,236,228,0.92); line-height: 1.85; text-align: justify; margin-bottom: 1rem; }
+.cite { color: var(--accent); }
+sup.fn { color: var(--gold); font-size: 0.7em; }
+
+.zf-box { background: var(--green-bg); border: 1px solid var(--green-border); border-radius: 6px; padding: 1.1rem 1.4rem; margin: 2rem 0; font-family: 'Times New Roman', Georgia, serif; font-size: 1.02rem; line-height: 1.8; }
+.zf-label { font-family: 'Lato', sans-serif; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); margin-bottom: 0.5rem; }
+
+.footnotes { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+.footnotes-title { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+.fn-item { font-size: 0.8rem; color: var(--muted); line-height: 1.7; margin-bottom: 0.8rem; }
+.fn-item sup { color: var(--gold); margin-right: 3px; }
+
+.litverz { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+.litverz-title { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+.lit-item { font-size: 0.82rem; color: var(--muted); line-height: 1.6; margin-bottom: 0.7rem; padding-left: 1.4rem; text-indent: -1.4rem; }
+.lit-item em { font-style: italic; }
+
+.back-cta { margin-top: 3rem; text-align: center; }
+.back-cta a { display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; letter-spacing: 0.05em; color: #e8c97a; text-decoration: none; border: 1px solid rgba(232,201,122,0.35); background: rgba(232,201,122,0.08); border-radius: 4px; padding: 0.6rem 1.3rem; }
+.back-cta a:hover { background: rgba(232,201,122,0.16); }
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <span class="nav-title">Positivbeispiel — Vollständige Einleitung</span>
+  <a href="fehlerbilder_einleitung.html" class="nav-back">← Fehlerbilder Einleitung</a>
+</div></nav>
+
+<div class="wrap">
+<h1>„Dummheit ist ein Wundmal" (Horkheimer/Adorno): Zur „Genese der Dummheit" als bildungstheoretisches Problem unter besonderem Einbezug Adornos Medienkritik am Fernsehen</h1>
+<p class="subtitle">Kapitel 1 — Einleitung · Beispiel-Hausarbeit F. Dobmeier (2026) · veröffentlicht als Muster für die Selbstbefragung</p>
+
+<div class="intro-box">
+  Diese Einleitung ist der <strong>Referenzfall</strong>, an dem sich die Selbstbefragung und alle Fehlerbilder-Beispiele auf dieser Website orientieren. Sie erfüllt alle 8 Prüfpunkte der Kategorie „Einleitung" vollständig und zeigt zusätzlich zwei weiterführende Konventionen: <strong>Marginalien</strong> (die kursiven Zwischenüberschriften) und ein <strong>Farbcode-System</strong> für die Lektüregrundlage (siehe Legende).
+</div>
+
+<div class="legend">
+  <span class="legend-item leg-green">grün = Primärtexte (Intensivlektüre)</span>
+  <span class="legend-item leg-yellow">gelb = ergänzende Primärlektüre</span>
+  <span class="legend-item leg-orange">orange = rahmende Sekundärliteratur</span>
+</div>
+
+<p class="marg">Die ubiquitäre Orientierungsfunktion von Massenmedien</p>
+<p class="body-text">Das meiste, was wir wissen und nicht unmittelbar selbst im Nahbereich erfahren haben, wissen wir nur aus den Massenmedien. ‚Man' ist nach Konsum ebendieser wortwörtlich ‚informiert' – in seinem Denken in Form gebracht. ‚Man' hat dann etwa die sogenannten ‚Leitmedien' rezipiert, glaubt deren ‚Qualitäts'-Versprechen und ‚Wirklichkeits'-Beschreibungen, wie ‚man' das eben glaubt. Was oft zum guten Ton des bürgerlichen ‚Mitredenkönnens' und akademischen „Bescheidwissen[s]" <span class="cite">(Horkheimer/Adorno 1998a, S. 235)</span> gehört und für ein Fenster zu fernliegenden Wirklichkeiten gehalten wird (wortwörtlich: ‚Fernsehen'), erweist sich aus Sicht Adornos jedoch als gefährlicher Trugschluss.</p>
+
+<p class="marg">Massenmedien als Status-quo-„kittende" Ideologieproduktion</p>
+<p class="body-text">Adorno zufolge tendieren Massenmedien in ihrer kulturindustriellen Ausprägung dazu, Wirklichkeit <em>verzerrt</em> darzustellen. Die Art und Weise ihrer Verzerrung hängt dabei je ab von den an sie anliegenden strukturellen Interessenlagen polit-ökonomischer Rahmenbedingungen, also davon, was der Herrschaft und dem Kapital je zweckdienlich ist. Die vermeintliche Wirklichkeitsbeschreibung entlarvt sich als Funktion eines „Verblendungszusammenhang[s]" <span class="cite">(Adorno 1971d, S. 22)</span>, der herrschende Ideologien, gesellschaftliche Klassen und Interessenstrukturen re-/produziert.<sup class="fn">1</sup> Der Konnex von Massenmedien/Herrschaft, Ideologien/Diskursen <span class="cite">(Emmerich 2016, S. 134 f.)</span>, etwa am Beispiel „Fernsehen und Bildung" <span class="cite">(Adorno 1971c, S. 50)</span>, entpuppt sich als etwas, das den Status quo stützt. Umso mehr ist Ideologie nötig, die das Subjekt verinnerlicht und die dazu dient, wie Kleber »Kitt« <span class="cite">(Adorno 2003c, S. 292 f.)</span> die herrschende „Gesellschaft zusammenzuhalten" <span class="cite">(ebd.)</span> und Leiden an dieser zu ‚entschuldigen'.</p>
+
+<p class="body-text">Die kulturindustriellen Massenmedien geben dabei das aus Herrschaftssicht legitime Spektrum ‚erlaubter Kritik' am System und den von ihm profitierenden Akteuren vor;<sup class="fn">2</sup> in kulturindustriellen Formaten werden Reaktionsmuster tendenziell vorstrukturiert. Das so in seiner lebendig-kritischen Widerständigkeit <span class="cite">(Adorno 1971b, S. 146 f.; Horkheimer/Adorno 1998c, S. 295 f.)</span> zu entschärfende Individuum gerät in eine weithin passive Zuschauer-/Nachahmungsrolle. Es „soll keiner eigenen Gedanken bedürfen: das Produkt zeichnet jede Reaktion vor: nicht durch seinen sachlichen Zusammenhang – dieser zerfällt, soweit er Denken beansprucht – sondern durch Signale" <span class="cite">(Horkheimer/Adorno 1998b, S. 159)</span>. Reaktionen werden dabei häufig signalhaft organisiert und affektiv gerahmt. ‚Man' ist dann alarmiert, wie ‚man' alarmiert ist – worüber, das verbleibt dann den herrschenden Massenmedien je noch zu definieren, abhängig davon, was den von ihnen gestützten politökonomischen Strukturen funktional ist.</p>
+
+<p class="marg">Indikator misslungener Bildung: Zurücklehnen in die Haltung</p>
+<p class="body-text">‚Man' ist dazu passend dann ‚empört', ‚kritisch', ‚angepasst', ‚Schüler', ‚Akademiker', usw. usf. Das sich so zu einer „crowd" <span class="cite">(Adorno 1971a, S. 101)</span> formt, massenmedial alarmiert, ‚Zusammenrotten' <span class="cite">(ebd.)</span> wird begleitet vom „kollektiven Narzissmus" <span class="cite">(Adorno 1971d, S. 19)</span>, damit eine ‚engagierte' Haltung zu zeigen. Das heißt aber nur: „Wer Haltung hat, lehnt sich in seine Persönlichkeit zurück" <span class="cite">(Adorno 2003b, S. 178)</span> statt gesellschaftsanalytisch der materiellen politökonomischen wie ideologischen Wirklichkeit selbst auf den Grund zu gehen; „[j]a, dem Begriff Haltung selber ist nicht zu trauen" <span class="cite">(ebd.)</span>, verweist er doch selbst schon auf Halbbildung und Unfähigkeit zur eigenen Erfahrung. Im sich in seine vermeintlich moralisch ‚gute' Haltung Zurücklehnen bemerken die Individuen, so Adornos Sorge, dann auch gar nicht mehr, wie die herrschende Kulturindustrie es arrangiert, dass mit den Protestenergien, Haltungs-/Empörungsbefindlichkeiten der Individuen in einer Art Affektindustrie „unter Ausnutzung ihrer eigenen Triebbedürftigkeit Schlitten gefahren wird" <span class="cite">(Adorno 1971b, S. 146)</span>.<sup class="fn">3</sup></p>
+
+<p class="marg">Strukturelle Tendenzen zur Neutralisierung von Kritik</p>
+<p class="body-text">Nicht bemerken die Einzelnen und Massen dabei aber, wie sehr es den Herrschaftsmedien darum geht, „das Niveau zu senken, unpopuläre Programme abzubauen" <span class="cite">(Adorno 2003a, S. 290)</span> und „Stumpfsinn, mit dem man die monotone Arbeit […] [der Massen] begleitet" <span class="cite">(ebd.)</span> auszubauen. Dabei „bewirkt die zunehmende Konzentration politischer Macht eine indirekte Zensur, die zur Beseitigung kritischer Programme tendiert" <span class="cite">(ebd.)</span>; bestimmte Programme nennen sich dann <em>de nomine</em> noch ‚kritisch', lösen aber echte Kritik in der Sache <em>de facto</em> nicht mehr ein. Die Massen werden mit der bloßen Imitation echter Kritik, damit dem Erhalt und Ausbau des herrschenden Status quo, abgespeist. Sie finden sich dann selbst einer „überwältigenden Kraft des Bestehenden" <span class="cite">(Adorno 1971b, S. 147)</span> ausgesetzt, angesichts derer sie sich „zur Ohnmacht verurteilt erscheinen" <span class="cite">(ebd.)</span>. Wer jedoch etwas daran „ändern will, kann es wahrscheinlich überhaupt nur, indem er diese Ohnmacht selber und seine eigene Ohnmacht zu einem Moment dessen macht, was er denkt und vielleicht auch was er tut" <span class="cite">(ebd.)</span>.</p>
+
+<p class="marg">Eingrenzung: Worum es der vorliegenden Arbeit nicht geht</p>
+<p class="body-text">Die Arbeit wird vor diesem Hintergrund nun <em>bildungstheoretisch</em> prüfen, inwiefern sich der Begriff der „Dummheit" <span class="cite">(Horkheimer/Adorno 1998c, S. 295)</span> mit Adornos medienkritischen Überlegungen – insb. zum Fernsehen <span class="cite">(Adorno 1971c, S. 50)</span> – zusammendenken lässt. Denn: „Die Dummheit, mit welcher der Kulturmarkt rechnet, wird durch diesen reproduziert und verstärkt. Frisch-fröhliche Verbreitung von Bildung unter den herrschenden Bedingungen ist unmittelbar eins mit ihrer Vernichtung" <span class="cite">(Adorno 1998, S. 110)</span>.</p>
+
+<p class="body-text">Die vorliegende Arbeit fragt also – anders gesagt – nicht nach Erziehungstheorie, auch nicht nach pädagogischer Handlungstheorie, sondern explizit nach Bildungstheorie. Sie interessiert sich dabei – Adornos <em>negativ-dialektischem</em> Denken entsprechend <span class="cite">(Schäfer/Thompson 2010)</span> – aber nicht für die positiv besetzten Ziele, was ‚Bildung' idealerweise sein soll; es geht also nicht um die Frage, worin ihr ‚Wahres, Schönes und Gutes' bestehe. Sondern es geht <em>ex negativo</em> darum, wie Adorno das <em>Gegenteil von Bildung</em> beschreibt, also den Negativhorizont, vor dem gelingende Bildung im Kontrast zu unterscheiden ist. Anders gesagt: Was ist der Antagonist von Bildung, der ihr Gelingen verunmöglicht? Adorno formuliert darauf zwei Antworten: Bildung sei das Gegenteil von „Halbbildung" <span class="cite">(Adorno 1998, S. 93)</span> und – noch viel grundlegender, da als unterliegendes Problem alles bedingend – von <em>erlernter Dummheit</em>, da Dummheit als <em>Unfähigkeit zu eigener Erfahrung</em> echter Bildung die Möglichkeitsbedingung entziehe.</p>
+
+<p class="marg">Präzisierung des Erkenntnisinteresses: Dummheit als bildungstheoretisches Problem</p>
+<p class="body-text">Mit ‚Dummheit' ist also keine angeborene Intelligenz- oder Begabungsminderung gemeint <span class="cite">(Adorno 1971b, S. 133–135)</span>, sondern ein in Sozialisation, Pädagogik und Erziehung <span class="cite">(Fromme 2001, S. 418, bzgl. Horkheimer/Adorno 1998c)</span> gesellschaftlich erworbenes „Wundmal" <span class="cite">(Horkheimer/Adorno 1998c, S. 295)</span>. Es erscheint als die Folge wiederholter Hemmung bzw. Verletzung subjektiver Erfahrungsimpulse im Kontext gesellschaftlicher Anpassungsanforderungen (bspw. autoritäre Zwänge); allmählich ‚vernarbt' so die lebendige Neugier. Die „Fähigkeit zur Erfahrung" <span class="cite">(Thompson 2019; s. a. Thompson 2020, S. 125, 129)</span> als Bestreben, tastend, explorativ Welt sich zu erschließen, als Lernoffenheit für neue Irritationen, wird beschädigt. Bildung „auf ihrer Höhe" <span class="cite">(Adorno 1998, S. 95)</span> hingegen, die eigenes „Dasein bewahrend [zu] formen" <span class="cite">(ebd.)</span> sucht, bedarf der kritischen Distanzierung gegenüber gesellschaftlich erzeugten Erfahrungshemmungen,<sup class="fn">4</sup> auch, um eigene Wundmale erworbener Dummheit versorgen zu können, statt sie kulturindustriell gar verstärken zu lassen.</p>
+
+<p class="marg">Zentrale Fragestellung, Leitfragen, Gliederung der Arbeit, und Literatur</p>
+<div class="zf-box">
+  <div class="zf-label">Zentrale Fragestellung (ZF)</div>
+  Um dies nun weiter zu verstehen, geht die textrekonstruktive Arbeit<sup class="fn">5</sup> der zentralen Leitfrage (ZF) nach: <em>Inwiefern lässt sich aus Adornos Sicht auf das Fernsehen ein Beitrag zur Analyse gesellschaftlich produzierter Dummheitsgenese rekonstruieren?</em>
+  <div class="zf-label" style="margin-top:1rem;">Leitfragen (LF1–3)</div>
+  Dazu hangelt sich die Arbeit im Hauptteil (→ Kap. 2) entlang folgender Leitfragen: <strong>(LF1)</strong> <em>Was meint Adorno mit ‚Dummheit'?</em> (→ Kap. 2.1) Während LF1 auf die Ontik (das Sein) der ‚Dummheit' zielt, geht es bei Leitfrage 2 um deren Genese (Entstehung): <strong>(LF2)</strong> <em>Wie entsteht ‚Dummheit' laut Adorno?</em> (→ Kap. 2.2) Es ist sodann zu fragen: <strong>(LF3)</strong> <em>Warum kritisiert Adorno das ‚Fernsehen' als kulturindustrielles Massenmedium?</em> (→ Kap. 2.3) Zum Schluss (→ Kap. 3) folgen eine thesenartige Synopsis und ein Ausblick auf offen gebliebene Fragen und anschließende Desiderate.
+</div>
+
+<div class="footnotes">
+  <div class="footnotes-title">Fußnoten</div>
+  <div class="fn-item"><sup>1</sup> Oder um es mit Marx' Original zu sagen: „Die Gedanken der herrschenden Klasse sind in jeder Epoche die herrschenden Gedanken […]" (Marx/Engels 2014 [1845], S. 45).</div>
+  <div class="fn-item"><sup>2</sup> Man denke etwa an den <em>Militainment</em>-Sektor aus Hollywood, oder wie Adorno sagen würde: an „die Identität der Film- mit den Waffeninteressen" (Adorno 1997b, S. 116, Aph. 66).</div>
+  <div class="fn-item"><sup>3</sup> Insb. Bilder/Videos können dabei ideologisch über „visuelle Botschaften" (Fromme 2006, S. 192) eine massenmedial „besonders suggestive Kraft entfalten, weil sie unmittelbar eingängig und der reflexiven Analyse vorgeschaltet" (ebd.) sind. Im Anschluss an Adornos/Horkheimers Kulturindustriebegriff hat H. M. Enzensberger den Begriff der „Bewußtseins-Industrie" (1962, S. 7) entfaltet, und A. Kluge (2009) eine erfahrungsbasierte, unterbrechungstheoretische, urteilskritische Ästhetik als »die Kunst, Unterschiede zu machen« (Lütke-Harmann 2024, S. 615) beschrieben.</div>
+  <div class="fn-item"><sup>4</sup> Die Erforschung der Entstehung/Produktion von ‚Ignoranz' und ‚Nichtwissen' unter Berücksichtigung gesellschaftlicher und kultureller Aspekte heißt „Agnotology" (Proctor 2008), dt. ‚Agnotologie' (s. Dobmeier 2025).</div>
+  <div class="fn-item"><sup>5</sup> Grundlage bilden folgende Primärtexte von Adorno [insg. 21 Seiten Lektürepensum]: <em>Zur Genese der Dummheit</em> (Horkheimer/Adorno 1998c) [2 S.]; <em>Fernsehen und Bildung</em> (Adorno 1971c) [19 S.]. Ergänzende Texte [insg. 54 S.]: <em>Aktualität der Erwachsenenbildung</em> (Adorno 1997a) [5 S.]; <em>Gegen Bescheidwissen</em> (Horkheimer/Adorno 1998a) [3 S.]; <em>Erziehung zur Mündigkeit</em> (Adorno 1971b) [14 S.]; <em>Theorie der Halbbildung</em> (Adorno 1998) [28 S.]; <em>Deposita – und fortzusetzen</em> (Adorno 2003a) [3 S.]; <em>Zur Spezifikation der kritischen Theorie</em> (Adorno 2003c) [1 S.]. Als sekundärliterarische Hand-/Lehrbuchtexte dienen [insg. 32 S.]: <em>Vom Scheitern der Bildungsidee</em> (Schäfer 2017) [21 S.]; <em>Erfahrung</em> (Thompson 2020, darin S. 125 u. 129) [2 S.]; <em>Theodor W. Adorno: Negative Dialektik</em> (Schäfer/Thompson 2010, darin S. 141–143, 146–149) [7 S.]; <em>Ideologien und Diskurse</em> (Emmerich 2016, darin S. 134 u. 135) [2 S.].</div>
+</div>
+
+<div class="litverz">
+  <div class="litverz-title">Literaturverzeichnis (zu dieser Einleitung)</div>
+  <div class="lit-item">Adorno, T. W. (1971a). Erziehung nach Auschwitz. In G. Kadelbach (Hrsg.), <em>Erziehung zur Mündigkeit</em> (st, Bd. 11, S. 88–104). Frankfurt a. M.: Suhrkamp.</div>
+  <div class="lit-item">Adorno, T. W. (1971b). Erziehung zur Mündigkeit [1969]. In G. Kadelbach (Hrsg.), <em>Erziehung zur Mündigkeit</em> (st, Bd. 11, S. 133–147). Frankfurt a. M.: Suhrkamp.</div>
+  <div class="lit-item">Adorno, T. W. (1971c). Fernsehen und Bildung [1963]. In G. Kadelbach (Hrsg.), <em>Erziehung zur Mündigkeit</em> (st, Bd. 11, S. 50–69). Frankfurt a. M.: Suhrkamp.</div>
+  <div class="lit-item">Adorno, T. W. (1971d). Was bedeutet: Aufarbeitung der Vergangenheit [1960]. In G. Kadelbach (Hrsg.), <em>Erziehung zur Mündigkeit</em> (st, Bd. 11, S. 10–28). Frankfurt a. M.: Suhrkamp.</div>
+  <div class="lit-item">Adorno, T. W. (1997a). Aktualität der Erwachsenenbildung. In T. W. Adorno, <em>Vermischte Schriften I</em> [1986] (Gesammelte Schriften, 20-1, S. 327–331). Darmstadt: WBG.</div>
+  <div class="lit-item">Adorno, T. W. (1997b). <em>Minima Moralia. Reflexionen aus dem beschädigten Leben</em> (GS, Bd. 4). Darmstadt: WBG.</div>
+  <div class="lit-item">Adorno, T. W. (1998). Theorie der Halbbildung [1959]. In <em>Soziologische Schriften I</em> (Gesammelte Schriften, Bd. 8, S. 93–121). Darmstadt: WBG.</div>
+  <div class="lit-item">Adorno, T. W. (2003a). Deposita – und fortzusetzen [1969]. In <em>Eine Bildmonographie</em>, hrsg. v. Theodor W. Adorno Archiv (S. 288–290). Frankfurt a. M.: Suhrkamp.</div>
+  <div class="lit-item">Adorno, T. W. (2003b). Gegen Haltung [1939]. In <em>Eine Bildmonographie</em>, hrsg. v. Theodor W. Adorno Archiv (S. 176–178). Frankfurt a. M.: Suhrkamp.</div>
+  <div class="lit-item">Adorno, T. W. (2003c). Zur Spezifikation der kritischen Theorie [1969]. In <em>Eine Bildmonographie</em>, hrsg. v. Theodor W. Adorno Archiv (S. 292). Frankfurt a. M.: Suhrkamp.</div>
+  <div class="lit-item">Dobmeier, F. (2025). Fehlanzeige: Allgemeinpädagogische Agnotologie? Postdemokratisches Erziehen zwischen Zeigen und Nicht-Zeigen. In K. Berdelmann, T. Fuhr, J. Klopstein u. H. Reuten (Hrsg.), <em>Von der Reflexion zur Operation. Stand und Perspektiven der Operativen Pädagogik</em> (Pädagogische Diskurse, Bd. 4, S. 129–145). Paderborn: Schöningh.</div>
+  <div class="lit-item">Emmerich, M. (2016). Ideologien und Diskurse. In A. Scherr (Hrsg.), <em>Soziologische Basics. Eine Einführung für pädagogische und soziale Berufe</em> (3., erw. u. aktual. Aufl., S. 131–138). Wiesbaden: Springer.</div>
+  <div class="lit-item">Enzensberger, H. M. (1962). Bewußtseins-Industrie. In <em>Einzelheiten</em> (S. 7–15). Frankfurt a. M.: Suhrkamp.</div>
+  <div class="lit-item">Fromme, J. (2001). Irritation als ein zentrales Motiv für Lernen und Bildung. <em>Vierteljahrsschrift für wissenschaftliche Pädagogik</em>, 77(4), S. 409–428.</div>
+  <div class="lit-item">Fromme, J. (2006). Zwischen Immersion und Distanz. Lern- und Bildungspotenziale von Computerspielen. In W. Kaminski/M. Lorber (Hrsg.), <em>Clash of Realities. Computerspiel und soziale Wirklichkeit</em> (S. 177–209). München: Kopaed.</div>
+  <div class="lit-item">Horkheimer, M./Adorno, T. W. (1998a). Gegen Bescheidwissen. In <em>Dialektik der Aufklärung. Philosophische Fragmente</em> (Gesammelte Schriften, Bd. 3, S. 235–237). Darmstadt: WBG.</div>
+  <div class="lit-item">Horkheimer, M./Adorno, T. W. (1998b). Kulturindustrie. Aufklärung als Massenbetrug. In <em>Dialektik der Aufklärung. Philosophische Fragmente</em> (Gesammelte Schriften, Bd. 3, S. 141–191). Darmstadt: WBG.</div>
+  <div class="lit-item">Horkheimer, M./Adorno, T. W. (1998c). Zur Genese der Dummheit. In <em>Dialektik der Aufklärung. Philosophische Fragmente</em> (Gesammelte Schriften, Bd. 3, S. 295–296). Darmstadt: WBG.</div>
+  <div class="lit-item">Kluge, A. (2009). Die Aktualität Adornos – Dankesrede zur Verleihung des Adorno Preises 2009. URL: https://kluge-alexander.de/die-aktualitaet-adornos-dankesrede-zur-verleihung-des-adorno-preises-2009/ [zuletzt geprüft am 25.02.2026].</div>
+  <div class="lit-item">Lütke-Harmann, M. (2024). „Die Kunst, Unterschiede zu machen". Alexander Kluges dialektische Bilder als Medien ästhetischer Urteilsbildung. <em>Zeitschrift für Pädagogik</em>, 70(5), S. 615–631.</div>
+  <div class="lit-item">Marx, K./Engels, F. (2014 [1845]). Die deutsche Ideologie. In F. Adloff, S. M. Büttner, S. Moebius u. R. Schützeichel (Hrsg.), <em>Kultursoziologie. Klassische Texte – Aktuelle Debatten. Ein Reader</em> (S. 35–48). Frankfurt a. M.: campus.</div>
+  <div class="lit-item">Proctor, R. N. (2008). Agnotology. A Missing Term to Describe the Cultural Production of Ignorance (and Its Study). In R. N. Proctor/L. Schiebinger (Hrsg.), <em>Agnotology. The Making and Unmaking of Ignorance</em> (S. 1–33). Stanford: Stanford University Press.</div>
+  <div class="lit-item">Schäfer, A. (2017). Halbbildung: Vom Scheitern der Bildungsidee. In <em>Theodor W. Adorno. Ein pädagogisches Porträt</em> (Pädagogische Porträts/UTB, Bd. 2448, 2. Aufl., S. 35–55). Weinheim: Beltz.</div>
+  <div class="lit-item">Schäfer, A./Thompson, C. (2010). Theodor W. Adorno: Negative Dialektik. In B. Jörissen/J. Zirfas (Hrsg.), <em>Schlüsselwerke der Identitätsforschung</em> (S. 141–159). Wiesbaden: VS Verlag.</div>
+  <div class="lit-item">Thompson, C. (2019). <em>Die Fähigkeit zur Erfahrung. Welche Konsequenzen hat Adornos »Erziehung nach Auschwitz« für die heutige Pädagogik?</em> Ein Essay. https://www.juedische-allgemeine.de/kultur/die-faehigkeit-zur-erfahrung/ [05.11.2020].</div>
+  <div class="lit-item">Thompson, C. (2020). Erfahrung. In G. Weiß/J. Zirfas (Hrsg.), <em>Handbuch Bildungs- und Erziehungsphilosophie</em> (S. 121–131). Wiesbaden: Springer VS.</div>
+</div>
+
+<div class="back-cta">
+  <a href="hausarbeitcheck.html">← Zurück zur Selbstbefragung</a>
+</div>
+</div>
+</body>
+</html>
