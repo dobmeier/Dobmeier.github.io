@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Fehlerbilder — Deckblatt & Formalia</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #0d1b2e; --surface: #132238; --text: #f0ece4;
+  --muted: #8ea4bc; --light: #4a6682; --accent: #8faec8;
+  --gold: #e8c97a; --border: rgba(255,255,255,0.07);
+  --red: rgba(220,80,70,0.85); --red-bg: rgba(220,80,70,0.1);
+  --red-border: rgba(220,80,70,0.3);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Lato', sans-serif; background: var(--bg); color: var(--text); padding: 2.5rem 2rem 4rem; }
+.wrap { max-width: 1200px; margin: 0 auto; }
+
+nav { position: sticky; top: 0; z-index: 100; background: rgba(13,27,46,0.96); backdrop-filter: blur(6px); border-bottom: 1px solid var(--border); margin: -2.5rem -2rem 2.5rem; padding: 0 2rem; }
+.nav-inner { max-width: 1200px; margin: 0 auto; height: 52px; display: flex; align-items: center; justify-content: space-between; }
+.nav-title { font-size: 0.95rem; font-weight: 300; color: var(--text); }
+.nav-back { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-decoration: none; }
+.nav-back:hover { color: var(--accent); }
+
+h1 { font-size: 1.4rem; font-weight: 300; margin-bottom: 0.4rem; }
+.intro { font-size: 0.85rem; color: var(--muted); line-height: 1.75; margin-bottom: 2.5rem; max-width: 580px; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; }
+
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.card-num { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); padding: 1.1rem 1.4rem 0; }
+.card-title { font-size: 1rem; font-weight: 400; color: var(--text); padding: 0.4rem 1.4rem 1rem; line-height: 1.4; }
+.card-visual { margin: 0 1.4rem 1rem; border-radius: 5px; overflow: hidden; border: 1px solid var(--red-border); background: var(--red-bg); position: relative; min-height: 140px; padding: 1rem; }
+.card-caption { font-size: 0.85rem; color: var(--muted); padding: 0 1.4rem 1.4rem; line-height: 1.55; }
+
+/* Mock document styles */
+.doc { font-family: 'Times New Roman', serif; font-size: 11px; line-height: 1.55; color: rgba(240,236,228,0.85); }
+.doc .field { margin-bottom: 3px; }
+.doc .label { color: var(--muted); font-size: 8px; }
+.doc .val { color: var(--text); }
+.doc .wrong { color: var(--red); text-decoration: underline; text-decoration-color: rgba(220,80,70,0.6); }
+.doc .strike { text-decoration: line-through; color: var(--muted); }
+
+.red-arrow { color: var(--red); font-size: 1rem; margin-right: 4px; }
+.annotation { font-size: 10px; color: var(--red); font-family: 'Lato', sans-serif; font-style: italic; }
+
+/* Mock page for margin/format errors */
+.mock-page { background: rgba(240,236,228,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 2px; position: relative; }
+.mock-line { height: 5px; border-radius: 1px; margin-bottom: 3px; background: rgba(143,174,200,0.2); }
+.mock-line.wrong { background: rgba(220,80,70,0.3); }
+.mock-line.short { width: 60%; }
+.mock-line.med { width: 80%; }
+
+.error-badge { display: inline-block; background: rgba(220,80,70,0.15); border: 1px solid var(--red-border); border-radius: 3px; padding: 3px 8px; font-size: 10px; font-family: 'Lato', sans-serif; color: var(--red); margin: 2px; }
+.ok-badge { display: inline-block; background: rgba(100,200,130,0.1); border: 1px solid rgba(100,200,130,0.3); border-radius: 3px; padding: 3px 8px; font-size: 10px; font-family: 'Lato', sans-serif; color: rgba(100,200,130,0.8); margin: 2px; }
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <span class="nav-title">Fehlerbilder — Deckblatt & Formalia</span>
+  <a href="hausarbeitcheck.html" class="nav-back">← Zur Checkliste</a>
+</div></nav>
+
+<div class="wrap">
+<h1>Fehlerbilder: Deckblatt & Formalia</h1>
+<p class="intro">Negative Beispiele zu den 9 Prüfpunkten. So bitte nicht — und so ist es besser.</p>
+
+<div class="grid">
+
+  <!-- 1. Deckblatt Pflichtangaben -->
+  <div class="card">
+    <div class="card-num">Prüfpunkt 1</div>
+    <div class="card-title">Deckblatt enthält alle Pflichtangaben</div>
+    <div class="card-visual">
+      <div class="doc">
+        <div class="field"><span class="val">Universität Tübingen</span></div>
+        <div class="field"><span class="val">Seminar: Erziehungstheorie</span></div>
+        <div class="field" style="margin-top:6px;"><span class="val">„Bildung und Gesellschaft“</span></div>
+        <div class="field"><span class="val">Thea Musterfrau</span></div>
+        <div style="margin-top:6px;">
+          <span class="error-badge">✗ Matrikelnummer fehlt</span>
+          <span class="error-badge">✗ Prüfungsnummer fehlt</span>
+          <span class="error-badge">✗ Modulname fehlt</span>
+          <span class="error-badge">✗ Geburtsdatum fehlt</span>
+          <span class="error-badge">✗ Fachsemester fehlt</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-caption">→ Mehrere Pflichtfelder fehlen. Das Deckblatt muss vollständig ausgefüllt sein — sonst kann die Arbeit ggf. nicht zugeordnet werden.</div>
+  </div>
+
+  <!-- 2. Dateiname -->
+  <div class="card">
+    <div class="card-num">Prüfpunkt 2</div>
+    <div class="card-title">Dateiname (PDF): Schema „Hausarbeit Vorname Nachname Semester Modul“</div>
+    <div class="card-visual">
+      <div class="doc" style="margin-bottom:8px;">
+        <div class="field"><span class="wrong">Hausarbeit_final_FINAL_v3_neu.pdf</span></div>
+        <div class="field"><span class="wrong">HA Dobmeier Seminar.docx</span></div>
+        <div class="field"><span class="wrong">meine hausarbeit (1).pdf</span></div>
+      </div>
+      <div class="doc">
+        <div class="field" style="color:rgba(100,200,130,0.8);">✓ Hausarbeit Thea Musterfrau WS26 M1.pdf</div>
+      </div>
+    </div>
+    <div class="card-caption">→ Das vorgegebene Schema lautet: „Hausarbeit Vorname Nachname Semester Modul.pdf“. Unklare Dateinamen erschweren die Zuordnung.</div>
+  </div>
+
+  <!-- 3. Gliederungspunkte -->
+  <div class="card">
+    <div class="card-num">Prüfpunkt 3</div>
+    <div class="card-title">Keine Punkte nach Kapitelnummern</div>
+    <div class="card-visual">
+      <div style="display:flex;gap:1rem;">
+        <div>
+          <div class="annotation" style="color:var(--red);margin-bottom:4px;">✗ Falsch</div>
+          <div class="doc">
+            <div class="field"><span class="wrong">1.</span> Einleitung</div>
+            <div class="field"><span class="wrong">2.</span> Hauptteil</div>
+            <div class="field"><span class="wrong">2.1.</span> Begriffserklärung</div>
+            <div class="field"><span class="wrong">2.2.</span> Analyse</div>
+            <div class="field"><span class="wrong">3.</span> Fazit</div>
+          </div>
+        </div>
+        <div>
+          <div class="annotation" style="color:rgba(100,200,130,0.8);margin-bottom:4px;">✓ Richtig</div>
+          <div class="doc">
+            <div class="field" style="color:rgba(100,200,130,0.8);">1 Einleitung</div>
+            <div class="field" style="color:rgba(100,200,130,0.8);">2 Hauptteil</div>
+            <div class="field" style="color:rgba(100,200,130,0.8);">2.1 Begriffserklärung</div>
+            <div class="field" style="color:rgba(100,200,130,0.8);">2.2 Analyse</div>
+            <div class="field" style="color:rgba(100,200,130,0.8);">3 Fazit</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-caption">→ Punkte nach Kapitelnummern entsprechen nicht dem wissenschaftlichen Standard.</div>
+  </div>
+
+  <!-- 4. Seitenzahlen -->
+  <div class="card">
+    <div class="card-num">Prüfpunkt 4</div>
+    <div class="card-title">Seitenzahlen vorhanden und mittig unten</div>
+    <div class="card-visual">
+      <div style="display:flex;gap:0.75rem;align-items:flex-end;">
+        <div class="mock-page" style="width:65px;height:85px;padding:5px;">
+          <div class="mock-line"></div>
+          <div class="mock-line short"></div>
+          <div class="mock-line med"></div>
+          <div class="mock-line short"></div>
+          <div class="mock-line"></div>
+          <div class="annotation" style="position:absolute;top:3px;right:3px;color:var(--red);">3 ✗</div>
+        </div>
+        <div style="font-size:8px;color:var(--muted);font-family:Lato,sans-serif;">
+          <div style="color:var(--red);margin-bottom:3px;">✗ Seitenzahl oben rechts</div>
+          <div style="color:var(--red);margin-bottom:3px;">✗ Keine Seitenzahl</div>
+          <div style="color:var(--red);">✗ Seitenzahl links oben</div>
+        </div>
+      </div>
+      <div class="annotation" style="margin-top:8px;color:rgba(100,200,130,0.8);">✓ Korrekt: mittig, am unteren Seitenrand</div>
+    </div>
+    <div class="card-caption">→ Seitenzahlen fehlen oder stehen an der falschen Position. Immer mittig unten platzieren.</div>
+  </div>
+
+  <!-- 5. Blocksatz + Silbentrennung -->
+  <div class="card">
+    <div class="card-num">Prüfpunkt 5</div>
+    <div class="card-title">Blocksatz und automatische Silbentrennung</div>
+    <div class="card-visual">
+      <div style="display:flex;gap:0.75rem;">
+        <div style="flex:1;">
+          <div class="annotation" style="color:var(--red);margin-bottom:4px;">✗ Flattersatz (linksbündig)</div>
+          <div style="font-family:'Times New Roman',serif;font-size:8px;line-height:1.5;color:rgba(240,236,228,0.7);">
+            <div>Erziehung ist ein</div>
+            <div>grundlegender Begriff</div>
+            <div>in der Pädagogik, der</div>
+            <div>verschiedene Aspekte</div>
+            <div>umfasst.</div>
+          </div>
+        </div>
+        <div style="flex:1;">
+          <div class="annotation" style="color:rgba(100,200,130,0.8);margin-bottom:4px;">✓ Blocksatz</div>
+          <div style="font-family:'Times New Roman',serif;font-size:8px;line-height:1.5;color:rgba(240,236,228,0.7);text-align:justify;hyphens:auto;word-break:normal;overflow-wrap:break-word;" lang="de">
+            Erziehung ist ein grund&shy;legender Begriff in der Päd&shy;agogik, der ver&shy;schiedene Aspekte der mensch&shy;lichen Ent&shy;wicklung um&shy;fasst und be&shy;schreibt.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-caption">→ Flattersatz (linksbündig) wirkt eher energetisch, dynamisch; ist u. U. für Anschreiben bei einer Bewerbung geeignet oder für publizistische Essays, aber weniger für ruhig und bedacht, kurzum: »gesetzt« wirken sollende Abhandlungen. Word: Start → Absatz → Blocksatz.</div>
+  </div>
+
+  <!-- 6. Seitenränder -->
+  <div class="card">
+    <div class="card-num">Prüfpunkt 6</div>
+    <div class="card-title">Seitenränder: links/oben/unten 2 cm, rechts 4 cm</div>
+    <div class="card-visual">
+      <div style="display:flex;gap:0.75rem;justify-content:center;">
+        <div class="mock-page" style="width:55px;height:75px;padding:2px 2px 2px 4px;">
+          <div style="position:absolute;top:0;bottom:0;left:0;width:4px;background:rgba(220,80,70,0.25);border-radius:2px 0 0 2px;"></div>
+          <div style="position:absolute;top:0;bottom:0;right:0;width:4px;background:rgba(220,80,70,0.25);border-radius:0 2px 2px 0;"></div>
+          <div style="margin:4px 2px;"><div class="mock-line"></div><div class="mock-line short"></div><div class="mock-line med"></div><div class="mock-line short"></div></div>
+          <div class="annotation" style="position:absolute;bottom:2px;left:50%;transform:translateX(-50%);white-space:nowrap;color:var(--red);">gleiche Ränder ✗</div>
+        </div>
+        <div class="mock-page" style="width:55px;height:75px;padding:2px 2px 2px 2px;">
+          <div style="position:absolute;top:0;bottom:0;left:0;width:2px;background:rgba(100,200,130,0.25);border-radius:2px 0 0 2px;"></div>
+          <div style="position:absolute;top:0;bottom:0;right:0;width:8px;background:rgba(100,200,130,0.15);border-radius:0 2px 2px 0;"></div>
+          <div style="margin:4px 7px 4px 2px;"><div class="mock-line"></div><div class="mock-line short"></div><div class="mock-line med"></div><div class="mock-line short"></div></div>
+          <div class="annotation" style="position:absolute;bottom:2px;left:50%;transform:translateX(-50%);white-space:nowrap;color:rgba(100,200,130,0.8);">korrekt ✓</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-caption">→ Falsche Seitenränder. Rechts 4 cm (für Korrekturen), links/oben/unten je 2 cm.</div>
+  </div>
+
+  <!-- 7. Schriftart + Zeilenabstand -->
+  <div class="card">
+    <div class="card-num">Prüfpunkt 7</div>
+    <div class="card-title">Times New Roman 12, Zeilenabstand 1,5</div>
+    <div class="card-visual">
+      <div style="display:flex;gap:0.75rem;">
+        <div style="flex:1;">
+          <div class="annotation" style="color:var(--red);margin-bottom:4px;">✗ Falsch</div>
+          <div style="font-family:Arial,sans-serif;font-size:8px;line-height:1.1;color:rgba(240,236,228,0.7);">
+            Erziehung ist ein grundlegender Begriff der Pädagogik.
+          </div>
+          <div class="error-badge" style="margin-top:4px;">Arial, 11pt, einfach</div>
+        </div>
+        <div style="flex:1;">
+          <div class="annotation" style="color:rgba(100,200,130,0.8);margin-bottom:4px;">✓ Richtig</div>
+          <div style="font-family:'Times New Roman',serif;font-size:8px;line-height:1.5;color:rgba(240,236,228,0.7);">
+            Erziehung ist ein grundlegender Begriff der Pädagogik.
+          </div>
+          <div class="ok-badge" style="margin-top:4px;">TNR, 12pt, 1,5</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-caption">→ Falsche Schriftart oder falscher Zeilenabstand. Times New Roman 12pt, Zeilenabstand 1,5 — konsequent im gesamten Fließtext.</div>
+  </div>
+
+  <!-- 8. Überschriften + Fußnoten -->
+  <div class="card">
+    <div class="card-num">Prüfpunkt 8</div>
+    <div class="card-title">Überschriften und Fußnoten korrekt formatiert</div>
+    <div class="card-visual">
+      <div class="doc">
+        <div style="font-family:Arial,sans-serif;font-size:11px;font-weight:bold;color:var(--red);margin-bottom:4px;">1. Einleitung ✗ (Arial 11, falsche Schrift)</div>
+        <div style="font-family:'Times New Roman',serif;font-size:8px;line-height:1.4;color:rgba(240,236,228,0.7);margin-bottom:6px;">Fließtext beginnt hier...</div>
+        <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:4px;">
+          <div style="font-family:Calibri,sans-serif;font-size:8px;color:var(--red);">¹ Dies ist eine Fußnote in Calibri 9pt — falsch! ✗</div>
+        </div>
+      </div>
+      <div style="margin-top:8px;">
+        <div class="ok-badge">Überschrift 1: Calibri 14, fett</div>
+        <div class="ok-badge">Fußnoten: Times New Roman 10</div>
+      </div>
+    </div>
+    <div class="card-caption">→ Überschriften müssen in Calibri gesetzt sein — Fußnoten dagegen stets in Times New Roman, wie der Fließtext.</div>
+  </div>
+
+  <!-- 9. Gliederungslogik -->
+  <div class="card">
+    <div class="card-num">Prüfpunkt 9</div>
+    <div class="card-title">Gliederungslogik: kein Einzelunterkapitel, keine kombinierten Hervorhebungen</div>
+    <div class="card-visual">
+      <div style="display:flex;gap:0.75rem;">
+        <div style="flex:1;">
+          <div class="annotation" style="color:var(--red);margin-bottom:4px;">✗ Einzelunterkapitel</div>
+          <div class="doc">
+            <div class="field">2 Hauptteil</div>
+            <div class="field wrong" style="padding-left:8px;">2.1 Begriff ✗</div>
+            <div class="field" style="color:var(--muted);padding-left:8px;font-size:7px;">(kein 2.2!)</div>
+            <div class="field">3 Fazit</div>
+          </div>
+        </div>
+        <div style="flex:1;">
+          <div class="annotation" style="color:var(--red);margin-bottom:4px;">✗ Formatierung</div>
+          <div style="font-family:'Times New Roman',serif;font-size:9px;">
+            <div style="font-weight:bold;font-style:italic;text-decoration:underline;color:var(--red);">fett + kursiv + unterstrichen ✗</div>
+            <div style="margin-top:4px;font-weight:bold;color:rgba(100,200,130,0.8);">nur fett ✓</div>
+            <div style="margin-top:2px;font-style:italic;color:rgba(100,200,130,0.8);">oder kursiv ✓</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-caption">→ Wer 2.1 hat, braucht mindestens 2.2. Und: Nie mehrere Hervorhebungsstile gleichzeitig kombinieren.</div>
+  </div>
+
+</div><!-- /grid -->
+</div><!-- /wrap -->
+</body>
+</html>
