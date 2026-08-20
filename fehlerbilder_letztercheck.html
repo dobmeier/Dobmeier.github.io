@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Fehlerbilder — Letzter Check</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#0d1b2e;--surface:#132238;--text:#f0ece4;--muted:#8ea4bc;--accent:#8faec8;--gold:#e8c97a;--border:rgba(255,255,255,0.07);--red:rgba(220,80,70,0.85);--red-bg:rgba(220,80,70,0.1);--red-border:rgba(220,80,70,0.3);--green:rgba(100,200,130,0.8);}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Lato',sans-serif;background:var(--bg);color:var(--text);padding:2.5rem 1.5rem 4rem;}
+.wrap{max-width:900px;margin:0 auto;}
+nav{position:sticky;top:0;z-index:100;background:rgba(13,27,46,0.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);margin:-2.5rem -1.5rem 2.5rem;padding:0 1.5rem;}
+.nav-inner{max-width:900px;margin:0 auto;height:52px;display:flex;align-items:center;justify-content:space-between;}
+.nav-title{font-size:0.95rem;font-weight:300;color:var(--text);}
+.nav-back{font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;}
+h1{font-size:1.4rem;font-weight:300;margin-bottom:0.4rem;}
+.intro{font-size:0.85rem;color:var(--muted);line-height:1.75;margin-bottom:2.5rem;max-width:580px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.card-num{font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);padding:0.9rem 1.1rem 0;}
+.card-title{font-size:0.88rem;font-weight:400;color:var(--text);padding:0.3rem 1.1rem 0.75rem;line-height:1.4;}
+.card-visual{margin:0 1.1rem 0.75rem;border-radius:5px;border:1px solid var(--red-border);background:var(--red-bg);min-height:110px;padding:0.75rem;}
+.card-caption{font-size:0.75rem;color:var(--muted);padding:0 1.1rem 1.1rem;line-height:1.55;}
+.doc{font-family:'Times New Roman',serif;font-size:9px;line-height:1.55;}
+.wrong{color:var(--red);}
+.right{color:var(--green);}
+.ann{font-size:8px;font-family:'Lato',sans-serif;font-style:italic;}
+.ann-bad{color:var(--red);}
+.ann-good{color:var(--green);}
+.divider{height:1px;background:rgba(255,255,255,0.08);margin:6px 0;}
+.mono{font-family:'Courier New',monospace;font-size:8px;}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner"><span class="nav-title">Fehlerbilder — Letzter Check</span><a href="hausarbeitcheck.html" class="nav-back">← Zur Checkliste</a></div></nav>
+<div class="wrap">
+<h1>Fehlerbilder: Letzter Check</h1>
+<p class="intro">Negative Beispiele zu den 7 Prüfpunkten des letzten Checks. Diese Fehler klingen klein — fallen aber beim Korrigieren sofort auf.</p>
+<div class="grid">
+
+  <div class="card">
+    <div class="card-num">Prüfpunkt 1</div>
+    <div class="card-title">Keine doppelten Leerzeichen; d. h. mit Leerzeichen</div>
+    <div class="card-visual">
+      <div class="ann ann-bad" style="margin-bottom:5px;">Typische Tippfehler:</div>
+      <div class="doc">
+        <div class="wrong mono" style="margin-bottom:4px;">"Adorno  zeigt,  dass  die  Bildung..."</div>
+        <div class="ann ann-bad" style="margin-bottom:6px;">doppelte Leerzeichen nach Komma und Wörtern</div>
+        <div class="wrong" style="margin-bottom:3px;">"d.h. dies bedeutet, z.B. das Fernsehen"</div>
+        <div class="ann ann-bad">Leerzeichen in Abkürzungen fehlen</div>
+      </div>
+      <div class="divider"></div>
+      <div class="doc right">
+        <div>„Adorno zeigt, dass die Bildung...“</div>
+        <div>„d. h. dies bedeutet, z. B. das Fernsehen“</div>
+      </div>
+      <div class="ann ann-good">einfache Leerzeichen, korrekte Abkürzungen</div>
+    </div>
+    <div class="card-caption">→ Strg+F: zwei Leerzeichen hintereinander suchen. Abkürzungen: d. h., z. B., u. a., s. o. — immer mit Leerzeichen zwischen den Buchstaben.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-num">Prüfpunkt 2</div>
+    <div class="card-title">Keine geraden Anführungszeichen; kein &-Zeichen</div>
+    <div class="card-visual">
+      <div class="ann ann-bad" style="margin-bottom:5px;">Falsche Zeichen:</div>
+      <div class="doc">
+        <div class="wrong mono" style="margin-bottom:3px;">“Halbbildung“ und “Kulturindustrie“</div>
+        <div class="ann ann-bad" style="margin-bottom:5px;">gerade englische Anführungszeichen</div>
+        <div class="wrong" style="margin-bottom:3px;">“Erziehung &amp; Bildung als gesellschaftliche Prozesse“</div>
+        <div class="ann ann-bad">das &-Zeichen bringt den MWS Reader zum Absturz</div>
+      </div>
+      <div class="divider"></div>
+      <div class="doc right">
+        <div>„Halbbildung“ und „Kulturindustrie“</div>
+        <div>„Erziehung und Bildung als gesellschaftliche Prozesse“</div>
+      </div>
+      <div class="ann ann-good">deutsche Anführungszeichen; „und“ ausschreiben</div>
+    </div>
+    <div class="card-caption">→ Strg+F nach geraden Anführungszeichen suchen und durch deutsche ersetzen. Das &-Zeichen immer als „und“ ausschreiben — auch in Titeln, Überschriften und Fußnoten.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-num">Prüfpunkt 3</div>
+    <div class="card-title">Rechtschreibprüfung durchgelaufen</div>
+    <div class="card-visual">
+      <div class="ann ann-bad" style="margin-bottom:5px;">Übersehene Tippfehler:</div>
+      <div class="doc">
+        <div class="wrong" style="margin-bottom:3px;">“Adornos Bildungstheorie ist für die Erziehnugswissenschaft relevant.“</div>
+        <div class="wrong" style="margin-bottom:3px;">“Die Kulturindutsrie produziert Konformität.“</div>
+        <div class="wrong">“Halbbildund bezeichnet die oberflächliche Aneignung.“</div>
+        <div class="ann ann-bad">Tippfehler, die die Spellcheck-Funktion gefunden hätte</div>
+      </div>
+      <div class="divider"></div>
+      <div class="doc right">
+        <div>„Erziehungswissenschaft“ ✓</div>
+        <div>„Kulturindustrie“ ✓</div>
+        <div>„Halbbildung“ ✓</div>
+      </div>
+      <div class="ann ann-good">nach Spellcheck: keine roten Unterstreichungen</div>
+    </div>
+    <div class="card-caption">→ Word: Überprüfen → Rechtschreibung und Grammatik. Alle roten Markierungen prüfen und beheben, bevor die Arbeit abgegeben wird.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-num">Prüfpunkt 4</div>
+    <div class="card-title">Arbeit ausgedruckt gelesen; zweite Person hat gegengelesen</div>
+    <div class="card-visual">
+      <div class="ann ann-bad" style="margin-bottom:5px;">Fehler, die nur beim Lesen auf Papier auffallen:</div>
+      <div class="doc">
+        <div class="wrong" style="font-size:8.5px;margin-bottom:4px;">“Adorno zeigt, dass die Kulturindustrie die die Erfahrungsfähigkeit beschädigt.“</div>
+        <div class="ann ann-bad" style="margin-bottom:5px;">doppeltes „die“ — am Bildschirm übersehen, auf Papier sofort sichtbar</div>
+        <div class="wrong" style="font-size:8.5px;">“Bildungsprozesse werden durch massenmediale Formate beeinträchtigt, indem sie beeinträchtigt werden.“</div>
+        <div class="ann ann-bad">sinnlose Wiederholung — fällt erst beim Vorlesen auf</div>
+      </div>
+      <div class="divider"></div>
+      <div class="ann ann-good">Ausdrucken + laut vorlesen + Kommiliton:in gegenlesen lassen</div>
+    </div>
+    <div class="card-caption">→ Auf Papier und beim lauten Vorlesen erkennt man Fehler, die man am Bildschirm nach dem 10. Lesen nicht mehr sieht.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-num">Prüfpunkt 5</div>
+    <div class="card-title">Umfang: vorgegebene Seitenzahl erfüllt</div>
+    <div class="card-visual">
+      <div class="ann ann-bad" style="margin-bottom:5px;">Häufige Fehler beim Umfang:</div>
+      <div class="doc">
+        <div class="wrong" style="margin-bottom:3px;">“15 Seiten“ inkl. Deckblatt, Gliederung, LV gezählt → nur 10 Seiten Fließtext</div>
+        <div class="wrong" style="margin-bottom:3px;">Schrift auf 11pt verkleinert um mehr auf eine Seite zu kriegen</div>
+        <div class="wrong">Zeilenabstand auf 2,0 erhöht um die Seiten zu strecken</div>
+        <div class="ann ann-bad">alle drei Varianten sind sofort erkennbar</div>
+      </div>
+      <div class="divider"></div>
+      <div class="doc right" style="font-size:8px;">15 Seiten = nur Fließtext (Einleitung + Hauptteil + Fazit). Eine Normseite: 3.000–3.800 Zeichen inkl. Leerzeichen. Fußnoten: max. 1/4 Seite pro Seite.</div>
+      <div class="ann ann-good">korrekte Berechnung des Umfangs</div>
+    </div>
+    <div class="card-caption">→ Deckblatt, Gliederung und Literaturverzeichnis zählen nicht zum Umfang. Word: Überprüfen → Wörter zählen zeigt die Zeichenanzahl.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-num">Prüfpunkt 6</div>
+    <div class="card-title">PDF gespeichert, Dateiname korrekt</div>
+    <div class="card-visual">
+      <div class="ann ann-bad" style="margin-bottom:5px;">Falsche Dateiformate und -namen:</div>
+      <div class="doc">
+        <div class="wrong mono" style="margin-bottom:3px;">Hausarbeit_Adorno_final.docx</div>
+        <div class="wrong mono" style="margin-bottom:3px;">Musterfrau Thea HA.pdf</div>
+        <div class="wrong mono" style="margin-bottom:3px;">HA_Seminar_WS2425_v3_FINAL(2).pdf</div>
+        <div class="ann ann-bad">Word-Datei, Schema nicht eingehalten (Reihenfolge, fehlende Angaben), kryptischer Name</div>
+      </div>
+      <div class="divider"></div>
+      <div class="doc right mono">Hausarbeit Thea Musterfrau WS26 M1.pdf</div>
+      <div class="ann ann-good">PDF, Vorname Nachname Semester Modul, keine Sonderzeichen</div>
+    </div>
+    <div class="card-caption">→ Immer als PDF abgeben. Schema: „Hausarbeit Vorname Nachname Semester Modul.pdf“ — z. B. „Hausarbeit Thea Musterfrau WS26 M1.pdf“.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-num">Prüfpunkt 7</div>
+    <div class="card-title">Layout: keine isolierten Einzelzeilen, keine leeren Seiten</div>
+    <div class="card-visual">
+      <div style="display:flex;gap:8px;align-items:flex-start;">
+        <div style="flex:1;">
+          <div class="ann ann-bad" style="margin-bottom:4px;">Einzelzeile am Seitenanfang:</div>
+          <div style="background:rgba(240,236,228,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:2px;padding:4px;font-size:7px;font-family:'Times New Roman',serif;color:rgba(240,236,228,0.6);">
+            <div style="color:var(--red);border-bottom:1px solid rgba(220,80,70,0.2);margin-bottom:3px;padding-bottom:2px;">...endet hier. ✗</div>
+            <div style="height:2px;"></div>
+            <div style="color:var(--red);">— neue Seite —</div>
+            <div style="color:var(--red);border-bottom:1px solid rgba(220,80,70,0.2);padding-bottom:2px;">letzte Zeile hier. ✗</div>
+            <div style="height:2px;"></div>
+            <div>3 Fazit</div>
+            <div>Das Fazit...</div>
+          </div>
+        </div>
+        <div style="flex:1;">
+          <div class="ann ann-good" style="margin-bottom:4px;">Korrigiert:</div>
+          <div style="background:rgba(240,236,228,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:2px;padding:4px;font-size:7px;font-family:'Times New Roman',serif;color:rgba(240,236,228,0.6);">
+            <div style="color:var(--green);">...endet vollständig. ✓</div>
+            <div style="height:2px;"></div>
+            <div style="color:var(--green);">— neue Seite —</div>
+            <div>3 Fazit</div>
+            <div style="color:var(--green);">Das Fazit... ✓</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-caption">→ Wenn beim Seitenumbruch eine einzelne Zeile allein auf einer neuen Seite steht: durch leichtes Kürzen auf der Vorseite unterbringen. Kein neues Kapitel auf einer erzwungenen neuen Seite — einfach zwei Absatzumbrüche reichen.</div>
+  </div>
+
+</div>
+</div>
+</body>
+</html>
