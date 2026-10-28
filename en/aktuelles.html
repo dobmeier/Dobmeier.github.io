@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>News – Florian Dobmeier</title>
+  <meta name="description" content="News about publications, events and research by Florian Dobmeier." />
+  <link rel="canonical" href="https://dobmeier.github.io/en/aktuelles.html" />
+  <link rel="alternate" hreflang="de" href="https://dobmeier.github.io/aktuelles.html" />
+  <link rel="alternate" hreflang="en" href="https://dobmeier.github.io/en/aktuelles.html" />
+  <link rel="alternate" hreflang="x-default" href="https://dobmeier.github.io/aktuelles.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Florian Dobmeier" />
+  <meta property="og:title" content="News – Florian Dobmeier" />
+  <meta property="og:description" content="News about publications, events and research by Florian Dobmeier." />
+  <meta property="og:url" content="https://dobmeier.github.io/en/aktuelles.html" />
+  <meta property="og:image" content="https://dobmeier.github.io/og-preview.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:locale:alternate" content="de_DE" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="News – Florian Dobmeier" />
+  <meta name="twitter:description" content="News about publications, events and research by Florian Dobmeier." />
+  <meta name="twitter:image" content="https://dobmeier.github.io/og-preview.jpg" />
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0d1b2e;
+      --surface: #132238;
+      --text: #f0ece4;
+      --muted: #8ea4bc;
+      --light: #4a6682;
+      --accent: #8faec8;
+      --accent-soft: rgba(143,174,200,0.10);
+      --border: rgba(255,255,255,0.08);
+      --rule: rgba(255,255,255,0.12);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Lato', sans-serif; background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.75; font-weight: 400; }
+
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(13,27,46,0.96); backdrop-filter: blur(6px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1120px; margin: 0 auto; padding: 0 2.5rem; height: 52px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-name { font-family: 'Lato', sans-serif; font-size: 1rem; font-weight: 300; letter-spacing: 0.06em; color: var(--text); text-decoration: none; }
+    .nav-links { display: flex; gap: 1.1rem; list-style: none; }
+    .nav-links a { white-space: nowrap; }
+    .nav-links a { font-size: 0.72rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent); }
+
+    .wrap { max-width: 980px; margin: 0 auto; padding: 0 2.5rem; }
+
+    .hero { max-width: 980px; margin: 0 auto; padding: 5.5rem 2.5rem 4rem; display: grid; grid-template-columns: 1fr 190px; gap: 4rem; align-items: start; }
+    .hero-eyebrow { font-size: 0.71rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    h1 { font-family: 'Lato', sans-serif; font-size: 2.6rem; font-weight: 300; line-height: 1.1; letter-spacing: 0.02em; margin-bottom: 0.3rem; }
+    .hero-role { font-size: 1rem; font-weight: 300; letter-spacing: 0.04em; color: var(--muted); margin-bottom: 1.75rem; }
+    .hero-bio { font-size: 1rem; font-weight: 300; color: #f0ece4; max-width: 500px; margin-bottom: 2rem; line-height: 1.85; }
+    .cta-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .btn { display: inline-flex; align-items: center; gap: 7px; padding: 0.45rem 1rem; font-size: 0.75rem; font-weight: 400; letter-spacing: 0.07em; text-transform: uppercase; text-decoration: none; border: 1px solid; border-radius: 2px; transition: all 0.2s; }
+    .btn-primary { background: var(--accent); color: #0d1b2e; border-color: var(--accent); }
+    .btn-primary:hover { background: #7a9db8; border-color: #7a9db8; }
+    .btn-outline { background: transparent; color: var(--text); border-color: var(--rule); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    .ext-links { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+    .ext-link { display: inline-flex; align-items: center; gap: 5px; font-size: 0.78rem; color: var(--accent); text-decoration: none; padding-bottom: 1px; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+    .ext-link:hover { border-bottom-color: var(--accent); }
+    .ext-link svg { width: 13px; height: 13px; fill: currentColor; flex-shrink: 0; }
+
+    .avatar-col { display: flex; flex-direction: column; align-items: center; gap: 0.85rem; padding-top: 1.2rem; }
+    .avatar { width: 190px; height: 190px; border-radius: 50%; background: #1a2f4a; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(143,174,200,0.3); overflow: hidden; }
+    .avatar-initials { font-family: 'Lato', sans-serif; font-size: 2.5rem; font-weight: 300; color: var(--accent); }
+    .avatar-affil { text-align: center; font-size: 0.75rem; color: var(--muted); line-height: 1.55; }
+    .avatar-affil strong { display: block; color: var(--text); font-weight: 400; font-size: 0.8rem; }
+
+    .section { padding: 3.5rem 0; border-top: 1px solid var(--border); }
+    .section-header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2.4rem; }
+    .section-title { font-family: 'Lato', sans-serif; font-size: 1.15rem; font-weight: 300; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
+    .section-rule { flex: 1; height: 1px; background: var(--rule); }
+
+    /* VITA */
+    .vita-grid { display: grid; grid-template-columns: 140px 1fr; }
+    .vita-year { padding: 0.6rem 1.5rem 0.6rem 0; font-size: 0.79rem; color: var(--muted); letter-spacing: 0.04em; border-right: 1px solid var(--rule); line-height: 1.6; white-space: nowrap; }
+    .vita-desc { padding: 0.6rem 0 0.6rem 1.5rem; font-size: 0.91rem; line-height: 1.6; }
+    .vita-desc strong { font-weight: 500; }
+    .vita-desc em { font-style: italic; color: var(--muted); font-size: 0.9rem; }
+
+    /* INTERESSEN */
+    .interests { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .interests { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.06); }
+    .tag { background: var(--surface); border: none; padding: 0.9rem 1.1rem; display: block; }
+    .tag-title { color: var(--accent); font-size: 0.85rem; font-weight: 400; letter-spacing: 0.02em; display: block; margin-bottom: 0.3rem; }
+    .tag-sub { color: var(--muted); font-size: 0.76rem; line-height: 1.5; display: block; }
+
+    /* LEHRE */
+    .lehre-list { display: flex; flex-direction: column; gap: 0; }
+    .lehre-item { display: block; padding: 1.1rem 0; border-bottom: 1px solid var(--border); }
+    .lehre-sem { font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 400; margin-bottom: 0.3rem; display: block; }
+    .lehre-body { }
+    .dl-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: 4px;
+      border: 1px solid var(--rule); background: transparent;
+      color: var(--accent); text-decoration: none; flex-shrink: 0;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .dl-btn:hover { background: var(--accent); color: #0d1b2e; border-color: var(--accent); }
+    .dl-btn svg { width: 18px; height: 18px; fill: currentColor; }
+    /* Stepper download buttons */
+    a[style*="rgba(143,174,200,0.07)"]:not([onclick]):hover {
+      background: rgba(143,174,200,0.16) !important;
+      border-color: var(--accent) !important;
+    }
+    .lehre-title { font-size: 0.9rem; font-weight: 400; line-height: 1.4; margin-bottom: 0.2rem; }
+    .lehre-meta { font-size: 0.77rem; color: var(--muted); }
+
+    /* PUBLIKATIONEN */
+    .pub-list { display: flex; flex-direction: column; }
+    .pub-item { padding: 1.3rem 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 72px 90px 1fr; gap: 1.5rem; align-items: start; }
+    .pub-cover { width: 90px; border-radius: 2px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); flex-shrink: 0; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .pub-cover:hover { transform: translateY(-4px) scale(1.06); box-shadow: 0 12px 28px rgba(0,0,0,0.5); }
+    .pub-cover img { width: 100%; height: auto; display: block; }
+    #lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 999; align-items: center; justify-content: center; cursor: zoom-out; }
+    #lightbox.open { display: flex; }
+    #lightbox img { max-width: 88vw; max-height: 88vh; object-fit: contain; border: 1px solid rgba(255,255,255,0.15); border-radius: 4px; box-shadow: 0 24px 64px rgba(0,0,0,0.8); }
+    .pub-year { font-size: 1.2rem; font-weight: 300; color: var(--light); padding-top: 3px; }
+    .pub-type { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.35rem; font-weight: 400; }
+    .pub-title { font-size: 0.95rem; font-weight: 400; line-height: 1.4; margin-bottom: 0.3rem; }
+    .pub-authors { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.2rem; }
+    .pub-authors strong { color: var(--text); font-weight: 400; }
+    .pub-venue { font-size: 0.82rem; color: var(--muted); font-style: italic; margin-bottom: 0.5rem; }
+    .pub-status { display: inline-block; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(143,174,200,0.08); border: 1px solid rgba(143,174,200,0.2); color: var(--muted); padding: 0.15rem 0.5rem; border-radius: 2px; margin-bottom: 0.5rem; }
+    .pub-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .pub-btn { font-size: 0.71rem; letter-spacing: 0.06em; color: var(--accent); text-decoration: none; border: 1px solid var(--accent-soft); background: var(--accent-soft); padding: 0.18rem 0.55rem; border-radius: 2px; transition: all 0.15s; }
+    .pub-btn:hover { background: var(--accent); color: #0d1b2e; border-color: var(--accent); }
+
+    .pub-section-divider { padding: 1rem 0 0.5rem; font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); border-top: 1px solid var(--rule); margin-top: 0.5rem; }
+
+    /* PROJEKTE */
+    .proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; background: rgba(255,255,255,0.06); }
+    .proj-card { background: var(--surface); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem; }
+    .proj-status { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 400; }
+    .proj-title { font-size: 1rem; font-weight: 400; line-height: 1.3; }
+    .proj-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
+
+    /* KONTAKT */
+    .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    .contact-intro { font-size: 0.92rem; color: var(--muted); line-height: 1.85; margin-bottom: 1.5rem; }
+    .contact-line { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.87rem; margin-bottom: 0.75rem; }
+    .contact-label { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--light); min-width: 68px; padding-top: 2px; font-weight: 400; }
+    .contact-val { color: var(--text); line-height: 1.65; }
+    .contact-val a { color: var(--accent); text-decoration: none; }
+    .contact-val a:hover { text-decoration: underline; }
+    .address-card { background: var(--surface); border: 1px solid var(--border); border-left: 2px solid var(--accent); padding: 1.25rem 1.5rem; font-size: 0.86rem; line-height: 1.9; color: var(--muted); }
+    .address-card strong { display: block; color: var(--text); font-weight: 500; margin-bottom: 0.3rem; }
+
+    footer { border-top: 1px solid var(--border); padding: 1.75rem 2.5rem; max-width: 980px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; font-size: 0.74rem; color: var(--light); }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 680px) {
+      .interests { grid-template-columns: 1fr; }
+      .hero { grid-template-columns: 1fr; padding: 3rem 1.5rem 2.5rem; gap: 2rem; }
+      .avatar-col { flex-direction: row; align-items: center; gap: 1rem; }
+      .avatar { width: 100px; height: 100px; }
+      .avatar-initials { font-size: 1.9rem; }
+      .nav-inner { padding: 0 1.5rem; }
+      .nav-links { gap: 1.1rem; }
+      .wrap { padding: 0 1.5rem; }
+      .vita-grid { grid-template-columns: 86px 1fr; }
+      .contact-wrap { grid-template-columns: 1fr; gap: 1.5rem; }
+      .pub-item { grid-template-columns: 48px 70px 1fr; gap: 0.75rem; }
+      .pub-cover { width: 70px; }
+      .lehre-item { grid-template-columns: 72px 1fr; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
+      h1 { font-size: 2rem; }
+    }
+
+    .skip-link {
+      position: absolute; left: -9999px; top: 0;
+      background: var(--accent); color: var(--bg);
+      padding: 0.6rem 1rem; z-index: 1000;
+      font-size: 0.85rem; text-decoration: none; border-radius: 0 0 4px 0;
+    }
+    .skip-link:focus { left: 0; }
+
+    @media print {
+      nav, .skip-link, footer, #lightbox, .cta-row a[href="#kontakt"] { display: none !important; }
+      body { background: #fff; color: #111; }
+      .hero, .wrap { max-width: 100%; padding: 0; }
+      a { color: #111; text-decoration: underline; }
+      .pub-cover img, .lehre-item, .section { break-inside: avoid; }
+    }
+
+    .nav-links li.lang-switch { display: flex; align-items: center; gap: 0; }
+    .nav-links li.lang-switch a,
+    .nav-links li.lang-switch .lang-current { font-size: 0.72rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; }
+    .nav-links li.lang-switch .lang-current { color: var(--text); }
+    .nav-links li.lang-switch span[aria-hidden] { color: var(--light); font-size: 0.72rem; }
+
+    /* The drawn placeholder covers carry width="90"; without this they are
+       cropped inside the 70px frame on phones. */
+    .pub-cover svg { width: 100%; height: auto; display: block; }
+
+    /* Tablets and below: the nav strip scrolls on its own instead of pushing
+       the whole page sideways. (The original overflowed here already; the
+       language switcher makes the strip ~40px longer.) */
+    @media (max-width: 1100px) {
+      .nav-inner { gap: 0.9rem; }
+      .nav-name { flex: 0 0 auto; }
+      /* margin-left:auto keeps the links right-aligned while they fit; once
+         they overflow the strip scrolls and starts at the FIRST item.
+         (justify-content:flex-end would push the start out of reach.) */
+      .nav-links {
+        flex: 0 1 auto; min-width: 0; margin-left: auto;
+        overflow-x: auto; overflow-y: hidden; gap: 1.1rem;
+        scrollbar-width: none; -ms-overflow-style: none;
+      }
+      .nav-links::-webkit-scrollbar { width: 0; height: 0; }
+      .nav-links > li { flex: 0 0 auto; }
+    }
+
+    /* Phones: grid items default to min-width:auto, so a long compound noun
+       ("Geschichtsunterricht", "Druckvorbereitung") kept its column from
+       shrinking and widened the whole page below ~367px. */
+    @media (max-width: 680px) {
+      .section-title { white-space: normal; }
+      .pub-item > *, .vita-grid > * { min-width: 0; }
+      .pub-body, .pub-title, .pub-venue, .pub-authors,
+      .lehre-title, .lehre-meta, .vita-desc, .proj-card, .proj-title, .proj-desc,
+      .tag-title, .tag-sub, .card-caption, .address-card {
+        overflow-wrap: break-word;
+        hyphens: auto;
+      }
+      .pub-status { max-width: 100%; overflow-wrap: anywhere; }
+    }
+
+    /* News: dated posts with optional photos and captions. */
+    #aktuelles { scroll-margin-top: 70px; }
+    .news-intro { color: var(--muted); margin-bottom: 1.5rem; }
+    .news-empty { color: var(--muted); font-size: 0.9rem; }
+    .news-post { padding: 1.75rem 0; border-bottom: 1px solid var(--border); overflow-wrap: anywhere; }
+    .news-post:first-child { padding-top: 0; }
+    .news-post time { display: block; color: var(--muted); font-size: 0.78rem; margin-bottom: 0.6rem; }
+    .news-post h2 { font-size: 1.2rem; font-weight: 400; line-height: 1.5; margin-bottom: 1rem; }
+    .news-post p { margin-bottom: 1rem; }
+    .news-post a { color: var(--accent); text-underline-offset: 0.2em; }
+    .news-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 1rem; margin: 1.25rem 0; }
+    .news-gallery figure { margin: 0; min-width: 0; }
+    .news-gallery img { display: block; width: 100%; height: auto; }
+    .news-gallery figcaption { color: var(--muted); font-size: 0.78rem; margin-top: 0.5rem; }
+    .news-photos summary { cursor: pointer; color: var(--accent); font-size: 0.9rem; }
+    .news-photos summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    .news-photo-credit { color: var(--muted); font-size: 0.78rem; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Florian Dobmeier",
+    "honorificSuffix": "M.A., M.A.",
+    "jobTitle": "Research Associate and Doctoral Candidate",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "Eberhard Karls Universität Tübingen",
+      "department": "Institute of Education, Department of General Pedagogy"
+    },
+    "url": "https://dobmeier.github.io/en/aktuelles.html",
+    "image": "https://dobmeier.github.io/foto.jpg",
+    "email": "mailto:florian.dobmeier@uni-tuebingen.de",
+    "sameAs": [
+      "https://www.researchgate.net/profile/Florian-Dobmeier",
+      "https://orcid.org/0000-0002-4659-6503"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-name">Florian Dobmeier</a>
+      <ul class="nav-links">
+        <li><a href="aktuelles.html" aria-current="page">News</a></li>
+        <li><a href="index.html#vita">CV</a></li>
+        <li><a href="index.html#publikationen">Publications</a></li>
+        <li><a href="index.html#lehre">Teaching</a></li>
+        <li><a href="../hausarbeitcheck.html" title="Term paper: self-check before submission (in German)" hreflang="de">HA-Check (DE)</a></li>
+        <li><a href="index.html#vortraege">Talks</a></li>
+        <li><a href="index.html#projekte">Projects</a></li>
+        <li><a href="index.html#materialien">Materials</a></li>
+        <li><a href="index.html#kontakt">Contact</a></li>
+        <li class="lang-switch"><a href="../aktuelles.html" hreflang="de" lang="de" title="Zur deutschen Fassung">DE</a><span aria-hidden="true">&thinsp;|&thinsp;</span><span class="lang-current" aria-current="true">EN</span></li>
+      </ul>
+    </div>
+  </nav>
+
+
+<main id="main-content">
+  <!-- AKTUELLES -->
+  <div class="wrap">
+    <section class="section" id="aktuelles" aria-labelledby="news-heading">
+      <div class="section-header">
+        <h1 class="section-title" id="news-heading">News</h1>
+        <div class="section-rule"></div>
+      </div>
+      <p class="news-intro">News about publications, book launches, events and research.</p>
+      <div class="news-list">
+        <article class="news-post" id="luhmann-conference-2026" aria-labelledby="luhmann-news-title">
+          <time datetime="2026-09-17">17 September 2026</time>
+          <h2 id="luhmann-news-title">Joint keynote at the Luhmann Conference in Dubrovnik</h2>
+          <p>At the Luhmann Conference 2026, I gave a joint keynote with Prof. Dr. Franz Kasper Krönig (TH Köln) on 17 September: <em lang="en">Toward a Post-Transcendental Concept of Meaning. Elaborating the Immanent Necessity of Luhmann’s Theory of Meaning.</em> The conference, entitled “Meaning. Observed with social systems theory”, took place at the Inter-University Centre Dubrovnik from 14 to 18 September.</p>
+          <p>Our contribution asked whether Luhmann’s factual, temporal and social dimensions can be reconstructed as necessary structures of meaning. The starting point is that any attempt to analyse or question meaning itself operates within meaning. We discussed the implications of this approach for a post-transcendental reading of Luhmann’s theory and the open question of whether spatiality might constitute a further dimension.</p>
+          <p><a href="../materialien/Luhmann_Conference_2026_Programme_v06.pdf">Conference programme (PDF)</a> · <a href="../materialien/Luhmann_Conference_2026_Abstracts.pdf#page=51">Book of Abstracts (PDF, contribution pp. 51–53)</a></p>
+          <details class="news-photos">
+            <summary>Photos from the conference</summary>
+            <div class="news-gallery">
+              <figure>
+                <a href="../news/luhmann-2026-vortrag.jpg"><img src="../news/luhmann-2026-vortrag.jpg" width="2048" height="1249" loading="lazy" alt="View of the joint keynote, with a projected slide on the dimensions of meaning"/></a>
+                <figcaption>A moment from the joint keynote at the Inter-University Centre Dubrovnik.</figcaption>
+              </figure>
+              <figure>
+                <a href="../news/luhmann-2026-gruppenbild.jpg"><img src="../news/luhmann-2026-gruppenbild.jpg" width="2048" height="1536" loading="lazy" alt="Conference participants on the steps outside the Inter-University Centre Dubrovnik"/></a>
+                <figcaption>Conference participants outside the Inter-University Centre Dubrovnik.</figcaption>
+              </figure>
+            </div>
+            <p class="news-photo-credit">Photos: Prof. Dr. Jan Inge Jönhill and Prof. Dr. Steffen Roth.</p>
+          </details>
+        </article>
+      </div>
+    </section>
+  </div>
+
+</main>
+<footer>
+    <span>© 2026 Florian Dobmeier · Eberhard Karls Universität Tübingen<br/>
+      <span style="font-size:0.7rem;color:var(--light);">This site carries no advertising, tracking or analytics cookies.</span>
+    </span>
+    <span>
+      <a href="impressum.html">Legal notice</a> ·
+      <a href="https://github.com/Dobmeier/Dobmeier.github.io">Source code on GitHub</a>
+    </span>
+  </footer>
+</body>
+</html>
