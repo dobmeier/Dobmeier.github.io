@@ -255,7 +255,14 @@
     .news-photos summary { cursor: pointer; color: var(--accent); font-size: 0.9rem; }
     .news-photos summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
     .news-photo-credit { color: var(--muted); font-size: 0.78rem; }
-  </style>
+  
+    .news-book { display: grid; grid-template-columns: minmax(0, 1fr) 170px; gap: 1.75rem; align-items: start; }
+    .news-book figure, .news-launch { margin: 0; }
+    .news-book img, .news-launch img { display: block; width: 100%; height: auto; }
+    .news-book figcaption, .news-launch figcaption { color: var(--muted); font-size: 0.78rem; margin-top: 0.5rem; }
+    .news-launch { max-width: 640px; margin-top: 1.25rem; }
+    @media (max-width: 600px) { .news-book { grid-template-columns: 1fr; } .news-book figure { max-width: 170px; margin-bottom: 1rem; } }
+</style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -311,6 +318,30 @@
       </div>
       <p class="news-intro">Neuigkeiten zu Publikationen, Book Launches, Veranstaltungen und Forschung.</p>
       <div class="news-list">
+        <article class="news-post" id="praktiken-des-erziehens-2026" aria-labelledby="praktiken-news-title">
+          <time datetime="2026-09-23">23. September 2026 · Book Launch</time>
+          <h2 id="praktiken-news-title">Neu erschienen: »Praktiken des Erziehens«</h2>
+          <div class="news-book">
+            <div>
+              <p>Der von Johannes Türstig, Martin Weber-Spanknebel und Malte Brinkmann herausgegebene Band <em>Praktiken des Erziehens. Zugänge zum Allgemeinen der Erziehung und Erziehungswissenschaft</em> ist bei Springer VS erschienen. Er versammelt unterschiedliche theoretische und empirische Zugänge zu erzieherischen Praktiken.</p>
+              <p>Ich bin mit dem Beitrag <em>Zeigen als polykontexturale Praxis des Erziehens</em> (S. 385–416) vertreten.</p>
+              <p>Am 23. September 2026 wurde der Band bei einem Book Launch an der Humboldt-Universität zu Berlin vorgestellt. Vorträge von Dietrich Benner, Arnd-Michael Nohl, Cornelie Dietrich sowie Johannes Türstig und Malte Brinkmann wurden von Gert Biesta gerahmt und kommentiert.</p>
+              <p><a href="https://link.springer.com/book/10.1007/978-3-658-51405-1">Zum Band bei Springer</a> · <a href="https://link.springer.com/chapter/10.1007/978-3-658-51405-1_15">Zu meinem Beitrag</a></p>
+            </div>
+            <figure>
+              <a href="https://link.springer.com/book/10.1007/978-3-658-51405-1"><img src="news/praktiken-cover.png" width="827" height="1173" alt="Buchcover: Praktiken des Erziehens – Zugänge zum Allgemeinen der Erziehung und Erziehungswissenschaft"/></a>
+              <figcaption>Buchcover: Springer VS.</figcaption>
+            </figure>
+          </div>
+          <details class="news-photos">
+            <summary>Einblick in den Book Launch</summary>
+            <figure class="news-launch">
+              <a href="news/praktiken-booklaunch.png"><img src="news/praktiken-booklaunch.png" width="1726" height="1746" loading="lazy" alt="Screenshot von Malte Brinkmanns LinkedIn-Beitrag zum Book Launch mit Gruppenfoto"/></a>
+              <figcaption>Quelle: Screenshot eines LinkedIn-Beitrags von Malte Brinkmann zum Book Launch an der Humboldt-Universität zu Berlin.</figcaption>
+            </figure>
+          </details>
+        </article>
+
         <article class="news-post" id="luhmann-conference-2026" aria-labelledby="luhmann-news-title">
           <time datetime="2026-09-17">17. September 2026</time>
           <h2 id="luhmann-news-title">Gemeinsame Keynote auf der Luhmann Conference in Dubrovnik</h2>
