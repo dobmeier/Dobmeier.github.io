@@ -44,7 +44,7 @@
     body { font-family: 'Lato', sans-serif; background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.75; font-weight: 400; }
 
     nav { position: sticky; top: 0; z-index: 100; background: rgba(13,27,46,0.96); backdrop-filter: blur(6px); border-bottom: 1px solid var(--border); }
-    .nav-inner { max-width: 980px; margin: 0 auto; padding: 0 2.5rem; height: 52px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-inner { max-width: 1120px; margin: 0 auto; padding: 0 2.5rem; height: 52px; display: flex; align-items: center; justify-content: space-between; }
     .nav-name { font-family: 'Lato', sans-serif; font-size: 1rem; font-weight: 300; letter-spacing: 0.06em; color: var(--text); text-decoration: none; }
     .nav-links { display: flex; gap: 1.1rem; list-style: none; }
     .nav-links a { white-space: nowrap; }
@@ -208,7 +208,7 @@
     /* Tablets and below: the nav strip scrolls on its own instead of pushing
        the whole page sideways. (The original overflowed here already; the
        language switcher makes the strip ~40px longer.) */
-    @media (max-width: 900px) {
+    @media (max-width: 1100px) {
       .nav-inner { gap: 0.9rem; }
       .nav-name { flex: 0 0 auto; }
       /* margin-left:auto keeps the links right-aligned while they fit; once
@@ -237,6 +237,21 @@
       }
       .pub-status { max-width: 100%; overflow-wrap: anywhere; }
     }
+
+    /* News: dated posts with optional photos and captions. */
+    #aktuelles { scroll-margin-top: 70px; }
+    .news-intro { color: var(--muted); margin-bottom: 1.5rem; }
+    .news-empty { color: var(--muted); font-size: 0.9rem; }
+    .news-post { padding: 1.75rem 0; border-bottom: 1px solid var(--border); overflow-wrap: anywhere; }
+    .news-post:first-child { padding-top: 0; }
+    .news-post time { display: block; color: var(--muted); font-size: 0.78rem; margin-bottom: 0.6rem; }
+    .news-post h3 { font-size: 1.2rem; font-weight: 400; line-height: 1.5; margin-bottom: 1rem; }
+    .news-post p { margin-bottom: 1rem; }
+    .news-post a { color: var(--accent); text-underline-offset: 0.2em; }
+    .news-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 1rem; margin: 1.25rem 0; }
+    .news-gallery figure { margin: 0; min-width: 0; }
+    .news-gallery img { display: block; width: 100%; height: auto; }
+    .news-gallery figcaption { color: var(--muted); font-size: 0.78rem; margin-top: 0.5rem; }
   </style>
   <script type="application/ld+json">
   {
@@ -268,6 +283,7 @@
     <div class="nav-inner">
       <a href="#" class="nav-name">Florian Dobmeier</a>
       <ul class="nav-links">
+        <li><a href="#aktuelles">Aktuelles</a></li>
         <li><a href="#vita">Vita</a></li>
         <li><a href="#publikationen">Publikationen</a></li>
         <li><a href="#lehre">Lehre</a></li>
@@ -311,6 +327,21 @@
         Institut für<br/>Erziehungswissenschaft<br/>Abt. Allgemeine Pädagogik
       </div>
     </div>
+  </div>
+
+  <!-- AKTUELLES -->
+  <div class="wrap">
+    <section class="section" id="aktuelles" aria-labelledby="news-heading">
+      <div class="section-header">
+        <h2 class="section-title" id="news-heading">Aktuelles</h2>
+        <div class="section-rule"></div>
+      </div>
+      <p class="news-intro">Neuigkeiten zu Publikationen, Book Launches, Veranstaltungen und Forschung.</p>
+      <div class="news-list">
+        <!-- Add dated article elements here, newest first. Remove the empty-state paragraph when adding the first post. -->
+        <p class="news-empty">Die ersten Beiträge folgen in Kürze.</p>
+      </div>
+    </section>
   </div>
 
   <!-- VITA -->
