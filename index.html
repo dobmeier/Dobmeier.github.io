@@ -252,6 +252,9 @@
     .news-gallery figure { margin: 0; min-width: 0; }
     .news-gallery img { display: block; width: 100%; height: auto; }
     .news-gallery figcaption { color: var(--muted); font-size: 0.78rem; margin-top: 0.5rem; }
+    .news-photos summary { cursor: pointer; color: var(--accent); font-size: 0.9rem; }
+    .news-photos summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    .news-photo-credit { color: var(--muted); font-size: 0.78rem; }
   </style>
   <script type="application/ld+json">
   {
@@ -338,8 +341,27 @@
       </div>
       <p class="news-intro">Neuigkeiten zu Publikationen, Book Launches, Veranstaltungen und Forschung.</p>
       <div class="news-list">
-        <!-- Add dated article elements here, newest first. Remove the empty-state paragraph when adding the first post. -->
-        <p class="news-empty">Die ersten Beiträge folgen in Kürze.</p>
+        <article class="news-post" id="luhmann-conference-2026" aria-labelledby="luhmann-news-title">
+          <time datetime="2026-09-17">17. September 2026</time>
+          <h3 id="luhmann-news-title">Gemeinsame Keynote auf der Luhmann Conference in Dubrovnik</h3>
+          <p>Am 17. September habe ich gemeinsam mit Prof. Dr. Franz Kasper Krönig (TH Köln) eine Keynote auf der Luhmann Conference 2026 gehalten: <em lang="en">Toward a Post-Transcendental Concept of Meaning. Elaborating the Immanent Necessity of Luhmann’s Theory of Meaning.</em> Die Tagung unter dem Titel »Meaning. Observed with social systems theory« fand vom 14. bis 18. September am Inter-University Centre Dubrovnik statt.</p>
+          <p>Unser Beitrag ging der Frage nach, inwiefern sich Luhmanns Sach-, Zeit- und Sozialdimension als notwendige Strukturen von Sinn rekonstruieren lassen. Ausgangspunkt ist, dass auch die Analyse oder Infragestellung von Sinn selbst bereits sinnhaft operiert. Diskutiert wurden die Konsequenzen für eine posttranszendentale Lesart der Luhmannschen Theorie und die offene Frage, ob Räumlichkeit als weitere Sinndimension zu bestimmen wäre.</p>
+          <p><a href="materialien/Luhmann_Conference_2026_Programme_v06.pdf">Tagungsprogramm (PDF)</a> · <a href="materialien/Luhmann_Conference_2026_Abstracts.pdf#page=51">Book of Abstracts (PDF, Beitrag S. 51–53)</a></p>
+          <details class="news-photos">
+            <summary>Fotos von der Tagung</summary>
+            <div class="news-gallery">
+              <figure>
+                <a href="news/luhmann-2026-vortrag.jpg"><img src="news/luhmann-2026-vortrag.jpg" width="2048" height="1249" loading="lazy" alt="Einblick in die gemeinsame Keynote mit einer projizierten Folie zu den Sinndimensionen"/></a>
+                <figcaption>Einblick in die gemeinsame Keynote am Inter-University Centre Dubrovnik.</figcaption>
+              </figure>
+              <figure>
+                <a href="news/luhmann-2026-gruppenbild.jpg"><img src="news/luhmann-2026-gruppenbild.jpg" width="2048" height="1536" loading="lazy" alt="Teilnehmende der Konferenz auf der Treppe vor dem Inter-University Centre Dubrovnik"/></a>
+                <figcaption>Teilnehmende der Konferenz vor dem Inter-University Centre Dubrovnik.</figcaption>
+              </figure>
+            </div>
+            <p class="news-photo-credit">Fotos: Prof. Dr. Jan Inge Jönhill und Prof. Dr. Steffen Roth.</p>
+          </details>
+        </article>
       </div>
     </section>
   </div>

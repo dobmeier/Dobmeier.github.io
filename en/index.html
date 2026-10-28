@@ -252,6 +252,9 @@
     .news-gallery figure { margin: 0; min-width: 0; }
     .news-gallery img { display: block; width: 100%; height: auto; }
     .news-gallery figcaption { color: var(--muted); font-size: 0.78rem; margin-top: 0.5rem; }
+    .news-photos summary { cursor: pointer; color: var(--accent); font-size: 0.9rem; }
+    .news-photos summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    .news-photo-credit { color: var(--muted); font-size: 0.78rem; }
   </style>
   <script type="application/ld+json">
   {
@@ -338,8 +341,27 @@
       </div>
       <p class="news-intro">News about publications, book launches, events and research.</p>
       <div class="news-list">
-        <!-- Add dated article elements here, newest first. Remove the empty-state paragraph when adding the first post. -->
-        <p class="news-empty">The first posts will appear here soon.</p>
+        <article class="news-post" id="luhmann-conference-2026" aria-labelledby="luhmann-news-title">
+          <time datetime="2026-09-17">17 September 2026</time>
+          <h3 id="luhmann-news-title">Joint keynote at the Luhmann Conference in Dubrovnik</h3>
+          <p>At the Luhmann Conference 2026, I gave a joint keynote with Prof. Dr. Franz Kasper Krönig (TH Köln) on 17 September: <em lang="en">Toward a Post-Transcendental Concept of Meaning. Elaborating the Immanent Necessity of Luhmann’s Theory of Meaning.</em> The conference, entitled “Meaning. Observed with social systems theory”, took place at the Inter-University Centre Dubrovnik from 14 to 18 September.</p>
+          <p>Our contribution asked whether Luhmann’s factual, temporal and social dimensions can be reconstructed as necessary structures of meaning. The starting point is that any attempt to analyse or question meaning itself operates within meaning. We discussed the implications of this approach for a post-transcendental reading of Luhmann’s theory and the open question of whether spatiality might constitute a further dimension.</p>
+          <p><a href="../materialien/Luhmann_Conference_2026_Programme_v06.pdf">Conference programme (PDF)</a> · <a href="../materialien/Luhmann_Conference_2026_Abstracts.pdf#page=51">Book of Abstracts (PDF, contribution pp. 51–53)</a></p>
+          <details class="news-photos">
+            <summary>Photos from the conference</summary>
+            <div class="news-gallery">
+              <figure>
+                <a href="../news/luhmann-2026-vortrag.jpg"><img src="../news/luhmann-2026-vortrag.jpg" width="2048" height="1249" loading="lazy" alt="View of the joint keynote, with a projected slide on the dimensions of meaning"/></a>
+                <figcaption>A moment from the joint keynote at the Inter-University Centre Dubrovnik.</figcaption>
+              </figure>
+              <figure>
+                <a href="../news/luhmann-2026-gruppenbild.jpg"><img src="../news/luhmann-2026-gruppenbild.jpg" width="2048" height="1536" loading="lazy" alt="Conference participants on the steps outside the Inter-University Centre Dubrovnik"/></a>
+                <figcaption>Conference participants outside the Inter-University Centre Dubrovnik.</figcaption>
+              </figure>
+            </div>
+            <p class="news-photo-credit">Photos: Prof. Dr. Jan Inge Jönhill and Prof. Dr. Steffen Roth.</p>
+          </details>
+        </article>
       </div>
     </section>
   </div>
