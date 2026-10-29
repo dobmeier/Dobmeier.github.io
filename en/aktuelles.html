@@ -321,7 +321,16 @@
     .news-further-reading h3 { font-size: 1.1rem; font-weight: 400; margin-bottom: .75rem; }
     .news-video { position: relative; width: 100%; aspect-ratio: 16 / 9; margin: 1rem 0; background: #000; }
     .news-video iframe { display: block; width: 100%; height: 100%; border: 0; }
-  </style>
+  
+    .news-reading-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.5rem; margin:1.25rem 0 2.5rem; }
+    .news-reading-card { display:flex; flex-direction:column; gap:.55rem; padding:1rem; border:1px solid rgba(150,175,195,.3); border-radius:6px; text-decoration:none; }
+    .news-reading-card:hover, .news-reading-card:focus-visible { border-color:currentColor; }
+    .news-reading-card img { width:100%; height:240px; object-fit:contain; margin-bottom:.5rem; }
+    .news-reading-card strong { font-size:1rem; line-height:1.45; }
+    .news-reading-card span { font-size:.85rem; line-height:1.5; }
+    @media (max-width:600px) { .news-reading-grid { grid-template-columns:1fr; } .news-reading-card img { height:220px; } }
+
+</style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -410,7 +419,13 @@
         
           <div class="news-further-reading">
             <h3>Further exploration</h3>
-            <p>The ARTE documentary <em lang="de">Forschung, Fake und faule Tricks</em> offers a stimulating introduction to the field. Leading voices in international agnotology and Ignorance Studies discuss vivid examples of how ignorance is produced. The documentary is in German.</p>
+<p>Books on Ignorance Studies and agnotology:</p>
+<div class="news-reading-grid">
+<a class="news-reading-card" href="https://www.routledge.com/Routledge-International-Handbook-of-Ignorance-Studies/Gross-McGoey/p/book/9780367608149" target="_blank" rel="noopener noreferrer"><img src="https://images.routledge.com/common/jackets/crclarge/978036760/9780367608149.jpg" alt="Book cover: Routledge International Handbook of Ignorance Studies" loading="lazy" referrerpolicy="no-referrer"><strong>Routledge International Handbook of Ignorance Studies</strong><span>Matthias Gross &amp; Linsey McGoey (eds.)</span><span>Routledge · 2nd edition</span></a>
+<a class="news-reading-card" href="https://www.sup.org/books/history/agnotology" target="_blank" rel="noopener noreferrer"><img src="https://supress.sites-pro.stanford.edu/sites/supress/files/media/covers/11232.jpg" alt="Book cover: Agnotology" loading="lazy" referrerpolicy="no-referrer"><strong>Agnotology</strong><span>The Making and Unmaking of Ignorance</span><span>Robert N. Proctor &amp; Londa Schiebinger (eds.)</span><span>Stanford University Press</span></a>
+<a class="news-reading-card" href="https://www.sup.org/books/history/ignorance-unmasked" target="_blank" rel="noopener noreferrer"><img src="https://supress.sites-pro.stanford.edu/sites/supress/files/media/covers/39767.jpg" alt="Book cover: Ignorance Unmasked" loading="lazy" referrerpolicy="no-referrer"><strong>Ignorance Unmasked</strong><span>Essays in the New Science of Agnotology</span><span>Robert N. Proctor &amp; Londa Schiebinger (eds.)</span><span>Stanford University Press</span></a>
+</div>
+            <p>The ARTE documentary <em lang="de">Forschung, Fake und faule Tricks</em> offers a stimulating introduction to the field. Leading voices in international <a href="https://www.sup.org/books/history/agnotology" target="_blank" rel="noopener noreferrer">agnotology</a> and <a href="https://www.routledge.com/Routledge-International-Handbook-of-Ignorance-Studies/Gross-McGoey/p/book/9780367608149" target="_blank" rel="noopener noreferrer">Ignorance Studies</a> discuss vivid examples of how ignorance is produced. The documentary is in German.</p>
             <div class="news-video"><iframe src="https://www.youtube-nocookie.com/embed/VNrNLzD9_Sg" title="ARTE documentary: Forschung, Fake und faule Tricks (German)" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
             <p><a href="https://www.youtube.com/watch?v=VNrNLzD9_Sg" target="_blank" rel="noopener noreferrer">Watch the documentary directly on YouTube</a></p>
           </div>
