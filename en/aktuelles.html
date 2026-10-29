@@ -292,7 +292,13 @@
     .news-photo-heading { color: var(--muted); font-size: 1rem; font-weight: 400; margin: 1.5rem 0 .75rem; }
     @media (max-width: 600px) { .news-overview { grid-template-columns: 1fr; } .news-card-media { height: 210px; } }
     @media (prefers-reduced-motion: reduce) { .news-card { transition: none; } .news-card:hover { transform: none; } }
-</style>
+
+    /* Clear boundaries between news entries. */
+    .news-overview { gap: 2rem; }
+    .news-card { border: 2px solid rgba(143, 174, 200, 0.55); }
+    .news-card-media { border-bottom: 2px solid rgba(143, 174, 200, 0.55); }
+    .news-post { border-bottom: 2px solid rgba(143, 174, 200, 0.65); padding-bottom: 2.5rem; margin-bottom: 2rem; }
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
