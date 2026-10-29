@@ -269,7 +269,30 @@
       .news-funding { margin-top: 1.5rem; }
     .news-funding-logo { display: block; width: 260px; max-width: 100%; background: #fff; padding: 10px; }
     .news-funding-logo img { display: block; width: 100%; height: auto; }
-  </style>
+  
+    [hidden] { display: none !important; }
+    .news-overview { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; scroll-margin-top: 90px; }
+    .news-card { display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); color: var(--text); text-decoration: none; transition: border-color .2s, transform .2s; }
+    .news-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .news-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+    .news-card-media { height: 230px; position: relative; background: #e7e7e2; }
+    .news-card-media img { display: block; width: 100%; height: 100%; object-fit: contain; padding: 12px; }
+    .news-card-media.cover { background: #302147; }
+    .news-card-media.poster { background: #e8dca9; }
+    .news-card-media.photo img { object-fit: cover; padding: 0; }
+    .news-card-credit { position: absolute; bottom: 0; right: 0; padding: 3px 7px; background: rgba(13,27,46,.85); color: #fff; font-size: .65rem; }
+    .news-card-body { padding: 1.25rem; display: flex; flex-direction: column; flex: 1; }
+    .news-card-tag { color: var(--accent); font-size: .72rem; letter-spacing: .04em; }
+    .news-card time { display: block; color: var(--muted); font-size: .75rem; margin: .3rem 0 .6rem; }
+    .news-card h2 { font-size: 1.25rem; font-weight: 400; line-height: 1.4; margin-bottom: .7rem; }
+    .news-card p { color: var(--muted); font-size: .9rem; line-height: 1.6; margin-bottom: 1rem; }
+    .news-card-more { margin-top: auto; color: var(--accent); font-size: .85rem; }
+    .news-post { scroll-margin-top: 85px; }
+    .news-back { display: inline-block; margin-bottom: 1.3rem; font-size: .85rem; }
+    .news-photo-heading { color: var(--muted); font-size: 1rem; font-weight: 400; margin: 1.5rem 0 .75rem; }
+    @media (max-width: 600px) { .news-overview { grid-template-columns: 1fr; } .news-card-media { height: 210px; } }
+    @media (prefers-reduced-motion: reduce) { .news-card { transition: none; } .news-card:hover { transform: none; } }
+</style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -324,8 +347,27 @@
         <div class="section-rule"></div>
       </div>
       <p class="news-intro">Neuigkeiten zu Publikationen, Book Launches, Veranstaltungen und Forschung. Neuigkeiten werden hier seit dem Sommersemester 2026 (1. April 2026) dokumentiert.</p>
-      <div class="news-list">
+      <div class="news-overview" id="news-overview" aria-label="Beitragsübersicht">
+<a class="news-card" href="#praktiken-des-erziehens-2026">
+ <div class="news-card-media cover"><img src="news/praktiken-cover.png" alt="Buchcover / Book cover: Praktiken des Erziehens" decoding="async"/></div>
+ <div class="news-card-body"><span class="news-card-tag">Publikation · Book Launch</span><time datetime="2026-09-23">23. September 2026</time><h2>Praktiken des Erziehens</h2><p>Neu erschienen: der Sammelband, mein Beitrag und Eindrücke vom Book Launch an der HU Berlin.</p><span class="news-card-more">Beitrag ansehen <span aria-hidden="true">→</span></span></div>
+</a>
+<a class="news-card" href="#luhmann-conference-2026">
+ <div class="news-card-media photo"><img src="news/dubrovnik-steffen-roth.webp" alt="Dubrovnik" decoding="async"/><span class="news-card-credit">© Prof. Steffen Roth</span></div>
+ <div class="news-card-body"><span class="news-card-tag">Luhmann Conference 2026</span><time datetime="2026-09-17">17. September 2026</time><h2>Gemeinsame Keynote in Dubrovnik</h2><p>Mit Franz Kasper Krönig über Luhmanns Sinnbegriff – mit Tagungsfotos, Programm und Abstracts.</p><span class="news-card-more">Beitrag ansehen <span aria-hidden="true">→</span></span></div>
+</a>
+<a class="news-card" href="#luhmann100-2026">
+ <div class="news-card-media poster"><img src="news/luhmann100-poster-franz-hoegl.jpg" alt="Luhmann 100 – Tagungsplakat / Conference poster" decoding="async"/><span class="news-card-credit">Gestaltung: Franz Hoegl</span></div>
+ <div class="news-card-body"><span class="news-card-tag">Vortrag · Pre-Conference</span><time datetime="2026-06-09">9. Juni 2026</time><h2>Luhmann 100 in Friedrichshafen</h2><p>Mein Vortrag auf der Pre-Conference: Erziehungstheorie und die Rezeption Luhmanns in der Allgemeinen Pädagogik.</p><span class="news-card-more">Beitrag ansehen <span aria-hidden="true">→</span></span></div>
+</a>
+<a class="news-card" href="#endira-2026">
+ <div class="news-card-media programme"><img src="news/endira-preview.png" alt="EN:DIRA – Brandmauern & Randmauern: Programm / Programme" decoding="async"/></div>
+ <div class="news-card-body"><span class="news-card-tag">Vortrag · Video</span><time datetime="2026-04-30">30. April 2026</time><h2>Wie lässt sich »links/rechts« definieren?</h2><p>Vortrag in der EN:DIRA-Ringvorlesung und Abschlussdiskussion – mit Aufzeichnung auf YouTube.</p><span class="news-card-more">Beitrag ansehen <span aria-hidden="true">→</span></span></div>
+</a>
+</div>
+<div class="news-list">
         <article class="news-post" id="praktiken-des-erziehens-2026" aria-labelledby="praktiken-news-title">
+          <a class="news-back" href="#news-overview">← Alle Beiträge</a>
           <time datetime="2026-09-23">23. September 2026 · Book Launch</time>
           <h2 id="praktiken-news-title">Neu erschienen: »Praktiken des Erziehens«</h2>
           <div class="news-book">
@@ -340,16 +382,17 @@
               <figcaption>Buchcover: Springer VS.</figcaption>
             </figure>
           </div>
-          <details class="news-photos">
-            <summary>Einblick in den Book Launch</summary>
+          <div class="news-photos">
+            <h3 class="news-photo-heading">Einblick in den Book Launch</h3>
             <figure class="news-launch">
               <a href="news/praktiken-booklaunch.png"><img src="news/praktiken-booklaunch.png" width="1726" height="1746" loading="lazy" alt="Screenshot von Malte Brinkmanns LinkedIn-Beitrag zum Book Launch mit Gruppenfoto"/></a>
               <figcaption>Quelle: Screenshot eines LinkedIn-Beitrags von Malte Brinkmann zum Book Launch am Institut für Erziehungswissenschaft der Humboldt-Universität zu Berlin.</figcaption>
             </figure>
-          </details>
+          </div>
         </article>
 
         <article class="news-post" id="luhmann-conference-2026" aria-labelledby="luhmann-news-title">
+          <a class="news-back" href="#news-overview">← Alle Beiträge</a>
           <time datetime="2026-09-17">17. September 2026</time>
           <h2 id="luhmann-news-title">Gemeinsame Keynote auf der Luhmann Conference in Dubrovnik</h2>
           <p>Am 17. September habe ich gemeinsam mit Prof. Dr. Franz Kasper Krönig (TH Köln) eine Keynote auf der Luhmann Conference 2026 gehalten: <em lang="en">Toward a Post-Transcendental Concept of Meaning. Elaborating the Immanent Necessity of Luhmann’s Theory of Meaning.</em> Die Tagung unter dem Titel »Meaning. Observed with social systems theory« fand vom 14. bis 18. September am Inter-University Centre Dubrovnik statt.</p>
@@ -359,8 +402,8 @@
             <a href="news/dubrovnik-steffen-roth.webp"><img src="news/dubrovnik-steffen-roth.webp" width="4256" height="2832" loading="lazy" alt="Küste und beleuchtete Gebäude von Dubrovnik in der Abenddämmerung"/></a>
             <figcaption>Dubrovnik · © Prof. Steffen Roth.</figcaption>
           </figure>
-          <details class="news-photos">
-            <summary>Fotos von der Tagung</summary>
+          <div class="news-photos">
+            <h3 class="news-photo-heading">Fotos von der Tagung</h3>
             <div class="news-gallery">
               <figure>
                 <a href="news/luhmann-2026-vortrag.jpg"><img src="news/luhmann-2026-vortrag.jpg" width="2048" height="1249" loading="lazy" alt="Einblick in die gemeinsame Keynote mit einer projizierten Folie zu den Sinndimensionen"/></a>
@@ -372,7 +415,7 @@
               </figure>
             </div>
             <p class="news-photo-credit">Fotos: Prof. Dr. Jan Inge Jönhill und Prof. Dr. Steffen Roth.</p>
-          </details>
+          </div>
         
           <div class="news-funding">
             <p>Mein Kongressbesuch wurde durch ein Stipendium des <a href="https://uni-tuebingen.de/universitaet/profil/freunde-und-foerderer/universitaetsbund/foerderantrag/">Universitätsbundes Tübingen e. V.</a> anteilig finanziert. Für diese Unterstützung bedanke ich mich herzlich.</p>
@@ -382,6 +425,7 @@
 
 
         <article class="news-post" id="luhmann100-2026" aria-labelledby="luhmann100-news-title">
+          <a class="news-back" href="#news-overview">← Alle Beiträge</a>
           <time datetime="2026-06-09">9. Juni 2026</time>
           <h2 id="luhmann100-news-title">Erziehungstheorie unter Beobachtung: Vortrag auf der Pre-Conference zu »Luhmann 100«</h2>
           <p>Am 9. Juni 2026 habe ich an der Zeppelin Universität in Friedrichshafen im Panel »Struktur und Semantik« vorgetragen: <em>Unter Beobachtung: Anomalien der Erziehungstheorie. Zur eigenwilligen Rezeption Luhmannscher Systemtheorie in der Allgemeinen Pädagogik</em>. Die Pre-Conference <em>Anschlüsse und blinde Flecken. Systemtheoretische Beobachtungen der Gegenwart</em> fand am 8.–9. Juni im Rahmen der Tagung <em>Luhmann 100: Zur Gegenwart eines Theorieprogramms</em> statt.</p>
@@ -397,6 +441,7 @@
         </article>
 
         <article class="news-post" id="endira-2026" aria-labelledby="endira-news-title">
+          <a class="news-back" href="#news-overview">← Alle Beiträge</a>
           <time datetime="2026-04-30">Rückblick · 30. April 2026</time>
           <h2 id="endira-news-title">Vortrag und Abschlussdiskussion in der EN:DIRA-Ringvorlesung</h2>
           <p>Am 30. April 2026 habe ich in der EN:DIRA-Online-Ringvorlesung <em>Brandmauern &amp; Randmauern. Analyse, Kritik und Handlungsoptionen in Bildungspraxis, Erziehungswissenschaften und Sozialer Arbeit</em> vorgetragen. Mein Vortrag trug den Titel <em>Wie kann man die Grenze zwischen »links/rechts« definieren? – Definitionskompetenz als Professionalitätsmerkmal</em>. EN:DIRA steht für »Erziehungswissenschaftliches Netzwerk: Diskursintervention gegen Rechtsaußen«.</p>
@@ -419,5 +464,26 @@
       <a href="https://github.com/Dobmeier/Dobmeier.github.io">Quellcode auf GitHub</a>
     </span>
   </footer>
+<script>
+(function () {
+  const overview = document.getElementById('news-overview');
+  const posts = Array.from(document.querySelectorAll('.news-post'));
+  const intro = document.querySelector('.news-intro');
+  function showSelected(focus) {
+    const selected = posts.find(post => '#' + post.id === location.hash);
+    overview.hidden = Boolean(selected);
+    intro.hidden = Boolean(selected);
+    posts.forEach(post => { post.hidden = post !== selected; });
+    if (focus) {
+      const target = selected ? selected.querySelector('h2') : overview;
+      target.setAttribute('tabindex', '-1');
+      target.focus({ preventScroll: true });
+      (selected || overview).scrollIntoView({ block: 'start' });
+    }
+  }
+  window.addEventListener('hashchange', () => showSelected(true));
+  showSelected(Boolean(location.hash));
+})();
+</script>
 </body>
 </html>
