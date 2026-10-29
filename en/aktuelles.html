@@ -298,6 +298,11 @@
     .news-card { border: 2px solid rgba(143, 174, 200, 0.55); }
     .news-card-media { border-bottom: 2px solid rgba(143, 174, 200, 0.55); }
     .news-post { border-bottom: 2px solid rgba(143, 174, 200, 0.65); padding-bottom: 2.5rem; margin-bottom: 2rem; }
+  
+    .booklaunch-photo { overflow: hidden; }
+    .booklaunch-photo-window { position: absolute; width: 100%; aspect-ratio: 1173 / 881; top: 50%; transform: translateY(-50%); overflow: hidden; }
+    .news-card-media .booklaunch-photo-window img { position: absolute; width: 147.15%; height: auto; max-width: none; padding: 0; left: -44.08%; top: -86.83%; }
+    .news-card-media.keynote-photo img { object-position: center bottom; }
   </style>
   <script type="application/ld+json">
   {
@@ -355,11 +360,11 @@
       <p class="news-intro">News about publications, book launches, events and research. News has been documented here since the summer semester of 2026 (1 April 2026).</p>
       <div class="news-overview" id="news-overview" aria-label="News overview">
 <a class="news-card" href="#praktiken-des-erziehens-2026">
- <div class="news-card-media cover"><img src="../news/praktiken-cover.png" alt="Buchcover / Book cover: Praktiken des Erziehens" decoding="async"/></div>
+ <div class="news-card-media booklaunch-photo"><div class="booklaunch-photo-window"><img src="../news/praktiken-booklaunch.png" alt="Group photograph at the book launch at HU Berlin" decoding="async"/></div><span class="news-card-credit">Source: Malte Brinkmann / LinkedIn</span></div>
  <div class="news-card-body"><span class="news-card-tag">Publication · Book launch</span><time datetime="2026-09-23">23 September 2026</time><h2>Praktiken des Erziehens</h2><p>The new edited volume, my chapter and a look back at the book launch at HU Berlin.</p><span class="news-card-more">Read more <span aria-hidden="true">→</span></span></div>
 </a>
 <a class="news-card" href="#luhmann-conference-2026">
- <div class="news-card-media photo"><img src="../news/dubrovnik-steffen-roth.webp" alt="Dubrovnik" decoding="async"/><span class="news-card-credit">© Prof. Steffen Roth</span></div>
+ <div class="news-card-media photo keynote-photo"><img src="../news/luhmann-2026-vortrag.jpg" alt="Joint keynote with Franz Kasper Krönig in Dubrovnik" decoding="async"/><span class="news-card-credit">Conference photos: J. I. Jönhill / S. Roth</span></div>
  <div class="news-card-body"><span class="news-card-tag">Luhmann Conference 2026</span><time datetime="2026-09-17">17 September 2026</time><h2>Joint keynote in Dubrovnik</h2><p>With Franz Kasper Krönig on Luhmann’s concept of meaning, with conference photos, programme and abstracts.</p><span class="news-card-more">Read more <span aria-hidden="true">→</span></span></div>
 </a>
 <a class="news-card" href="#luhmann100-2026">
