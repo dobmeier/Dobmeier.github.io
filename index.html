@@ -255,7 +255,13 @@
     .news-photos summary { cursor: pointer; color: var(--accent); font-size: 0.9rem; }
     .news-photos summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
     .news-photo-credit { color: var(--muted); font-size: 0.78rem; }
-  </style>
+  
+    .funding-links { display:flex; flex-wrap:wrap; gap:.45rem; margin:.85rem 0 0 1.25rem; }
+    .funding-chip { display:inline-flex; align-items:center; padding:.35rem .7rem; border:1px solid rgba(143,174,200,.45); border-radius:999px; color:#b6ccde; background:rgba(143,174,200,.06); font-size:.75rem; line-height:1.5; text-decoration:none; max-width:100%; }
+    .funding-chip:hover { color:#e4edf5; border-color:#8faec8; background:rgba(143,174,200,.15); }
+    .funding-chip:focus-visible { outline:2px solid #b6ccde; outline-offset:3px; }
+    @media(max-width:600px) { .funding-links { margin-left:.5rem; } }
+</style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -393,11 +399,11 @@
         <div class="interests" style="grid-template-columns:1fr;">
           <div class="tag"><span class="tag-title">2026 · Reisestipendium des Universitätsbundes Tübingen zur Teilnahme an der Luhmann Conference in Dubrovnik.</span></div>
           <div class="tag"><span class="tag-title">2022 · Stipendium des Vereins Philosophicum Lech.</span></div>
-          <div class="tag"><span class="tag-title">2019 · Veranstaltungsförderung des Ministeriums für Wissenschaft, Forschung und Kunst Baden-Württemberg für den »I. Studierendenkongress Erziehungswissenschaft«, Eberhard-Karls Universität Tübingen. Einwerbung und Kongressleitung.</span><span class="tag-sub" style="display:block;margin-top:.65rem;margin-left:1.25rem;line-height:1.8;"><a style="color:#8faec8;text-underline-offset:3px;" href="https://shop.budrich.de/reihe/skew-studierendenkongress-erziehungswissenschaft/" target="_blank" rel="noopener noreferrer">Buchreihe SKEW (Barbara Budrich)</a><br>
-<a style="color:#8faec8;text-underline-offset:3px;" href="https://shop.budrich.de/produkt/dynamiken-des-paedagogischen/" target="_blank" rel="noopener noreferrer">Kongressband: Dynamiken des Pädagogischen (2020)</a><br>
-<a style="color:#8faec8;text-underline-offset:3px;" href="materialien/Dobmeier_Moels_2020_Brave_New_World.pdf" download>Kongressbericht in Erziehungswissenschaft (DGfE), 31 (60), S. 203–204 (2020, PDF-Download)</a><br>
-<a style="color:#8faec8;text-underline-offset:3px;" href="materialien/ife_newsletter_ausgabe_nr._011.pdf" download>Ankündigung: IfE Newsletter 11, S. 32 (2019, PDF-Download)</a><br>
-<a style="color:#8faec8;text-underline-offset:3px;" href="materialien/IfE-Newsletter-Wintersemester-2019-20.pdf" download>Rückblick: IfE Newsletter 12, S. 30–31 (2020, PDF-Download)</a></span></div>
+          <div class="tag"><span class="tag-title">2019 · Veranstaltungsförderung des Ministeriums für Wissenschaft, Forschung und Kunst Baden-Württemberg für den »I. Studierendenkongress Erziehungswissenschaft«, Eberhard-Karls Universität Tübingen. Einwerbung und Kongressleitung.</span><span class="funding-links"><a class="funding-chip" href="https://shop.budrich.de/reihe/skew-studierendenkongress-erziehungswissenschaft/" target="_blank" rel="noopener noreferrer" title="Buchreihe SKEW (Barbara Budrich)" aria-label="Buchreihe SKEW (Barbara Budrich)">Buchreihe SKEW</a>
+<a class="funding-chip" href="https://shop.budrich.de/produkt/dynamiken-des-paedagogischen/" target="_blank" rel="noopener noreferrer" title="Kongressband: Dynamiken des Pädagogischen (2020)" aria-label="Kongressband: Dynamiken des Pädagogischen (2020)">Kongressband</a>
+<a class="funding-chip" href="materialien/Dobmeier_Moels_2020_Brave_New_World.pdf" download title="Kongressbericht in Erziehungswissenschaft (DGfE), 31 (60), S. 203–204 (2020, PDF-Download)" aria-label="Kongressbericht in Erziehungswissenschaft (DGfE), 31 (60), S. 203–204 (2020, PDF-Download)">DGfE-Bericht · PDF ↓</a>
+<a class="funding-chip" href="materialien/ife_newsletter_ausgabe_nr._011.pdf" download title="Ankündigung: IfE Newsletter 11, S. 32 (2019, PDF-Download)" aria-label="Ankündigung: IfE Newsletter 11, S. 32 (2019, PDF-Download)">Ankündigung · PDF ↓</a>
+<a class="funding-chip" href="materialien/IfE-Newsletter-Wintersemester-2019-20.pdf" download title="Rückblick: IfE Newsletter 12, S. 30–31 (2020, PDF-Download)" aria-label="Rückblick: IfE Newsletter 12, S. 30–31 (2020, PDF-Download)">Rückblick · PDF ↓</a></span></div>
           <div class="tag"><span class="tag-title">2018 · Stipendium des Studienkollegs, Eberhard-Karls Universität Tübingen.</span></div>
           <div class="tag"><span class="tag-title">2018–2020 · Deutschlandstipendium, Eberhard-Karls Universität Tübingen.</span></div>
           <div class="tag"><span class="tag-title">2016 · Stipendium der Oskar-Karl-Forster-Stiftung.</span></div>
